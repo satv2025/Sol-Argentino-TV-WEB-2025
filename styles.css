@@ -24,22 +24,14 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: #0078d4;  /* Color azul */
   border-radius: 6px;  /* Esquinas redondeadas */
+  border: 2px solid transparent;  /* Asegura que no haya borde */
 }
 
 /* Para Firefox */
-scrollbar {
-  width: 7px;
+* {
+  scrollbar-width: thin;  /* Barra de desplazamiento más delgada */
+  scrollbar-color: #0078d4 transparent;  /* Color de la barra y fondo transparente */
 }
-
-scrollbar-thumb {
-  background-color: #0078d4;
-  border-radius: 6px;
-}
-
-scrollbar-track {
-  background: transparent;
-}
-
 
 header {
   position: fixed;
@@ -196,33 +188,4 @@ section p {
   section p {
     font-size: 1em;
   }
-
-  /* Para WebKit (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-  width: 12px;  /* Ancho de la barra de desplazamiento */
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;  /* Fondo transparente */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #0078d4;  /* Color azul */
-  border-radius: 6px;  /* Esquinas redondeadas */
-}
-
-/* Para Firefox */
-scrollbar {
-  width: 12px;
-}
-
-scrollbar-thumb {
-  background-color: #0078d4;
-  border-radius: 6px;
-}
-
-scrollbar-track {
-  background: transparent;
-}
-
 }
