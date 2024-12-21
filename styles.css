@@ -12,6 +12,35 @@ body {
   font-size: 1em; /* Usar unidades relativas */
 }
 
+/* Para WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;  /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;  /* Fondo transparente */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0078d4;  /* Color azul */
+  border-radius: 6px;  /* Esquinas redondeadas */
+}
+
+/* Para Firefox */
+scrollbar {
+  width: 7px;
+}
+
+scrollbar-thumb {
+  background-color: #0078d4;
+  border-radius: 6px;
+}
+
+scrollbar-track {
+  background: transparent;
+}
+
+
 header {
   position: fixed;
   width: 100%;
