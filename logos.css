@@ -24,3 +24,35 @@ strong {
   font-weight: bold; /* Hace el texto en negrita */
   font-size: 18px; /* Tamaño de fuente mayor para los títulos */
 }
+
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Estilo para el contenedor del logo */
+    .logo-container {
+      margin-top: 20px;
+    }
+
+    /* Estilo para el menú desplegable */
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    /* Estilo para la imagen */
+    img {
+      max-width: 80%; /* Asegura que las imágenes no sean demasiado grandes */
+      height: auto;
+      margin-top: 20px;
+      transition: transform 0.3s ease; /* Suaviza el cambio de imagen */
+    }
+    img:hover {
+      transform: scale(1.05); /* Efecto de hover al pasar el ratón sobre la imagen */
+    }
