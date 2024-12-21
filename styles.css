@@ -196,7 +196,7 @@ footer {
   padding: 20px 30px;
   text-align: center;
   color: #333;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 footer p {
@@ -208,12 +208,14 @@ footer p {
 
 /* Estilo de los enlaces del footer */
 footer a {
+  display: inline-block; /* Necesario para centrar correctamente el texto */
   color: #0078d4; /* Azul Win11 */
   text-decoration: none;
   font-weight: bold;
   border: 2px solid #0078d4; /* Borde azul */
-  padding: 5px 10px; /* Espaciado interno */
+  padding: 10px 20px; /* Espaciado interno para crear un botón bien definido */
   border-radius: 8px; /* Bordes redondeados */
+  text-align: center; /* Asegura que el texto esté centrado horizontalmente */
   transition: all 0.3s ease-in-out;
 }
 
