@@ -1,0 +1,51 @@
+/* Contenedor de los botones */
+.social-buttons {
+    display: flex; /* Alinea los botones en fila */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Espaciado entre los botones */
+    margin-top: 20px;
+  }
+  
+  /* Estilo de los botones */
+  .social-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #0078d4; /* Color del texto */
+    background-color: white; /* Fondo blanco */
+    border: 2px solid #0078d4; /* Borde azul */
+    border-radius: 8px; /* Bordes redondeados a 8px */
+    text-decoration: none; /* Sin subrayado */
+    transition: all 0.3s ease; /* Animación suave */
+    flex: 0; /* Evita que los botones crezcan */
+  }
+  
+  /* Hover: Efecto al pasar el cursor */
+  .social-btn:hover {
+    background-color: #0078d4; /* Fondo azul */
+    color: white; /* Texto blanco */
+    cursor: pointer;
+  }
+  
+  /* Efecto al hacer clic */
+  .social-btn:active {
+    transform: scale(0.98); /* Pequeño efecto de clic */
+  }
+  
+  /* Ajustes de la sección de contacto */
+  .hero h1, .hero h2 {
+    color: #333;
+    font-family: 'Gilroy', sans-serif;
+  }
+  
+  .hero p a {
+    color: #0078d4;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .hero p a:hover {
+    text-decoration: underline;
+  }
