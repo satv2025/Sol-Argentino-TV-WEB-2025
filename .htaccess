@@ -7,15 +7,14 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [L]
 
-# Redirigir de la URL con /index.html a la URL sin /index en beta.solargentinotv.com.ar
+# Redirigir de la URL con /index.html al dominio sin /index
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
 RewriteRule ^index\.html$ https://beta.solargentinotv.com.ar/ [R=301,L]
 
-# Redirigir de la URL con .html al nombre sin .html en el dominio beta.solargentinotv.com.ar
+# Redirigir de la URL con /index al dominio sin /index
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\ HTTP/
+RewriteRule ^index$ https://beta.solargentinotv.com.ar/ [R=301,L]
+
+# Redirigir de la URL con .html al nombre sin .html
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP/
 RewriteRule ^([^.]+)\.html$ https://beta.solargentinotv.com.ar/$1 [R=301,L]
-
-# Redirigir de la URL sin .html a la versión con .html en el dominio beta.solargentinotv.com.ar
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^.]+)$ $1.html [L]
