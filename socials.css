@@ -34,12 +34,6 @@
     transform: scale(0.98); /* Pequeño efecto de clic */
   }
   
-  /* Ajustes de la sección de contacto */
-  .hero h1, .hero h2 {
-    color: #333;
-    font-family: 'Gilroy', sans-serif;
-  }
-  
   .hero p a {
     color: #0078d4;
     text-decoration: none;
