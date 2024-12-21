@@ -167,4 +167,38 @@ section p {
   section p {
     font-size: 1em;
   }
+
+
+  /* Estilo para la barra de deslizamiento */
+.slider {
+  -webkit-appearance: none; /* Para asegurar compatibilidad con Chrome y Safari */
+  appearance: none; /* Estilo sin apariencia predeterminada */
+  width: 100%; /* Ancho completo */
+  height: 8px; /* Altura de la barra */
+  background: #0078d4; /* Color de la barra */
+  border-radius: 10px; /* Bordes redondeados */
+  outline: none; /* Elimina el contorno de la barra */
+  transition: background 0.3s; /* Transición suave para el color */
+}
+
+/* Estilo para el "thumb" (parte deslizante) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px; /* Ancho del "thumb" */
+  height: 20px; /* Alto del "thumb" */
+  background: #0078d4; /* Color del "thumb" */
+  border-radius: 50%; /* Hace el "thumb" redondeado */
+  cursor: pointer; /* Cursor de mano cuando se pasa sobre el "thumb" */
+}
+
+/* Estilo para el "thumb" en Firefox */
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #0078d4;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 }
