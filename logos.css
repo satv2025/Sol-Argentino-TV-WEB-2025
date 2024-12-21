@@ -25,9 +25,13 @@ strong {
   font-size: 18px; /* Tamaño de fuente mayor para los títulos */
 }
 
+section {
+  text-align: justify;
+}
+
     /* Estilos generales */
     body {
-      font-family: Arial, sans-serif;
+      
       padding: 20px;
       text-align: center;
     }
