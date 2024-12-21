@@ -182,3 +182,37 @@ section p {
     font-size: 1em;
   }
 }
+
+/* Footer general */
+footer {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative; /* Cambia a 'fixed' si quieres que esté siempre visible */
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px 30px;
+  text-align: center;
+  color: #333;
+  font-size: 1em;
+}
+
+footer p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #555;
+}
+
+footer a {
+  color: #0078d4; /* Azul Win11 */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #005a9e; /* Azul más oscuro en hover */
+}
