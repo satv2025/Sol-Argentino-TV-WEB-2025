@@ -14,7 +14,7 @@ body {
 
 /* Para WebKit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-  width: 12px;  /* Ancho de la barra de desplazamiento */
+  width: 8px;  /* Ancho de la barra de desplazamiento */
 }
 
 ::-webkit-scrollbar-track {
@@ -22,17 +22,17 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #0078d4;  /* Color azul */
+  background-color: #0078d4 transparent;  /* Color azul */
   border-radius: 6px;  /* Esquinas redondeadas */
 }
 
 /* Para Firefox */
 scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 scrollbar-thumb {
-  background-color: #0078d4;
+  background-color: #0078d4 transparent;
   border-radius: 6px;
 }
 
