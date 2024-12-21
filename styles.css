@@ -202,17 +202,23 @@ footer {
 footer p {
   margin: 0;
   font-weight: 600;
-  font-size: 0.9em;
+  font-size: 1.2em;
   color: #0078d4;
 }
 
+/* Estilo de los enlaces del footer */
 footer a {
   color: #0078d4; /* Azul Win11 */
   text-decoration: none;
   font-weight: bold;
+  border: 2px solid #0078d4; /* Borde azul */
+  padding: 5px 10px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  transition: all 0.3s ease-in-out;
 }
 
 footer a:hover {
-  text-decoration: underline;
-  color: #005a9e; /* Azul más oscuro en hover */
+  background-color: #0078d4; /* Fondo azul al hacer hover */
+  color: #fff; /* Texto blanco */
+  text-decoration: none; /* Sin subrayado */
 }
