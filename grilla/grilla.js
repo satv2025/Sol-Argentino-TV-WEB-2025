@@ -93,21 +93,49 @@ const schedules = {
       { hora: "22:00", programa: "Gala de eliminación de Gran Hermanastro", descripcion: "" },
       { hora: "01:00", programa: "Llamá y Cortá", descripcion: "" }
     ],
-    "24/12": [
-      { hora: "06:00", programa: "Mi Pobre Angelito", descripcion: "Navidad" },
-      { hora: "20:00", programa: "Cuenta Regresiva a Navidad", descripcion: "Especial Navidad" }
-    ],
-    "25/12": [
-      { hora: "06:00", programa: "Mi Pobre Angelito", descripcion: "Navidad" }
-    ],
-    "30/12": [
-      { hora: "00:00", programa: "Caso Cromañón", descripcion: "Homenaje a Los Pibes De Cromañón" }
-    ],
-    "31/12": [
-      { hora: "20:00", programa: "Cuenta Regresiva a Año Nuevo", descripcion: "Especial Año Nuevo" }
-    ]
-  };
+// Aseguramos que los datos estén correctamente formateados y disponibles
+const programacion = {
+  "24/12": [
+    { hora: "06:00", programa: "Mi Pobre Angelito", descripcion: "Navidad" },
+    { hora: "20:00", programa: "Cuenta Regresiva a Navidad", descripcion: "Especial Navidad" }
+  ],
+  "25/12": [
+    { hora: "06:00", programa: "Mi Pobre Angelito", descripcion: "Navidad" }
+  ],
+  "30/12": [
+    { hora: "00:00", programa: "Caso Cromañón", descripcion: "Homenaje a Los Pibes De Cromañón" }
+  ],
+  "31/12": [
+    { hora: "20:00", programa: "Cuenta Regresiva a Año Nuevo", descripcion: "Especial Año Nuevo" }
+  ]
+};
+
+// Función para cargar la programación en el HTML
+function cargarProgramacion(fecha) {
+  const programacionFecha = programacion[fecha];
   
+  if (programacionFecha) {
+    const contenedor = document.getElementById('programacion');
+    contenedor.innerHTML = ''; // Limpiar contenido previo
+    
+    programacionFecha.forEach(item => {
+      const programaDiv = document.createElement('div');
+      programaDiv.classList.add('programa');
+      programaDiv.innerHTML = `
+        <p><strong>Hora:</strong> ${item.hora}</p>
+        <p><strong>Programa:</strong> ${item.programa}</p>
+        <p><strong>Descripción:</strong> ${item.descripcion}</p>
+      `;
+      contenedor.appendChild(programaDiv);
+    });
+  } else {
+    console.log('No hay programación disponible para esta fecha.');
+  }
+}
+
+// Llamada para cargar la programación del 31/12
+cargarProgramacion("31/12");
+
   // Función para mostrar la programación
   function showSchedule(day) {
     const schedule = schedules[day];
