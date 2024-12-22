@@ -1,14 +1,17 @@
-function changeLogo() {
-  const selectedLogo = document.querySelector('.dropdown .dropdown-item.selected');
-  if (selectedLogo) {
-    selectedLogo.classList.remove('selected'); // Elimina la clase seleccionada
-  }
+// Función para cambiar el logo
+function changeLogo(event) {
+  // Obtiene el valor de la opción seleccionada
+  const selectedLogo = event.target.dataset.logo;
   
-  const selectedOption = document.querySelector('.dropdown-item[data-logo="' + event.target.value + '"]');
-  if (selectedOption) {
-    selectedOption.classList.add('selected');
-  }
-
-  const selectedLogoValue = event.target.value;
-  console.log('Logo seleccionado:', selectedLogoValue);  // Aquí puedes usar la selección del logo según lo que necesites.
+  // Cambia la fuente de la imagen del logo
+  const logoImage = document.getElementById('logoImage');
+  logoImage.src = selectedLogo;  // Asigna la nueva imagen seleccionada
+  
+  console.log('Logo seleccionado:', selectedLogo);  // Imprime en consola el logo seleccionado
 }
+
+// Agregar evento a cada item del dropdown
+const dropdownItems = document.querySelectorAll('.dropdown-item');
+dropdownItems.forEach(item => {
+  item.addEventListener('click', changeLogo);  // Escucha el click en cada item
+});
