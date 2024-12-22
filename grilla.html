@@ -32,26 +32,23 @@
       <h2>Grilla de Programación</h2>
       <p>A continuación, puedes ver la programación actualizada de Sol Argentino TV.</p>
 
-<!-- Selector de días (menú desplegable personalizado) -->
-<div class="custom-select-container">
-  <div class="custom-select" tabindex="0">
-    <div class="selected-option">Selecciona un día</div>
-    <div class="arrow"></div>
-    <div class="custom-options">
-      <div class="custom-option" data-value="lunes">Lunes</div>
-      <div class="custom-option" data-value="martes">Martes</div>
-      <div class="custom-option" data-value="miercoles">Miércoles</div>
-      <div class="custom-option" data-value="jueves">Jueves</div>
-      <div class="custom-option" data-value="viernes">Viernes</div>
-      <div class="custom-option" data-value="sabado">Sábado</div>
-      <div class="custom-option" data-value="domingo">Domingo</div>
-      <div class="custom-option" data-value="24diciembre">24 de Diciembre (Navidad)</div>
-      <div class="custom-option" data-value="25diciembre">25 de Diciembre (Navidad)</div>
-      <div class="custom-option" data-value="30diciembre">30 de Diciembre (Cromañón)</div>
-      <div class="custom-option" data-value="31diciembre">31 de Diciembre (Año Nuevo)</div>
-    </div>
-  </div>
-</div>
+      <h1>Programación de Sol Argentino TV</h1>
+      <div class="dropdown">
+        <button class="dropbtn" id="dropdown-btn">Seleccionar día</button>
+        <div class="dropdown-content" id="dropdown-menu">
+          <div class="dropdown-item" data-day="lunes">Lunes</div>
+          <div class="dropdown-item" data-day="martes">Martes</div>
+          <div class="dropdown-item" data-day="miercoles">Miércoles</div>
+          <div class="dropdown-item" data-day="jueves">Jueves</div>
+          <div class="dropdown-item" data-day="viernes">Viernes</div>
+          <div class="dropdown-item" data-day="sabado">Sábado</div>
+          <div class="dropdown-item" data-day="domingo">Domingo</div>
+          <div class="dropdown-item" data-day="24/12">24 De Diciembre - Noche Buena</div>
+          <div class="dropdown-item" data-day="25/12">25 De Diciembre - Navidad</div>
+          <div class="dropdown-item" data-day="30/12">30 De Diciembre - Caso Cromañón (20° aniversario)</div>
+          <div class="dropdown-item" data-day="31/!2">31 De Diciembre - Noche Vieja</div>
+        </div>
+      </div>
 
       <!-- Tabla de programación -->
       <div class="grilla-container">
