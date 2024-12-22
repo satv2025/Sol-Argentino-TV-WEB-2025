@@ -93,31 +93,29 @@ const schedules = {
       { hora: "22:00", programa: "Gala de eliminación de Gran Hermanastro", descripcion: "" },
       { hora: "01:00", programa: "Llamá y Cortá", descripcion: "" }
     ],
-    "24diciembre": [
+    "24/12": [
       { hora: "06:00", programa: "Mi Pobre Angelito", descripcion: "Navidad" },
       { hora: "20:00", programa: "Cuenta Regresiva a Navidad", descripcion: "Especial Navidad" }
     ],
-    "25diciembre": [
+    "25/12": [
       { hora: "06:00", programa: "Mi Pobre Angelito", descripcion: "Navidad" }
     ],
-    "30diciembre": [
+    "30/12": [
       { hora: "00:00", programa: "Caso Cromañón", descripcion: "Homenaje a Los Pibes De Cromañón" }
     ],
-    "31diciembre": [
+    "31/12": [
       { hora: "20:00", programa: "Cuenta Regresiva a Año Nuevo", descripcion: "Especial Año Nuevo" }
     ]
   };
   
   // Función para mostrar la programación
-  function showSchedule() {
-    const selectedDay = document.getElementById('day-select').value;
-    const schedule = schedules[selectedDay];
+  function showSchedule(day) {
+    const schedule = schedules[day];
     const scheduleContent = document.getElementById('schedule-content');
-  
+    
     // Limpiar el contenido anterior
     scheduleContent.innerHTML = '';
   
-    // Crear y agregar las filas de la tabla según la programación del día
     schedule.forEach(item => {
       const row = document.createElement('tr');
       row.innerHTML = `
@@ -129,51 +127,27 @@ const schedules = {
     });
   }
   
-  // Mostrar la programación del lunes por defecto al cargar la página
-  window.onload = showSchedule;
-
-// Función para obtener la hora actual en formato HH:mm (24 horas)
-function getCurrentTime() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');  // Asegura que tenga dos dígitos
-    const minutes = String(now.getMinutes()).padStart(2, '0'); // Asegura que tenga dos dígitos
-    return `${hours}:${minutes}`;
-  }
-  
-  // Función para mostrar la programación con la opción "EN VIVO"
-  function showSchedule() {
-    const selectedDay = document.getElementById('day-select').value;
-    const schedule = schedules[selectedDay];
-    const scheduleContent = document.getElementById('schedule-content');
-    
-    // Limpiar el contenido anterior
-    scheduleContent.innerHTML = '';
-  
-    // Obtener la hora actual
-    const currentTime = getCurrentTime();
-    
-    // Crear y agregar las filas de la tabla según la programación del día
-    schedule.forEach(item => {
-      const row = document.createElement('tr');
-      
-      // Verificar si el horario actual coincide con el de la programación
-      let isLive = false;
-      if (item.hora.startsWith(currentTime)) {
-        isLive = true;
-      }
-      
-      row.innerHTML = `
-        <td${isLive ? ' style="background-color: #007bff; color: white;"' : ''}>
-          ${isLive ? 'EN VIVO' : item.hora}
-        </td>
-        <td>${item.programa}</td>
-        <td>${item.descripcion}</td>
-      `;
-      
-      scheduleContent.appendChild(row);
+  // Función para manejar la selección del día
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function (event) {
+      const selectedDay = event.target.getAttribute('data-day');
+      document.getElementById('dropdown-btn').textContent = event.target.textContent;
+      showSchedule(selectedDay);  // Mostrar la programación del día seleccionado
     });
-  }
+  });
   
   // Mostrar la programación del lunes por defecto al cargar la página
-  window.onload = showSchedule;
-  
+  window.onload = () => showSchedule('lunes');  
+
+  // Obtiene el elemento del dropdown y los elementos necesarios
+const dropdown = document.querySelector('.dropdown');
+const dropdownContent = dropdown.querySelector('.dropdown-content');
+
+// Agrega eventos para abrir y cerrar el menú cuando el mouse entra y sale
+dropdown.addEventListener('mouseenter', () => {
+  dropdownContent.style.display = 'block';  // Mostrar el menú
+});
+
+dropdown.addEventListener('mouseleave', () => {
+  dropdownContent.style.display = 'none';  // Ocultar el menú
+});
