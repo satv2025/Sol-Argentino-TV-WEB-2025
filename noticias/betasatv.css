@@ -1,0 +1,127 @@
+/* General */
+body {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 1em; /* Tamaño base responsivo */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Menú superior estilo Win11 */
+.header {
+  background-color: #0078d4;
+  color: white;
+  padding: 1em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-menu li {
+  margin: 0;
+}
+
+.navbar .nav-menu a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  transition: background-color 0.3s;
+}
+
+.navbar .nav-menu a:hover,
+.navbar .nav-menu a.active {
+  background-color: #005fa3;
+}
+
+/* Artículo */
+.articulo {
+  max-width: 50em; /* Diseño centrado con ancho máximo */
+  margin: 2em auto;
+  padding: 2em;
+  background-color: white;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.articulo h1 {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #0078d4;
+  text-align: center;
+}
+
+.articulo img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+.articulo p {
+  font-size: 1em;
+  text-align: justify;
+  margin-bottom: 1.5em;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #0078d4;
+  color: white;
+  margin-top: 2em;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  border: 2px solid white;
+  border-radius: 0.5em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+footer a:hover {
+  background-color: white;
+  color: #0078d4;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .navbar .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .articulo {
+    padding: 1.5em;
+  }
+
+  .articulo h1 {
+    font-size: 1.5em;
+  }
+
+  .articulo p {
+    font-size: 0.9em;
+  }
+}
