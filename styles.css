@@ -12,6 +12,12 @@ body {
   font-size: 1em; /* Usar unidades relativas */
 }
 
+.main-content {
+  margin: 6.25em auto 0; /* Ajusta el margen superior para compensar el header fijo */
+  padding: 0 1.25em;
+  max-width: 75em;
+}
+
 /* Scrollbar personalizado */
 ::-webkit-scrollbar {
     width: 8px; /* Grosor de la barra de desplazamiento */
