@@ -203,7 +203,7 @@ footer {
   box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   position: fixed; /* Mantiene su posición al final */
-  bottom: -1920;
+  bottom: -1920px;
   left: 0;
   z-index: 1000;
   padding: 1.25em 1.875em; /* Espaciado para el contenido del footer */
