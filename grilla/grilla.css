@@ -51,39 +51,121 @@
     font-family: 'Gilroy';
     margin-bottom: 1.25em;
     border-radius: 0.5em;
-    border: 0.0625em solid #ddd;
-    background-color: #f3f3f3;
+    border: 2px solid #0078d4;
+    background-color: #fff;
   }
+  #day-option {
+    border: 2px solid #0078d4;
+    background-color: #fff;
+    font-weight: 700;
+  }
+  
+  #day-option:hover {
+    background: #0078d4;
+    color: #fff;
+  }
+
+  
   
   #day-select:focus {
     outline: none;
     border-color: #0078d4; /* Azul estilo Win11 */
   }
   
-  /* Responsividad */
-  @media (max-width: 48em) { /* 768px */
-    .grilla-container {
-      margin-top: 1.25em;
+/* Estilos básicos para el dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;  /* Ancho del contenedor principal al 41% */
+  }
+  
+  .dropbtn {
+    background-color: #fff;
+    color: #0078d4;
+    padding: 0.625em 1.25em;  /* Convertido a 'em' */
+    border: 0.125em solid #0078d4;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    border-radius: 0.5em;
+    width: 41%;  /* Hace que el botón ocupe el 100% del ancho de su contenedor (41%) */
+    box-sizing: border-box;  /* Asegura que el padding no afecte el tamaño total */
+  }
+  
+  .dropbtn:hover {
+    background-color: #0078d4;
+    color: #fff;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border: 0.125em solid #0078d4;
+    font-weight: 700;
+    border-radius: 0.5em;
+    width: 41%;  /* El menú ahora tiene un ancho del 41% */
+    margin-left: 12.5em;  /* Desplazamiento hacia la derecha de 12.5em */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+    box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 0.25em; /* Margen superior para separar el menú del botón */
+  }
+  
+  .dropdown-item {
+    color: #0078d4;
+    padding: 0.75em 1em;  /* Convertido a 'em' */
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #0078d4;
+    color: white;
+  }
+  
+  .dropdown-item ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0.5em;
+  }
+  
+  .dropdown-item ul li {
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  /* Diseño responsive */
+  @media screen and (max-width: 48em) {  /* 768px */
+    .dropbtn {
+      padding: 0.5em 1em;
+      font-size: 0.875em;  /* Ajuste de tamaño de fuente */
+      width: 100%;  /* El botón sigue ocupando el 100% del ancho del contenedor */
     }
   
-    .grilla-table th,
-    .grilla-table td {
-      padding: 0.625em 0.75em;
-    }
-  
-    #day-select {
-      font-size: 0.875em;
-      padding: 0.375em;
+    .dropdown-content {
+      width: 41%;  /* El menú tendrá el mismo tamaño que el contenido del botón */
+      margin-left: 12.5em;  /* Mantiene el mismo desplazamiento */
+      margin-top: 0.25em;
     }
   }
   
-  @media (max-width: 30em) { /* 480px */
-    .grilla-table th,
-    .grilla-table td {
-      padding: 0.5em;
+  @media screen and (max-width: 30em) {  /* 480px */
+    .dropbtn {
+      padding: 0.625em;
+      font-size: 1em;
+      width: 100%;  /* El botón sigue ocupando el 100% del ancho del contenedor */
     }
   
-    #day-select {
-      font-size: 0.875em;
+    .dropdown-content {
+      width: 41%;  /* El menú tendrá el mismo tamaño que el contenido del botón */
+      margin-left: 12.5em;  /* Mantiene el mismo desplazamiento */
+      margin-top: 0.25em;
     }
-  }  
+  
+    .dropdown-item {
+      padding: 0.625em 1.25em;
+    }
+  }
