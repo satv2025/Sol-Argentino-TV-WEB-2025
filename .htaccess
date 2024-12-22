@@ -1,0 +1,13 @@
+# Habilitar la reescritura de URLs
+RewriteEngine On
+
+# Redirigir automáticamente index.html o index a la raíz del sitio
+RewriteCond %{THE_REQUEST} /index(\.html)? [NC]
+RewriteRule ^(index\.html)?$ / [L,R=301]
+
+# Eliminar la extensión .html de las URLs
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Asegurarse de que las URLs amigables funcionen para las páginas existentes
+Options -MultiViews

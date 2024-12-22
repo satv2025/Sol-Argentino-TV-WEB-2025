@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sol Argentino TV - Historia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="logos.css">
+  <link rel="icon" href="Logo SATV 2024 NAVIDAD.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Menú superior estilo Win11 -->
+  <header class="header">
+    <div class="menu-container">
+      <h1 class="logo">Sol Argentino TV</h1>
+      <nav class="navbar">
+        <ul class="nav-menu">
+          <li><a href="index">Inicio</a></li>
+          <li><a href="grilla">Programación</a></li>
+          <li><a href="vivo">Ver Transmisión</a></li>
+          <li><a href="noticias">Noticias</a></li>
+          <li><a href="nosotros" class="active">Nosotros</a></li>
+          <li><a href="contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <section id="historia">
+      <div class="hero">
+        <h1>Nuestra Historia</h1>
+        <p>El Comienzo de un sueño argentino</p>
+      </div>
+
+      <div class="historia-contenido">
+        <h2>El Comienzo</h2>
+        <p>A comienzos de diciembre y fines del 2020 en Buenos Aires, Argentina, nuestro creador/fundador SKB empezó a jugar en un programa de grabación/emisión (Xsplit Broadcaster) y Photoshop, creando un logo a color y otro en negro, el logo a color era cuando el canal estaba al aire, y el negro es cuando el canal estaba en espacio publicitario, y se le sacaba un poco la opacidad. Hasta ahí no había intención de llevarlo a la realidad, hasta que a fines del 2020 y principios del 2021 se estableció un logo, se fueron preparando cosas, y el 19 de enero de 2021 salió al aire por primera vez Sol Argentino TV con la primer saga "Bloopers y Datos Surtidos".</p>
+
+        <h3>Cambio del Logo</h3>
+  <select id="logoSelector" onchange="changeLogo()">
+    <option value="Logo 1.png">19/01/21: Primer emisión y cambio de logo</option>
+    <option value="Logo 2.png">Mitad de año 2021: Evolución del canal</option>
+    <option value="Logo 3.png">2022: Desperfecto técnico y recuperación</option>
+    <option value="Logo 4.png">24/03/2022: Emitimos "Hoy Noticias" con especial</option>
+    <option value="Logo 5.png">19/12/2022 - 31/12/2022: Nuevo logo post-campeonato mundial</option>
+    <option value="Logo 6.png">2023-2024: Crecimiento y perfeccionamiento</option>
+    <option value="Logo 7.png">2024: Renovación y expansión del canal</option>
+    <option value="Logo 8.png">2024: Mayor presencia digital y nuevas iniciativas</option>
+    <option value="Logo 9.png">2024: Consolidación y crecimiento continuo</option>
+    <option value="Logo 10.png">2024 - Presente: Nueva fase y más innovación</option>
+    <option value="Logo 11.png">Especial | Logo exclusivo de navidad</option>
+    <option value="Logo 12.png">Especial | Logo exclusivo de galas y premios como Martin Fierro</option>
+    <option value="Logo 13.png">Especial | Logo exclusivo de eventos patrios</option>
+  </select>
+
+          <div class="logo-container">
+    <img id="logoImage" src="Logo 1.png" alt="Logo 2021">
+  </div>
+
+        <h2>Nuestra Historia: El Sueño Argentino que Sigue Creciendo</h2>
+        <p><strong>Fundación:</strong> 2020 | <strong>Primera Transmisión:</strong> 19 de enero de 2021</p>
+        <p>En 2020, mientras el mundo se daba vuelta, nosotros apostamos por algo grande. Queríamos crear un canal de televisión de verdad. No una radio, no un podcast, sino un canal que se sintiera auténtico, hecho con ganas, con pasión y pensado para todos los que creen que la tele todavía tiene mucho para dar.</p>
+
+        <p>El 19 de enero de 2021 hicimos nuestra primera transmisión. Fue un momento único, lleno de nervios, pero también de emoción. Ese día empezamos un camino que no se detuvo, con el objetivo claro de ofrecer contenido de calidad, historias que emocionen, que diviertan, que nos acerquen a nuestra audiencia de una manera distinta.</p>
+
+        <p>Desde el principio supimos que no queríamos ser “uno más”. Nuestro objetivo siempre fue crear algo diferente, algo que represente el espíritu de la televisión de verdad, pero con la frescura y libertad que plataformas como YouTube nos permiten.</p>
+
+        <p>Hoy seguimos creciendo, soñando más alto y laburando cada día para que esto no sea solo un canal, sino un espacio en el que vos también te sientas parte. No creemos en los límites, y vamos por mucho más.</p>
+
+        <p>Esta Navidad, queremos que la vivas con nosotros. Estamos preparando algo especial, algo que te va a hacer sentir lo mismo que sentimos nosotros cuando soñamos este proyecto por primera vez: esa emoción de saber que lo mejor siempre está por venir.</p>
+
+        <p>Desde 2020 hasta hoy, esta es nuestra historia. Y vos, ¿te sumás a ser parte de lo que viene?</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    // Función que cambia el logo al seleccionar una opción del menú desplegable
+    function changeLogo() {
+      var logoSelector = document.getElementById("logoSelector");
+      var logoImage = document.getElementById("logoImage");
+      
+      // Cambia la fuente de la imagen al valor seleccionado
+      logoImage.src = logoSelector.value;
+    }
+  </script>
+  
+  <script src="script.js"></script>
+
+<footer>
+  <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a href="contacto">Contactanos</a></p> 
+</footer>
+</body>
+</html>

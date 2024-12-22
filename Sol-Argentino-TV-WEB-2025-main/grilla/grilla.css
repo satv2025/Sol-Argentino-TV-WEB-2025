@@ -1,0 +1,89 @@
+/* Tabla de programación con bordes redondeados */
+.grilla-container {
+    margin-top: 1.875em;
+    max-width: 56.25em;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto; /* Hace la tabla desplazable horizontalmente en móviles */
+  }
+  
+  .grilla-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25em 0;
+    font-size: 1.1em;
+    text-align: left;
+    border-radius: 0.625em; /* Bordes redondeados para la tabla */
+    overflow: hidden; /* Para que los bordes redondeados no se vean cortados */
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .grilla-table thead tr {
+    background-color: #0078d4; /* Azul estilo Win11 */
+    color: #fff;
+    text-align: center;
+  }
+  
+  .grilla-table th,
+  .grilla-table td {
+    padding: 0.75em 1em;
+    border: 0.0625em solid #ddd;
+  }
+  
+  .grilla-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; /* Alternar colores */
+  }
+  
+  .grilla-table tbody tr:hover {
+    background-color: #eef4ff; /* Hover suave */
+    cursor: pointer;
+  }
+  
+  .grilla-table td {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Estilos para el selector de días */
+  #day-select {
+    padding: 0.5em;
+    font-size: 1em;
+    font-family: 'Gilroy';
+    margin-bottom: 1.25em;
+    border-radius: 0.5em;
+    border: 0.0625em solid #ddd;
+    background-color: #f3f3f3;
+  }
+  
+  #day-select:focus {
+    outline: none;
+    border-color: #0078d4; /* Azul estilo Win11 */
+  }
+  
+  /* Responsividad */
+  @media (max-width: 48em) { /* 768px */
+    .grilla-container {
+      margin-top: 1.25em;
+    }
+  
+    .grilla-table th,
+    .grilla-table td {
+      padding: 0.625em 0.75em;
+    }
+  
+    #day-select {
+      font-size: 0.875em;
+      padding: 0.375em;
+    }
+  }
+  
+  @media (max-width: 30em) { /* 480px */
+    .grilla-table th,
+    .grilla-table td {
+      padding: 0.5em;
+    }
+  
+    #day-select {
+      font-size: 0.875em;
+    }
+  }  

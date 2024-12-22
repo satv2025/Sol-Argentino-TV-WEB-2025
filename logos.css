@@ -1,0 +1,65 @@
+@import url('https://cdn.jsdelivr.net/gh/skb10x/Gilroy-SATV@main/Gilroy.css');
+
+/* Establece un tamaño de imagen consistente */
+img {
+  max-width: 100%; /* Asegura que las imágenes no excedan el ancho de su contenedor */
+  height: auto; /* Mantiene la proporción de las imágenes */
+  display: block; /* Elimina el espacio extra debajo de las imágenes */
+  margin: 10px 0; /* Espaciado entre imágenes */
+}
+
+/* Estilo general para los elementos de lista */
+ul {
+  list-style-type: none; /* Elimina los puntos de lista */
+  padding-left: 0; /* Elimina el padding de la lista */
+}
+
+/* Estilo para cada ítem de la lista */
+li {
+  font-size: 16px; /* Tamaño de fuente para los ítems */
+  margin-bottom: 15px; /* Espacio entre los ítems */
+  line-height: 1.5; /* Altura de línea para un texto más legible */
+}
+
+/* Estilo para las etiquetas de texto en negrita */
+strong {
+  font-weight: bold; /* Hace el texto en negrita */
+  font-size: 18px; /* Tamaño de fuente mayor para los títulos */
+}
+
+section {
+  text-align: justify;
+}
+
+    /* Estilos generales */
+    body {
+      
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Estilo para el contenedor del logo */
+    .logo-container {
+      margin-top: 20px;
+    }
+
+    /* Estilo para el menú desplegable */
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      font-family: 'Gilroy', sans-serif;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    /* Estilo para la imagen */
+    img {
+      max-width: 80%; /* Asegura que las imágenes no sean demasiado grandes */
+      height: auto;
+      margin-top: 20px;
+      transition: transform 0.3s ease; /* Suaviza el cambio de imagen */
+    }
+    img:hover {
+      transform: scale(1.05); /* Efecto de hover al pasar el ratón sobre la imagen */
+    }
