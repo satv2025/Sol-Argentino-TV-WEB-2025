@@ -54,7 +54,8 @@
   display: inline-block;
   padding: 8px 16px;
   background-color: #fff; /* Color de fondo del enlace */
-  color: ##0078d4;
+  color: #0078d4;
+  border: #0078d4 2px solid;
   font-weight: 700;
   border-radius: 8px; /* Bordes redondeados */
   text-decoration: none;
