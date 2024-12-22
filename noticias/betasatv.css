@@ -1,5 +1,7 @@
 /* Artículo */
 .articulo {
+  top: 8em;
+  position: relative;
   max-width: 50em; /* Diseño centrado con ancho máximo */
   margin: 2em auto;
   padding: 2em;
