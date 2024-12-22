@@ -53,8 +53,9 @@
 .noticia-content a {
   display: inline-block;
   padding: 8px 16px;
-  background-color: #0078d4; /* Color de fondo del enlace */
-  color: #fff;
+  background-color: #fff; /* Color de fondo del enlace */
+  color: ##0078d4;
+  font-weight: 700;
   border-radius: 8px; /* Bordes redondeados */
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -62,4 +63,5 @@
 
 .noticia-content a:hover {
   background-color: #005fa3; /* Color de fondo al hacer hover */
+  color: #fff;
 }
