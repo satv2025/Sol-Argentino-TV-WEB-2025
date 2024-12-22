@@ -90,6 +90,7 @@
     border-radius: 0.5em;
     width: 41%;  /* Hace que el botón ocupe el 100% del ancho de su contenedor (41%) */
     box-sizing: border-box;  /* Asegura que el padding no afecte el tamaño total */
+    margin-left: 12.5em;
   }
   
   .dropbtn:hover {
@@ -109,7 +110,7 @@
     box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
     box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
     z-index: 1;
-    margin-top: 0.25em; /* Margen superior para separar el menú del botón */
+    margin-top: 0.2em; /* Margen superior para separar el menú del botón */
   }
   
   .dropdown-item {
@@ -143,12 +144,13 @@
       padding: 0.5em 1em;
       font-size: 0.875em;  /* Ajuste de tamaño de fuente */
       width: 100%;  /* El botón sigue ocupando el 100% del ancho del contenedor */
+      margin-left: 12.5em;
     }
   
     .dropdown-content {
       width: 41%;  /* El menú tendrá el mismo tamaño que el contenido del botón */
       margin-left: 12.5em;  /* Mantiene el mismo desplazamiento */
-      margin-top: 0.25em;
+      margin-top: 0.2em;
     }
   }
   
@@ -157,12 +159,13 @@
       padding: 0.625em;
       font-size: 1em;
       width: 100%;  /* El botón sigue ocupando el 100% del ancho del contenedor */
+      margin-left: 12.5em;
     }
   
     .dropdown-content {
       width: 41%;  /* El menú tendrá el mismo tamaño que el contenido del botón */
       margin-left: 12.5em;  /* Mantiene el mismo desplazamiento */
-      margin-top: 0.25em;
+      margin-top: 0.2em;
     }
   
     .dropdown-item {
