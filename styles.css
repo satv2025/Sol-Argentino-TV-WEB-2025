@@ -182,55 +182,80 @@ section p {
   }
 }
 
-/* Estilos generales */
-html, body {
+/* Configuración del body y estructura general */
+body, html {
   margin: 0;
   padding: 0;
-  height: 100%;  /* Asegura que la página ocupe toda la altura de la ventana */
-}
-
-/* Contenedor principal para la página */
-body {
+  min-height: 100%; /* Asegura que ocupe al menos toda la ventana */
   display: flex;
-  flex-direction: column;
-  height: 100%;  /* Asegura que el contenido ocupe toda la altura de la página */
+  flex-direction: column; /* Coloca los elementos en una columna */
 }
 
-/* Contenido principal que ocupa todo el espacio disponible */
 .main-content {
-  flex: 1;  /* Hace que el contenido ocupe el espacio disponible */
-  padding: 2em; /* Espaciado alrededor del contenido */
-  box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+  flex: 1; /* Empuja el footer hacia abajo */
 }
 
-/* Estilos del footer */
+/* Footer general */
 footer {
-  background-color: #333;
-  color: white;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1.25em 1.875em; /* Espaciado para el contenido del footer */
   text-align: center;
-  padding: 1em;
-  margin-top: auto; /* Asegura que el footer siempre esté al final */
-  box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+  color: #333;
+  font-size: 1em; /* Tamaño de texto base */
+  margin-top: auto; /* Empuja el footer al final de la página */
 }
 
-/* Media Query para pantallas pequeñas */
-@media screen and (max-width: 768px) {
-  .main-content {
-    padding: 1.5em;  /* Reduce el padding en pantallas más pequeñas */
+footer p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1em; /* Ajusta el tamaño del texto */
+  color: #0078d4;
+}
+
+/* Estilo de los enlaces del footer */
+footer a {
+  display: inline-block; /* Necesario para centrar correctamente el texto */
+  color: #0078d4; /* Azul Win11 */
+  text-decoration: none;
+  font-weight: bold;
+  border: 0.125em solid #0078d4; /* Borde azul */
+  padding: 0.625em 1.25em; /* Espaciado interno */
+  border-radius: 0.5em; /* Bordes redondeados */
+  text-align: center; /* Centra el texto dentro del botón */
+  font-size: 1em;
+  transition: all 0.3s ease-in-out;
+}
+
+footer a:hover {
+  background-color: #0078d4; /* Fondo azul en hover */
+  color: #fff; /* Texto blanco */
+  text-decoration: none; /* Sin subrayado */
+}
+
+/* Ajustes para pantallas pequeñas (Responsive Design) */
+@media (max-width: 768px) {
+  footer {
+    padding: 1em; /* Reduce el espacio en pantallas más pequeñas */
+    font-size: 0.9em; /* Reduce el tamaño del texto */
   }
 
-  footer {
-    padding: 1em; /* Ajusta el padding en el footer para pantallas más pequeñas */
+  footer a {
+    padding: 0.5em 1em; /* Reduce el espaciado interno del botón */
+    font-size: 0.9em; /* Reduce el tamaño del texto del botón */
   }
 }
 
-/* Media Query para pantallas muy pequeñas (móviles) */
-@media screen and (max-width: 480px) {
-  .main-content {
-    padding: 1em;  /* Reduce aún más el padding para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  footer {
+    padding: 0.75em; /* Espaciado aún menor para pantallas extra pequeñas */
+    font-size: 0.8em; /* Ajusta el tamaño del texto */
   }
 
-  footer {
-    padding: 0.75em; /* Ajusta aún más el padding en el footer */
+  footer a {
+    padding: 0.4em 0.8em; /* Espaciado compacto para el botón */
+    font-size: 0.8em; /* Tamaño más pequeño del texto del botón */
   }
 }
