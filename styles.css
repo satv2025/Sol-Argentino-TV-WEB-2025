@@ -1,265 +1,32 @@
-/* Importar la fuente Gilroy desde el enlace proporcionado */
-@import url('https://cdn.jsdelivr.net/gh/skb10x/Gilroy-SATV@main/Gilroy.css');
-
-/* Estilos globales */
-body {
-  margin: 0;
-  font-family: 'Gilroy', sans-serif;
-  background: linear-gradient(145deg, #e0e6ed, #f9f9f9);
-  color: #333;
-  overflow-x: hidden;
-  text-align: center; /* Centrado del contenido por defecto */
-  font-size: 1em; /* Usar unidades relativas */
-}
-
-/* Scrollbar personalizado */
-::-webkit-scrollbar {
-    width: 8px; /* Grosor de la barra de desplazamiento */
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #22222200; /* Color de fondo de la barra de desplazamiento */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #0078d4; /* Color del "agarre" de la barra de desplazamiento */
-    border-radius: 6px;
-  }
-
+/* Menú fijo al inicio */
 header {
-  position: fixed;
-  width: 100%;
+  position: sticky;
   top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0px 0.25em 1.25em rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(0.625em);
-  z-index: 1000;
-}
-
-/* Logo y menú */
-.menu-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.625em 1.875em;
-  max-width: 75em;
-  margin: 0 auto; /* Centra todo el menú dentro del encabezado */
-}
-
-.logo {
-  font-size: 1.8em;
-  font-weight: bold;
-  color: #0078d4; /* Azul fresco estilo Win11 */
-}
-
-.navbar .nav-menu {
-  display: flex;
-  gap: 1em;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar .nav-menu li a {
-  text-decoration: none;
-  color: #0078d4;
-  font-size: 1.1em;
-  font-weight: 600;
-  padding: 0.5em 0.75em;
-  border-radius: 0.5em;
-  transition: all 0.3s ease-in-out;
-}
-
-.navbar .nav-menu li a:hover {
-  background-color: #0078d4;
-  color: #fff;
-  box-shadow: 0px 0.25em 0.5em rgba(0, 0, 0, 0.2);
-}
-
-/* Hero principal */
-.hero {
-  margin-top: 6.25em;
-  text-align: center;
-  padding: 6.25em 1.25em;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0px 0.25em 1.25em rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(0.625em);
-  border-radius: 0.9375em;
-  max-width: 62.5em;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero h1 {
-  font-size: 2.8em;
-  font-weight: 700;
-  margin-bottom: 1.25em;
-  color: #0078d4;
-}
-
-.hero p {
-  font-size: 1.4em;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* Secciones */
-section {
-  margin: 3.75em auto;
-  padding: 2.5em;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 0.9375em;
-  box-shadow: 0px 0.25em 0.9375em rgba(0, 0, 0, 0.1);
-  max-width: 56.25em;
-  text-align: center;
-}
-
-section h2 {
-  font-size: 2em;
-  font-weight: 700;
-  color: #0078d4;
-  margin-bottom: 0.9375em;
-}
-
-section p {
-  font-size: 1.2em;
-  color: #666;
-}
-
-/* Centrado con márgenes moderados */
-.main-content {
-  margin: 0 auto;
-  padding: 0 1.25em; /* Márgenes pequeños en los lados */
-  max-width: 75em;
-}
-
-/* Responsividad */
-@media (max-width: 48em) { /* 768px */
-  .menu-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.625em;
-  }
-
-  .hero {
-    padding: 3.75em 1.25em;
-  }
-
-  section {
-    padding: 1.875em 1.25em;
-  }
-}
-
-@media (max-width: 30em) { /* 480px */
-  .logo {
-    font-size: 1.5em;
-  }
-
-  .navbar .nav-menu li a {
-    font-size: 1em;
-    padding: 0.25em 0.5em;
-  }
-
-  .hero h1 {
-    font-size: 2.2em;
-  }
-
-  .hero p {
-    font-size: 1.2em;
-  }
-
-  section h2 {
-    font-size: 1.6em;
-  }
-
-  section p {
-    font-size: 1em;
-  }
-}
-
-/* Configuración del body y estructura general */
-body, html {
-  margin: 0;
-  padding: 0;
-  min-height: 100%; /* Asegura que ocupe al menos toda la ventana */
-  display: flex;
-  flex-direction: column; /* Coloca los elementos en una columna */
-}
-
-.main-content {
-  flex: 1; /* Empuja el footer hacia abajo */
-}
-
-/* Footer general */
-footer {
   width: 100%;
   background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  position: absolute; /* Mantiene su posición al final */
-  bottom: -1920px;
-  left: 0;
+  box-shadow: 0px 0.25em 1.25em rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.625em);
   z-index: 1000;
-  padding: 1.25em 1.875em; /* Espaciado para el contenido del footer */
-  text-align: center;
-  color: #333;
-  font-size: 1em; /* Tamaño de texto base */
+  transition: transform 0.3s ease-in-out; /* Transición para el efecto de ocultar */
 }
 
-footer p {
-  margin: 0;
-  font-weight: 600;
-  font-size: 1em; /* Ajusta el tamaño del texto */
-  color: #0078d4;
+/* Ocultar el header cuando se hace scroll hacia abajo */
+body.scrolled header {
+  transform: translateY(-5em); /* Ajusta este valor según el tamaño de tu header */
 }
 
-/* Estilo de los enlaces del footer */
-footer a {
-  display: inline-block; /* Necesario para centrar correctamente el texto */
-  color: #0078d4; /* Azul Win11 */
-  text-decoration: none;
-  font-weight: bold;
-  border: 0.125em solid #0078d4; /* Borde azul */
-  padding: 0.625em 1.25em; /* Espaciado interno */
-  border-radius: 0.5em; /* Bordes redondeados */
-  text-align: center; /* Centra el texto dentro del botón */
-  font-size: 1em;
-  transition: all 0.3s ease-in-out;
-}
-
-footer a:hover {
-  background-color: #0078d4; /* Fondo azul en hover */
-  color: #fff; /* Texto blanco */
-  text-decoration: none; /* Sin subrayado */
-}
-
-/* Ajustes para pantallas pequeñas (Responsive Design) */
-@media (max-width: 768px) {
-  footer {
-    padding: 1em; /* Reduce el espacio en pantallas más pequeñas */
-    font-size: 0.9em; /* Reduce el tamaño del texto */
-  }
-
-  footer a {
-    padding: 0.5em 1em; /* Reduce el espaciado interno del botón */
-    font-size: 0.9em; /* Reduce el tamaño del texto del botón */
+/* Para mejorar la experiencia en dispositivos móviles y tabletas */
+@media (max-width: 48em) { /* 768px */
+  header {
+    top: 0;
+    width: 100%;
   }
 }
 
-@media (max-width: 480px) {
-  footer {
-    padding: 0.75em; /* Espaciado aún menor para pantallas extra pequeñas */
-    font-size: 0.8em; /* Ajusta el tamaño del texto */
-  }
-
-  footer a {
-    padding: 0.4em 0.8em; /* Espaciado compacto para el botón */
-    font-size: 0.8em; /* Tamaño más pequeño del texto del botón */
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 30em) { /* 480px */
+  header {
+    top: 0;
+    width: 100%;
   }
 }
