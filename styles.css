@@ -182,17 +182,16 @@ section p {
   }
 }
 
-/* Configuración del body y estructura general */
-body, html {
-  margin: 0;
-  padding: 0;
-  min-height: 100%; /* Asegura que ocupe al menos toda la ventana */
+/* Estructura base para sticky footer */
+body {
   display: flex;
-  flex-direction: column; /* Coloca los elementos en una columna */
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el body ocupe el 100% de la altura de la ventana */
+  margin: 0; /* Elimina márgenes del body */
 }
 
-.main-content {
-  flex: 1; /* Empuja el footer hacia abajo */
+main {
+  flex: 1; /* Toma el espacio disponible entre el header (si existe) y el footer */
 }
 
 /* Footer general */
@@ -205,7 +204,7 @@ footer {
   text-align: center;
   color: #333;
   font-size: 1em; /* Tamaño de texto base */
-  margin-top: auto; /* Empuja el footer al final de la página */
+  margin-top: auto; /* Empuja el footer al final del contenido */
 }
 
 footer p {
