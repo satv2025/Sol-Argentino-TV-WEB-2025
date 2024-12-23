@@ -8,7 +8,8 @@ body {
   background: linear-gradient(145deg, #e0e6ed, #f9f9f9);
   color: #333;
   overflow-x: hidden;
-  font-size: 1em;
+  text-align: center; /* Centrado del contenido por defecto */
+  font-size: 1em; /* Usar unidades relativas */
 }
 
 /* Scrollbar personalizada */
@@ -43,8 +44,9 @@ header {
   justify-content: center; /* Centrado horizontal */
   align-items: center;
   padding: 0.625em 1.875em;
-  max-width: 100%;
-  position: relative;
+  max-width: 75em;
+  margin: 0 auto; /* Centra todo el menú dentro del encabezado */
+  margin-left: 41%;
 }
 
 /* Logo */
@@ -58,11 +60,10 @@ header {
   transform: translateY(-50%);
 }
 
-/* Menú de navegación centrado */
+/* Menú de navegación */
 .navbar .nav-menu {
   display: flex;
-  justify-content: center; /* Centra las opciones del menú */
-  gap: 2em;
+  gap: 1em;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -136,15 +137,15 @@ section p {
 /* Centrado con márgenes moderados */
 .main-content {
   margin: 0 auto;
-  padding: 0 1.25em;
+  padding: 0 1.25em; /* Márgenes pequeños en los lados */
   max-width: 75em;
 }
 
 /* Responsividad */
 @media (max-width: 48em) { /* 768px */
   .menu-container {
-    flex-direction: column;
-    align-items: center; /* Centra todo el contenido */
+    flex-direction: column; /* Coloca el menú en columna */
+    align-items: center;
   }
 
   .nav-menu {
