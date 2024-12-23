@@ -2,7 +2,6 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  width: 100%; /* Aseguramos que el contenedor ocupe el espacio disponible */
 }
 
 .dropbtn {
@@ -14,21 +13,22 @@
   font-size: 1em;
   font-weight: 700;
   border-radius: 0.5em;
-  width: 100%; /* Botón ocupa el ancho del contenedor */
-  box-sizing: border-box;
+  width: auto; /* Ajusta el ancho según el contenido del texto */
+  min-width: 10em; /* Ancho mínimo para mantener legibilidad */
   text-align: center;
   position: relative;
   transition: background-color 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .dropbtn::after {
   content: '';
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230078d4"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat;
-  width: 1em;
-  height: 1em;
+  width: 1.5em; /* Flecha más grande */
+  height: 1.5em;
   display: inline-block;
   position: absolute;
-  right: 1.5em;
+  right: 1em;
   top: 50%;
   transform: translateY(-50%) rotate(0deg); /* Inicialmente apunta hacia abajo */
   transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave */
@@ -57,12 +57,13 @@
   border: 0.125em solid #0078d4;
   font-weight: 700;
   border-radius: 0.5em;
-  width: 100%; /* El ancho del contenedor coincide con el del botón */
+  width: 100%; /* El menú se ajusta dinámicamente al botón */
+  min-width: 10em; /* Ancho mínimo del menú desplegable */
   box-sizing: border-box;
   box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
   z-index: 1;
   top: 100%; /* Aparece justo debajo del botón */
-  left: 0; /* Alineado con el botón */
+  left: 0; /* Perfectamente alineado con el botón */
 }
 
 .dropdown-item {
@@ -88,16 +89,17 @@
   .dropbtn {
     padding: 0.5em 1em;
     font-size: 0.875em;
-    text-align: center;
   }
 
   .dropbtn::after {
-    right: 1em;
+    right: 0.75em;
+    width: 1.5em;
+    height: 1.5em;
   }
 
   .dropdown-content {
-    width: 100%; /* Menú del mismo tamaño que el botón */
-    left: 0; /* Alineado con el botón */
+    min-width: 10em; /* Aseguramos un ancho mínimo también en pantallas pequeñas */
+    left: 0;
   }
 }
 
@@ -106,15 +108,14 @@
   .dropbtn {
     padding: 0.625em;
     font-size: 1em;
-    text-align: center;
   }
 
   .dropbtn::after {
-    right: 0.75em;
+    right: 0.5em;
   }
 
   .dropdown-content {
-    width: 100%;
-    left: 0; /* Alineado con el botón */
+    min-width: 10em;
+    left: 0;
   }
 }
