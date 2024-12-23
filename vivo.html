@@ -164,9 +164,11 @@
   <!-- JS de Plyr desde el CDN -->
   <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.5/dist/plyr.js"></script>
 
-  <!-- Inicializar Plyr -->
+  <!-- Inicializar Plyr cuando el DOM esté completamente cargado -->
   <script>
-    const player = new Plyr('#player');
+    document.addEventListener('DOMContentLoaded', function () {
+      const player = new Plyr('#player');
+    });
   </script>
 </body>
 </html>
