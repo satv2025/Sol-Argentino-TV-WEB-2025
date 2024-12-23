@@ -137,8 +137,4 @@ const schedules = {
   });
   
   // Mostrar la programación del lunes por defecto al cargar la página
-  window.onload = () => showSchedule('lunes');  
-
-  // Obtiene el elemento del dropdown y los elementos necesarios
-const dropdown = document.querySelector('.dropdown');
-const dropdownContent = dropdown.querySelector('.dropdown-content');
+  window.onload = () => showSchedule('lunes');
