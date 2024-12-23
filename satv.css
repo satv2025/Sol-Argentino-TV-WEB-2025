@@ -26,7 +26,6 @@ body {
   border-radius: 6px;
 }
 
-/* Encabezado */
 header {
   position: absolute;
   width: 100%;
@@ -38,10 +37,10 @@ header {
   z-index: 1000;
 }
 
-/* Contenedor del menú centrado */
+/* Logo y menú */
 .menu-container {
   display: flex;
-  justify-content: center; /* Centrado horizontal */
+  justify-content: space-between;
   align-items: center;
   padding: 0.625em 1.875em;
   max-width: 75em;
@@ -49,18 +48,12 @@ header {
   margin-left: 41%;
 }
 
-/* Logo */
 .logo {
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: bold;
   color: #0078d4; /* Azul fresco estilo Win11 */
-  position: absolute; /* Para colocar el logo en la esquina izquierda */
-  left: 2em;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-/* Menú de navegación */
 .navbar .nav-menu {
   display: flex;
   gap: 1em;
@@ -144,7 +137,7 @@ section p {
 /* Responsividad */
 @media (max-width: 48em) { /* 768px */
   .menu-container {
-    flex-direction: column; /* Coloca el menú en columna */
+    flex-direction: column;
     align-items: center;
   }
 
