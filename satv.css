@@ -55,7 +55,7 @@ header {
   font-weight: bold;
   color: #0078d4; /* Azul fresco estilo Win11 */
   position: absolute; /* Para colocar el logo en la esquina izquierda */
-  left: 1.5em;
+  left: 2em;
   top: 50%;
   transform: translateY(-50%);
 }
