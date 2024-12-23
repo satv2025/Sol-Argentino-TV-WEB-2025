@@ -13,8 +13,8 @@
   font-size: 1em;
   font-weight: 700;
   border-radius: 0.5em;
-  width: auto; /* Ajusta el ancho según el contenido del texto */
-  min-width: 10em; /* Ancho mínimo para mantener legibilidad */
+  width: auto; /* El ancho se ajusta según el contenido */
+  min-width: 12em; /* Ancho mínimo adecuado para ver bien la flecha y el texto */
   text-align: center;
   position: relative;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -24,14 +24,14 @@
 .dropbtn::after {
   content: '';
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230078d4"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat;
-  width: 1.5em; /* Flecha más grande */
+  width: 1.5em; /* Tamaño adecuado de la flecha */
   height: 1.5em;
   display: inline-block;
   position: absolute;
-  right: 1em;
+  right: 1em; /* Espaciado adecuado a la derecha */
   top: 50%;
-  transform: translateY(-50%) rotate(0deg); /* Inicialmente apunta hacia abajo */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave */
+  transform: translateY(-50%) rotate(0deg); /* Flecha hacia abajo por defecto */
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 /* Hover para el botón */
@@ -41,12 +41,12 @@
 }
 
 .dropbtn:hover::after {
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat; /* Cambia la flecha a blanca */
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat; /* Flecha blanca al hacer hover */
 }
 
 /* Dropdown abierto (hover sobre el dropdown) */
 .dropdown:hover .dropbtn::after {
-  transform: translateY(-50%) rotate(180deg); /* Gira la flecha hacia arriba */
+  transform: translateY(-50%) rotate(180deg); /* Flecha hacia arriba cuando está abierto */
 }
 
 /* Contenido del dropdown */
@@ -57,13 +57,14 @@
   border: 0.125em solid #0078d4;
   font-weight: 700;
   border-radius: 0.5em;
-  width: 100%; /* El menú se ajusta dinámicamente al botón */
-  min-width: 10em; /* Ancho mínimo del menú desplegable */
+  width: 100%; /* El menú tiene el mismo ancho que el botón */
+  min-width: 12em; /* Ancho mínimo para que sea legible */
   box-sizing: border-box;
   box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
   z-index: 1;
   top: 100%; /* Aparece justo debajo del botón */
-  left: 0; /* Perfectamente alineado con el botón */
+  left: 0; /* Alineado con el botón */
+  text-align: center; /* Centrado del texto dentro del menú */
 }
 
 .dropdown-item {
@@ -87,7 +88,7 @@
 /* Responsive Design */
 @media screen and (max-width: 48em) { /* 768px */
   .dropbtn {
-    padding: 0.5em 1em;
+    padding: 0.625em 1em;
     font-size: 0.875em;
   }
 
@@ -98,7 +99,7 @@
   }
 
   .dropdown-content {
-    min-width: 10em; /* Aseguramos un ancho mínimo también en pantallas pequeñas */
+    min-width: 12em; /* Mantiene el tamaño adecuado del menú */
     left: 0;
   }
 }
@@ -112,10 +113,12 @@
 
   .dropbtn::after {
     right: 0.5em;
+    width: 1.5em;
+    height: 1.5em;
   }
 
   .dropdown-content {
-    min-width: 10em;
+    min-width: 12em;
     left: 0;
   }
 }
