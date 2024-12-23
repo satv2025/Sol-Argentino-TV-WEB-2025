@@ -140,19 +140,28 @@
     </div>
   </header>
 
-  <!-- Contenido principal -->
-  <main class="main-content">
-    <section id="transmision">
-      <div class="hero">
-        <h1>Ver Transmisión en Vivo</h1>
-        <p>¡Sintoniza ahora Sol Argentino TV en vivo para disfrutar de nuestra programación de calidad!</p>
-        <div class="video-container">
-          <!-- Video en vivo embebido con Plyr -->
-          <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="cb12KmMMDJA"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+    <!-- Contenedor del video con Plyr -->
+    <div class="plyr__video-embed" id="player">
+        <iframe 
+            src="https://www.youtube.com/embed/cb12KmMMDJA?autoplay=1&mute=0&enablejsapi=1" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen 
+            frameborder="0">
+        </iframe>
+    </div>
+
+    <!-- Incluir JS de Plyr -->
+    <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.2/dist/plyr.js"></script>
+
+    <!-- Inicialización de Plyr -->
+    <script>
+        const player = new Plyr('#player', {
+            youtube: {
+                noCookie: true, // Usar la versión sin cookies
+                playsinline: true, // Mostrar el video dentro de la página
+            }
+        });
+    </script>
 
   <!-- Pie de página -->
   <footer>
@@ -161,12 +170,5 @@
 
   <!-- JS de Plyr desde el CDN -->
   <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.5/dist/plyr.js"></script>
-
-  <!-- Inicializar Plyr cuando el DOM esté completamente cargado -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const player = new Plyr('#player');
-    });
-  </script>
 </body>
 </html>
