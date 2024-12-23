@@ -2,8 +2,9 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  width: 100%; /* Ocupa el 100% del contenedor */
+  width: 50%; /* Reducido al 50% del contenedor */
   text-align: center; /* Centra el contenido dentro del contenedor */
+  margin: 0 auto; /* Asegura que el dropdown esté centrado */
 }
 
 .dropbtn {
@@ -15,7 +16,7 @@
   font-size: 1em;
   font-weight: 700;
   border-radius: 0.5em;
-  width: 100%; /* Asegura que el botón ocupe el 100% del contenedor */
+  width: 100%; /* El botón ocupa el 100% del contenedor */
   box-sizing: border-box;
   position: relative;
   text-align: center; /* Asegura que el texto dentro del botón esté centrado */
@@ -34,8 +35,8 @@
   transition: transform 0.3s ease, color 0.3s ease; /* Transición suave al girar y cambiar el color */
 }
 
-.dropdown:hover .dropbtn::after {
-  transform: translateY(-50%) rotate(180deg); /* Gira la flecha hacia arriba */
+.dropdown.open .dropbtn::after {
+  transform: translateY(-50%) rotate(180deg); /* Gira la flecha hacia arriba cuando el menú está abierto */
   color: #fff; /* Cambia el color de la flecha a blanco al hacer hover */
 }
 
@@ -59,6 +60,10 @@
   text-align: center;
 }
 
+.dropdown.open .dropdown-content {
+  display: block; /* Muestra el menú cuando la clase 'open' está activa */
+}
+
 .dropdown-item {
   color: #0078d4;
   padding: 0.75em 1em;
@@ -70,10 +75,6 @@
 .dropdown-item:hover {
   background-color: #0078d4;
   color: white;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 /* Responsive Design */
