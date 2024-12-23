@@ -40,9 +40,9 @@
   color: #0078d4; /* Cambia el color de la flecha a blanco al hacer hover */
 }
 
-.dropbtn:hover {
-  background-color: #fff;
-  color: #0078d4;
+.dropbtn .dropdown.open:hover {
+  background-color: #0078d4;
+  color: #fff;
 }
 
 .dropdown-content {
