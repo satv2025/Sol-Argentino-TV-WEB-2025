@@ -4,10 +4,12 @@ body {
   flex-direction: column;
   min-height: 100vh; /* Asegura que el body ocupe el 100% de la altura de la ventana */
   margin: 0; /* Elimina márgenes del body */
+  position: relative; /* Asegura que los elementos hijos se alineen correctamente */
 }
 
 main {
-  flex: 1; /* Toma el espacio disponible entre el header (si existe) y el footer */
+  flex-grow: 1; /* Toma el espacio disponible entre el header (si existe) y el footer */
+  padding-bottom: 80px; /* Añadir un padding al final para asegurar que el footer no se superponga al contenido */
 }
 
 /* Footer general */
@@ -20,6 +22,7 @@ footer {
   color: #333;
   font-size: 1em; /* Tamaño de texto base */
   margin-top: auto; /* Empuja el footer al final del contenido */
+  position: relative; /* Asegura que el footer no se desplace por encima del contenido */
 }
 
 footer p {
