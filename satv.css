@@ -12,19 +12,19 @@ body {
   font-size: 1em; /* Usar unidades relativas */
 }
 
-/* Scrollbar personalizado */
+/* Scrollbar personalizada */
 ::-webkit-scrollbar {
-    width: 8px; /* Grosor de la barra de desplazamiento */
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #22222200; /* Color de fondo de la barra de desplazamiento */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #0078d4; /* Color del "agarre" de la barra de desplazamiento */
-    border-radius: 6px;
-  }
+  width: 8px; /* Grosor de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+  background: #22222200; /* Color de fondo de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0078d4; /* Color del "agarre" de la barra de desplazamiento */
+  border-radius: 6px;
+}
 
 header {
   position: absolute;
