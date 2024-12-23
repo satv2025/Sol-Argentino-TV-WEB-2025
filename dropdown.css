@@ -2,65 +2,47 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  width: auto;
-  min-width: 16em; /* Aumentamos el ancho mínimo del botón */
-  text-align: center;
-  margin: 0 auto; /* Centrar el contenedor */
-}
-
-/* Centramos el dropdown en la pantalla */
-body {
-  display: flex;
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
-  margin: 0; /* Elimina el margen por defecto */
+  width: 41%;
+  margin: 0 auto;
 }
 
 .dropbtn {
-  background: #fff;
+  background-color: #fff;
   color: #0078d4;
-  padding: 1em 1.75em; /* Mantener el padding grande para el texto y la flecha */
+  padding: 0.625em 1.25em;
   border: 0.125em solid #0078d4;
   cursor: pointer;
-  font-size: 1.25em; /* Tamaño de la fuente adecuado */
+  font-size: 1em;
   font-weight: 700;
   border-radius: 0.5em;
-  width: auto; /* El ancho se ajusta según el contenido */
-  min-width: 16em; /* Ancho mínimo aumentado */
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 12.5em;
   text-align: center;
   position: relative;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  box-sizing: border-box;
 }
 
+/* Flecha del dropdown */
 .dropbtn::after {
-  content: ' ▼'; /* Flecha hacia abajo usando el símbolo ▼ */
-  font-size: 1.5em; /* Tamaño adecuado para la flecha */
-  color: #0078d4; /* Color de la flecha */
+  content: "▼"; /* Flecha hacia abajo */
+  font-size: 0.75em;
+  color: #0078d4;
   position: absolute;
-  right: 1.5em; /* Espaciado adecuado a la derecha */
+  right: 1.5em; /* Ajusta la posición de la flecha */
   top: 50%;
-  transform: translateY(-50%); /* Centrar la flecha verticalmente */
-  transition: transform 0.3s ease, color 0.3s ease;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease; /* Transición suave al rotar */
 }
 
-/* Hover para el botón */
+.dropdown:hover .dropbtn::after {
+  transform: translateY(-50%) rotate(180deg); /* Gira la flecha hacia arriba */
+}
+
 .dropbtn:hover {
   background-color: #0078d4;
   color: #fff;
 }
 
-.dropbtn:hover::after {
-  color: #fff; /* Flecha blanca al hacer hover */
-}
-
-/* Dropdown abierto (hover sobre el dropdown) */
-.dropdown:hover .dropbtn::after {
-  transform: translateY(-50%) rotate(180deg); /* Flecha hacia arriba cuando está abierto */
-}
-
-/* Contenido del dropdown */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -68,19 +50,18 @@ body {
   border: 0.125em solid #0078d4;
   font-weight: 700;
   border-radius: 0.5em;
-  width: 100%; /* El menú tiene el mismo ancho que el botón */
-  min-width: 16em; /* Aumentamos el tamaño mínimo */
+  width: 100%;
+  margin-left: 12.5em;
   box-sizing: border-box;
   box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
   z-index: 1;
-  top: 100%; /* Aparece justo debajo del botón */
-  left: 0; /* Alineado con el botón */
-  text-align: center; /* Centrado del texto dentro del menú */
+  margin-top: 0.2em;
+  text-align: center;
 }
 
 .dropdown-item {
   color: #0078d4;
-  padding: 0.75em 1.5em; /* Aumentamos el padding de los items */
+  padding: 0.75em 1em;
   text-decoration: none;
   display: block;
   cursor: pointer;
@@ -91,7 +72,6 @@ body {
   color: white;
 }
 
-/* Mostrar contenido del dropdown al hacer hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -99,35 +79,43 @@ body {
 /* Responsive Design */
 @media screen and (max-width: 48em) { /* 768px */
   .dropbtn {
-    padding: 1em 1.5em; /* Mantener el padding para pantallas medianas */
-    font-size: 1.1em; /* Tamaño de fuente más pequeño */
-  }
-
-  .dropbtn::after {
-    right: 1em;
-    font-size: 1.5em; /* Tamaño de la flecha */
+    padding: 0.5em 1em;
+    font-size: 0.875em;
+    width: 100%;
+    margin-left: 12.5em;
+    text-align: center;
   }
 
   .dropdown-content {
-    min-width: 16em; /* Mantener el tamaño adecuado del menú */
-    left: 0;
+    width: 100%; /* El menú tendrá el mismo tamaño que el contenido del botón */
+    margin-left: 0;
+    margin-top: 0.2em;
+    text-align: center;
+  }
+
+  .dropbtn::after {
+    right: 1em; /* Ajusta la posición de la flecha en pantallas más pequeñas */
   }
 }
 
 /* En pantallas más pequeñas */
 @media screen and (max-width: 30em) { /* 480px */
   .dropbtn {
-    padding: 1em;
-    font-size: 1.1em;
-  }
-
-  .dropbtn::after {
-    right: 1em;
-    font-size: 1.5em;
+    padding: 0.625em;
+    font-size: 1em;
+    width: 100%;
+    margin-left: 12.5em;
+    text-align: center;
   }
 
   .dropdown-content {
-    min-width: 16em;
-    left: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0.2em;
+    text-align: center;
+  }
+
+  .dropbtn::after {
+    right: 0.75em; /* Ajusta la posición de la flecha */
   }
 }
