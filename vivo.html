@@ -4,11 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sol Argentino TV - Ver Transmisión</title>
-  <link rel="stylesheet" href="satv.css">
-  <link rel="stylesheet" href="footer.css">
-  <link rel="stylesheet" href="reproductor.css">
-  <link rel="icon" href="Logo SATV 2024 NAVIDAD.ico" type="image/x-icon">
-
+  <link rel="stylesheet" href="styles.css"> <!-- Enlace a los estilos -->
   <!-- CSS de Plyr desde el CDN -->
   <link href="https://cdn.jsdelivr.net/npm/plyr@3.7.5/dist/plyr.css" rel="stylesheet">
   <style>
@@ -140,15 +136,26 @@
     </div>
   </header>
 
-  <!-- Reproductor de video (Plyr) -->
-  <div class="plyr__video-embed" id="player">
-    <iframe 
-      src="https://www.youtube.com/embed/cb12KmMMDJA?autoplay=1&mute=0&enablejsapi=1" 
-      allow="autoplay; encrypted-media" 
-      allowfullscreen 
-      frameborder="0">
-    </iframe>
-  </div>
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <section id="transmision">
+      <div class="hero">
+        <h1>Ver Transmisión en Vivo</h1>
+        <p>¡Sintoniza ahora Sol Argentino TV en vivo para disfrutar de nuestra programación de calidad!</p>
+        <div class="video-container">
+          <!-- Reproductor de video en vivo con Plyr -->
+          <div class="plyr__video-embed" id="player">
+            <iframe 
+              src="https://www.youtube.com/embed/live_stream?channel=UC-XXXXXXX" 
+              allow="autoplay; encrypted-media" 
+              allowfullscreen 
+              frameborder="0">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Pie de página -->
   <footer>
@@ -157,15 +164,16 @@
 
   <!-- JS de Plyr desde el CDN -->
   <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.5/dist/plyr.js"></script>
-
-  <!-- Inicialización de Plyr -->
   <script>
+    // Inicialización del reproductor Plyr
     const player = new Plyr('#player', {
       youtube: {
-        noCookie: true, // Usar la versión sin cookies de YouTube
+        noCookie: true, // Usar la versión sin cookies
         playsinline: true, // Mostrar el video dentro de la página
       }
     });
   </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
