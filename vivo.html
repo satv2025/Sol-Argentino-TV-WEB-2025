@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sol Argentino TV - Ver Transmisión</title>
-  <link rel="stylesheet" href="satv.css"> <!-- Enlace a los estilos generales -->
-  <link rel="stylesheet" href="footer.css"> <!-- Enlace a los estilos del footer -->
-  <link rel="stylesheet" href="reproductor.css"> <!-- Enlace a los estilos del reproductor -->
+  <link rel="stylesheet" href="satv.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="reproductor.css">
   <link rel="icon" href="Logo SATV 2024 NAVIDAD.ico" type="image/x-icon">
 
   <!-- CSS de Plyr desde el CDN -->
@@ -104,24 +104,23 @@
     color: #0078d4;
 }
 
-    /* Estilo para mantener la relación de aspecto 16:9 */
-/* Estilo para mantener la relación de aspecto 16:9 */
+/* Estilo para el contenedor que mantiene la relación de aspecto 16:9 */
 .video-container {
   position: relative;
-  width: 100%; /* Hace que el contenedor ocupe todo el ancho disponible */
-  padding-top: 56.25%; /* 16:9 = 9 / 16 * 100 (esto asegura la relación de aspecto) */
-  height: 0; /* La altura será calculada por el padding */
-  overflow: hidden; /* Asegura que el contenido no se desborde */
-  max-width: 1280px; /* Opcional: limita el ancho máximo del video */
-  margin: 0 auto; /* Centra el video */
+  width: 100%;
+  padding-top: 56.25%; /* Relación de aspecto 16:9 (9 / 16 * 100) */
+  height: 0;
+  overflow: hidden;
+  max-width: 1280px; /* Opcional: ajusta el tamaño máximo del video */
+  margin: 0 auto;
 }
 
 #player {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Hace que el video ocupe todo el contenedor */
-  height: 100%; /* Hace que el video ocupe toda la altura del contenedor */
+  width: 100%;
+  height: 100%; /* El reproductor de YouTube ocupará toda la altura del contenedor */
 }
   </style>
 </head>
