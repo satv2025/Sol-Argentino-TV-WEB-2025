@@ -9,17 +9,6 @@ img {
 }
 
 /* Estilo general para los elementos de lista */
-ul {
-  list-style-type: none; /* Elimina los puntos de lista */
-  padding-left: 0; /* Elimina el padding de la lista */
-}
-
-/* Estilo para cada ítem de la lista */
-li {
-  font-size: 16px; /* Tamaño de fuente para los ítems */
-  margin-bottom: 15px; /* Espacio entre los ítems */
-  line-height: 1.5; /* Altura de línea para un texto más legible */
-}
 
 /* Estilo para las etiquetas de texto en negrita */
 strong {
