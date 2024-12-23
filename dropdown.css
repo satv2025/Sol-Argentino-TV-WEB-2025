@@ -37,8 +37,6 @@
 
 .dropdown.open .dropbtn::after {
   transform: translateY(-50%) rotate(180deg); /* Gira la flecha hacia arriba cuando el menú está abierto */
-  color: #fff; /* Cambia el color de la flecha a blanco al hacer hover */
-  background: #0078d4;
 }
 
 .dropbtn:hover {
