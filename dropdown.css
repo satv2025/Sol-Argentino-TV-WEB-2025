@@ -7,7 +7,7 @@
 }
 
 .dropbtn {
-  background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230078d4"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat right 1.5em center;
+  background: #fff;
   color: #0078d4;
   padding: 0.625em 1.25em;
   border: 0.125em solid #0078d4;
@@ -19,19 +19,36 @@
   box-sizing: border-box;
   margin-left: 12.5em;
   text-align: center;
+  position: relative;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropbtn::after {
+  content: '';
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230078d4"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  position: absolute;
+  right: 1.5em;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg); /* Inicialmente apunta hacia abajo */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave */
 }
 
 /* Hover para el botón */
 .dropbtn:hover {
   background-color: #0078d4;
   color: #fff;
-  background: #0078d4 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat right 1.5em center;
+}
+
+.dropbtn:hover::after {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat; /* Cambia la flecha a blanca */
 }
 
 /* Dropdown abierto (hover sobre el dropdown) */
-.dropdown:hover .dropbtn {
-  background: #0078d4 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"/></svg>') no-repeat right 1.5em center;
+.dropdown:hover .dropbtn::after {
+  transform: translateY(-50%) rotate(180deg); /* Gira la flecha hacia arriba */
 }
 
 /* Contenido del dropdown */
@@ -77,7 +94,10 @@
     width: 100%;
     margin-left: 0;
     text-align: center;
-    background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230078d4"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat right 1em center;
+  }
+
+  .dropbtn::after {
+    right: 1em;
   }
 
   .dropdown-content {
@@ -96,7 +116,10 @@
     width: 100%;
     margin-left: 0;
     text-align: center;
-    background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230078d4"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat right 0.75em center;
+  }
+
+  .dropbtn::after {
+    right: 0.75em;
   }
 
   .dropdown-content {
