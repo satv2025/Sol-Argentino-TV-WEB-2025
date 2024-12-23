@@ -46,6 +46,11 @@
   color: #fff;
 }
 
+.dropdown.open:hover {
+  background-color: #0078d4;
+  color: #fff;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
