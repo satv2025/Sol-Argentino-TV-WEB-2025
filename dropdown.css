@@ -46,7 +46,7 @@
   color: #fff;
 }
 
-.dropdown.open:hover {
+.dropbtn:hover::after {
   background-color: #0078d4;
   color: #fff;
 }
