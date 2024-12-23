@@ -142,12 +142,3 @@ const schedules = {
   // Obtiene el elemento del dropdown y los elementos necesarios
 const dropdown = document.querySelector('.dropdown');
 const dropdownContent = dropdown.querySelector('.dropdown-content');
-
-// Agrega eventos para abrir y cerrar el menú cuando el mouse entra y sale
-dropdown.addEventListener('mouseenter', () => {
-  dropdownContent.style.display = 'block';  // Mostrar el menú
-});
-
-dropdown.addEventListener('mouseleave', () => {
-  dropdownContent.style.display = 'none';  // Ocultar el menú
-});
