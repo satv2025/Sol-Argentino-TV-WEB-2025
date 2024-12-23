@@ -26,16 +26,17 @@
 .dropbtn::after {
   content: "▼"; /* Flecha hacia abajo */
   font-size: 0.75em;
-  color: #0078d4;
+  color: #0078d4; /* Flecha de color azul */
   position: absolute;
   right: 1.5em; /* Ajusta la posición de la flecha */
   top: 50%;
   transform: translateY(-50%);
-  transition: transform 0.3s ease; /* Transición suave al rotar */
+  transition: transform 0.3s ease, color 0.3s ease; /* Transición suave al girar y cambiar el color */
 }
 
 .dropdown:hover .dropbtn::after {
   transform: translateY(-50%) rotate(180deg); /* Gira la flecha hacia arriba */
+  color: #fff; /* Cambia el color de la flecha a blanco al hacer hover */
 }
 
 .dropbtn:hover {
