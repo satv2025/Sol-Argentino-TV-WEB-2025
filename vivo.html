@@ -103,6 +103,20 @@
     background: #fff;
     color: #0078d4;
 }
+
+    /* Estilo para mantener la relación de aspecto 16:9 */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px; /* Ajusta el tamaño máximo si es necesario */
+  margin: 0 auto;
+}
+
+#player {
+  aspect-ratio: 16 / 9; /* Relación de aspecto 16:9 */
+  width: 100%;
+  height: auto; /* Ajuste automático de la altura */
+}
   </style>
 </head>
 <body>
