@@ -1,78 +1,66 @@
-/* Estructura base para sticky footer */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Asegura que el body ocupe el 100% de la altura de la ventana */
-  margin: 0; /* Elimina márgenes del body */
-  position: relative; /* Asegura que los elementos hijos se alineen correctamente */
-}
+/* footer.css */
 
-main {
-  flex-grow: 1; /* Toma el espacio disponible entre el header (si existe) y el footer */
-  padding-bottom: 80px; /* Añadir un padding al final para asegurar que el footer no se superponga al contenido */
-}
-
-/* Footer general */
+/* Estilo del Footer */
 footer {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
   box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1); /* Sombras para dar profundidad */
-  padding: 1.25em 1.875em; /* Espaciado para el contenido del footer */
+  padding: 1.25em 1.875em; /* Espaciado */
   text-align: center;
+  font-size: 1em;
   color: #333;
-  font-size: 1em; /* Tamaño de texto base */
-  margin-top: auto; /* Empuja el footer al final del contenido */
-  position: relative; /* Asegura que el footer no se desplace por encima del contenido */
+  margin-top: auto; /* Asegura que el footer se mantenga al fondo */
+  backdrop-filter: blur(5px); /* Efecto blur */
 }
 
 footer p {
   margin: 0;
   font-weight: 600;
-  font-size: 1em; /* Ajusta el tamaño del texto */
-  color: #0078d4; /* Color azul para el texto */
+  font-size: 1em;
+  color: #0078d4;
 }
 
 /* Estilo de los enlaces del footer */
 footer a {
-  display: inline-block; /* Necesario para centrar correctamente el texto */
-  color: #0078d4; /* Azul Win11 */
+  display: inline-block;
+  color: #0078d4;
   text-decoration: none;
   font-weight: bold;
-  border: 0.125em solid #0078d4; /* Borde azul */
-  padding: 0.625em 1.25em; /* Espaciado interno */
-  border-radius: 0.5em; /* Bordes redondeados */
-  text-align: center; /* Centra el texto dentro del botón */
+  border: 0.125em solid #0078d4;
+  padding: 0.625em 1.25em;
+  border-radius: 0.5em;
+  text-align: center;
   font-size: 1em;
   transition: all 0.3s ease-in-out;
 }
 
 footer a:hover {
   background-color: #0078d4; /* Fondo azul en hover */
-  color: #fff; /* Texto blanco */
-  text-decoration: none; /* Sin subrayado */
+  color: #fff;
+  text-decoration: none;
 }
 
-/* Ajustes para pantallas pequeñas (Responsive Design) */
+/* Responsividad */
 @media (max-width: 768px) {
   footer {
-    padding: 1em; /* Reduce el espacio en pantallas más pequeñas */
-    font-size: 0.9em; /* Reduce el tamaño del texto */
+    padding: 1em;
+    font-size: 0.9em;
   }
 
   footer a {
-    padding: 0.5em 1em; /* Reduce el espaciado interno del botón */
-    font-size: 0.9em; /* Reduce el tamaño del texto del botón */
+    padding: 0.5em 1em;
+    font-size: 0.9em;
   }
 }
 
 @media (max-width: 480px) {
   footer {
-    padding: 0.75em; /* Espaciado aún menor para pantallas extra pequeñas */
-    font-size: 0.8em; /* Ajusta el tamaño del texto */
+    padding: 0.75em;
+    font-size: 0.8em;
   }
 
   footer a {
-    padding: 0.4em 0.8em; /* Espaciado compacto para el botón */
-    font-size: 0.8em; /* Tamaño más pequeño del texto del botón */
+    padding: 0.4em 0.8em;
+    font-size: 0.8em;
   }
 }
