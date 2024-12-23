@@ -7,7 +7,7 @@
 }
 
 .dropbtn {
-  background-color: #fff;
+  background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230078d4"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat right 1.5em center;
   color: #0078d4;
   padding: 0.625em 1.25em;
   border: 0.125em solid #0078d4;
@@ -19,30 +19,22 @@
   box-sizing: border-box;
   margin-left: 12.5em;
   text-align: center;
-  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Flecha del dropdown */
-.dropbtn::after {
-  content: "▼"; /* Flecha hacia abajo */
-  font-size: 0.75em;
-  color: #0078d4;
-  position: absolute;
-  right: 1.5em; /* Ajusta la posición de la flecha */
-  top: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.3s ease; /* Transición suave al rotar */
-}
-
-.dropdown:hover .dropbtn::after {
-  transform: translateY(-50%) rotate(180deg); /* Gira la flecha hacia arriba */
-}
-
+/* Hover para el botón */
 .dropbtn:hover {
   background-color: #0078d4;
   color: #fff;
+  background: #0078d4 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat right 1.5em center;
 }
 
+/* Dropdown abierto (hover sobre el dropdown) */
+.dropdown:hover .dropbtn {
+  background: #0078d4 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"/></svg>') no-repeat right 1.5em center;
+}
+
+/* Contenido del dropdown */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -72,6 +64,7 @@
   color: white;
 }
 
+/* Mostrar contenido del dropdown al hacer hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -82,19 +75,16 @@
     padding: 0.5em 1em;
     font-size: 0.875em;
     width: 100%;
-    margin-left: 12.5em;
+    margin-left: 0;
     text-align: center;
+    background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230078d4"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat right 1em center;
   }
 
   .dropdown-content {
-    width: 100%; /* El menú tendrá el mismo tamaño que el contenido del botón */
+    width: 100%; /* El menú tendrá el mismo tamaño que el botón */
     margin-left: 0;
     margin-top: 0.2em;
     text-align: center;
-  }
-
-  .dropbtn::after {
-    right: 1em; /* Ajusta la posición de la flecha en pantallas más pequeñas */
   }
 }
 
@@ -104,8 +94,9 @@
     padding: 0.625em;
     font-size: 1em;
     width: 100%;
-    margin-left: 12.5em;
+    margin-left: 0;
     text-align: center;
+    background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230078d4"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>') no-repeat right 0.75em center;
   }
 
   .dropdown-content {
@@ -113,9 +104,5 @@
     margin-left: 0;
     margin-top: 0.2em;
     text-align: center;
-  }
-
-  .dropbtn::after {
-    right: 0.75em; /* Ajusta la posición de la flecha */
   }
 }
