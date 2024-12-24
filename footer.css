@@ -87,8 +87,11 @@ footer a:hover {
   text-align: center;
   font-size: 1em;
   color: #333;
-  margin-top: auto; /* Empuja el footer hacia la parte inferior */
   backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  margin-top: 13.1em;
+  position: relative;
+  bottom: 0;
+  top: 0;
 }
 
 .grilla footer p {
