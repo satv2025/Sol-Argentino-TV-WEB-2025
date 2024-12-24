@@ -122,3 +122,40 @@
     right: 0.75em; /* Ajusta la posición de la flecha */
   }
 }
+
+/* Ajustes específicos para la sección Grilla */
+.grilla .dropdown-content {
+  margin-left: 15.56em; /* Ajusta la posición del menú desplegable */
+}
+
+.grilla .dropbtn {
+  margin-left: -2.1em; /* Ajusta la posición del botón */
+}
+
+/* Responsive Design: para pantallas medianas (menores a 768px) */
+@media screen and (max-width: 48em) { /* 768px */
+  .grilla .dropdown-content {
+    margin-left: 0; /* Centra el menú desplegable en pantallas más pequeñas */
+    width: 100%; /* Asegura que el menú ocupe el ancho del contenedor */
+  }
+
+  .grilla .dropbtn {
+    margin-left: 0; /* Alinea el botón correctamente */
+    width: 100%; /* El botón ocupa todo el ancho disponible */
+    text-align: center; /* Centra el texto del botón */
+  }
+}
+
+/* Responsive Design: para pantallas pequeñas (menores a 480px) */
+@media screen and (max-width: 30em) { /* 480px */
+  .grilla .dropdown-content {
+    margin-left: 0; /* Centra el menú desplegable */
+    width: 100%; /* Ocupa todo el ancho disponible */
+  }
+
+  .grilla .dropbtn {
+    margin-left: 0; /* Centra el botón */
+    width: 100%; /* Botón de ancho completo */
+    text-align: center; /* Texto centrado */
+  }
+}
