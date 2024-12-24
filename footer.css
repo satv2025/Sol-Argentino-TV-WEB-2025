@@ -69,7 +69,6 @@ footer a:hover {
 .grilla {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Altura completa de la ventana */
 }
 
 /* El contenido principal dentro de la grilla debe ocupar el espacio disponible */
