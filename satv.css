@@ -47,20 +47,21 @@ header {
   margin: 0 auto; /* Centra todo el menú dentro del encabezado */
 }
 
+/* Estilo por defecto */
 .logo {
   font-size: 1.8em;
   font-weight: bold;
-  color: #0078d4; /* Azul fresco estilo Win11 */
-  margin-left: -5em;
+  color: #0078d4;
+  margin-left: -3em;
 }
 
 .navbar .nav-menu {
   display: flex;
-  gap: 1em;
+  gap: 1.5em;
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: -32.4%;
+  margin-left: -16em;
 }
 
 .navbar .nav-menu li a {
@@ -142,11 +143,16 @@ section p {
     align-items: center;
   }
 
-  .nav-menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.625em;
+  .logo {
+    font-size: 1.5em;       /* Reducir tamaño de fuente en pantallas más pequeñas */
+    margin-left: -2em;      /* Ajustar margen */
   }
+
+  .navbar .nav-menu {
+    gap: 1.2em;             /* Reducir espacio entre los elementos */
+    margin-left: -10em;     /* Ajustar margen para pantallas más pequeñas */
+  }
+}
 
   .hero {
     padding: 3.75em 1.25em;
@@ -157,14 +163,15 @@ section p {
   }
 }
 
-@media (max-width: 30em) { /* 480px */
+@media screen and (max-width: 32em) { /* Aproximadamente 512px */
   .logo {
-    font-size: 1.5em;
+    font-size: 1.2em;       /* Ajustar aún más el tamaño de la fuente */
+    margin-left: -1em;      /* Ajustar margen para pantallas pequeñas */
   }
 
-  .navbar .nav-menu li a {
-    font-size: 1em;
-    padding: 0.25em 0.5em;
+  .navbar .nav-menu {
+    gap: 1em;               /* Reducir el espacio */
+    margin-left: -6em;      /* Ajustar el margen */
   }
 
   .hero h1 {
