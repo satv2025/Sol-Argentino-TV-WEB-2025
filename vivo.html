@@ -10,117 +10,6 @@
   <link rel="icon" href="Logo SATV 2024 NAVIDAD.ico" type="image/x-icon">
   <!-- CSS de Plyr desde el CDN -->
   <link href="https://cdn.jsdelivr.net/npm/plyr@3.7.5/dist/plyr.css" rel="stylesheet">
-  <style>
-    @import url('https://cdn.jsdelivr.net/gh/skb10x/Gilroy-SATV@main/Gilroy.css');
-.plyr {
-    border-radius: 0.5em; /* Reemplazado px con em */
-  font-family: 'Gilroy', sans-serif;
-}
-.plyr--full-ui input[type=range] {
-    -webkit-appearance: none;
-    appearance: none;
-    background: #0000;
-    border: 0;
-    border-radius: calc(var(--plyr-range-thumb-height, 0.8em) * 2);
-    color: #0078d4;
-    display: block;
-    height: calc(var(--plyr-range-thumb-active-shadow-width, 0.2em) * 2 + var(--plyr-range-thumb-height, 0.8em));
-    margin: 0;
-    padding: 0;
-    transition: box-shadow 0.3s ease;
-    width: 100%;
-}
-
-.plyr--video .plyr__control.plyr__tab-focus,
-.plyr--video .plyr__control:hover,
-.plyr--video .plyr__control[aria-expanded=true] {
-    background: #0078d4;
-    color: #fff;
-}
-
-.plyr__controls .plyr__controls__item.plyr__time {
-    padding: 0 calc(var(--plyr-control-spacing, 0.625em) / 2);
-}
-
-.plyr__controls .plyr__controls__item {
-    margin-left: calc(var(--plyr-control-spacing, 0.625em) / 4);
-}
-
-.plyr__time {
-    font-size: var(--plyr-font-size-time, var(--plyr-font-size-small, 0.8em));
-}
-
-.plyr--full-ui *,
-.plyr--full-ui :after,
-.plyr--full-ui :before {
-    box-sizing: inherit;
-}
-
-.plyr--video .plyr__controls {
-    background: var(--plyr-video-controls-background, linear-gradient(#0000, #000000bf));
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
-    bottom: 0;
-    color: #0078d4;
-    left: 0;
-    padding: calc(var(--plyr-control-spacing, 0.625em) / 2);
-    padding-top: calc(var(--plyr-control-spacing, 0.625em) * 2);
-    position: absolute;
-    right: 0;
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-    z-index: 3;
-    font-weight: 700;
-}
-
-.plyr__menu__container .plyr__control[role=menuitemradio].plyr__tab-focus:before,
-.plyr__menu__container .plyr__control[role=menuitemradio]:hover:before {
-    background: #fff;
-}
-
-.plyr__menu__container .plyr__control > span {
-    align-items: inherit;
-    display: flex;
-    width: 100%;
-    color: #0078d4;
-}
-
-.plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]:before {
-    background: #0078d4;
-}
-
-.plyr__menu__container .plyr__control > span:hover {
-    color: #fff;
-}
-
-.plyr__control--overlaid {
-    background: #0078d4;
-    color: #fff;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.plyr__control--overlaid:hover {
-    background: #fff;
-    color: #0078d4;
-}
-
-        .plyr__video-embed {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* Esto mantiene la relación 16:9 */
-            background: black;
-        }
-
-        /* Asegurarse de que el iframe ocupe todo el espacio disponible */
-        .plyr__video-embed iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-      </style>
 </head>
 <body>
   <!-- Menú superior estilo Win11 -->
@@ -147,15 +36,14 @@
         <h1>Ver Transmisión en Vivo</h1>
         <p>¡Sintoniza ahora Sol Argentino TV en vivo para disfrutar de nuestra programación de calidad!</p>
         <div class="video-container">
-          <!-- Reproductor de video en vivo con Plyr -->
-          <div class="plyr__video-embed" id="player">
-            <iframe 
-              src="https://www.youtube.com/embed/NgTWF3HI_Cw&controls=0&modestbranding=1&rel=0&showinfo=0&autohide=1"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen 
-              frameborder="0">
-            </iframe>
-          </div>
+          <!-- Reemplazo del reproductor Plyr con el iframe proporcionado -->
+          <iframe src="https://beta.solargentinotv.com.ar/vivoiframe.html" 
+                  width="100%" 
+                  height="600" 
+                  frameborder="0" 
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen>
+          </iframe>
         </div>
       </div>
     </section>
@@ -165,18 +53,6 @@
   <footer>
     <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a href="contacto">Contactanos</a></p> 
   </footer>
-
-  <!-- JS de Plyr desde el CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.5/dist/plyr.js"></script>
-  <script>
-    // Inicialización del reproductor Plyr
-    const player = new Plyr('#player', {
-      youtube: {
-        noCookie: true, // Usar la versión sin cookies
-        playsinline: true, // Mostrar el video dentro de la página
-      }
-    });
-  </script>
 
   <script src="script.js"></script>
 </body>
