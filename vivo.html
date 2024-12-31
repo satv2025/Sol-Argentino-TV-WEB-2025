@@ -93,9 +93,8 @@
       <div class="hero">
         <h1>Ver Transmisión en Vivo</h1>
         <p>¡Sintoniza ahora Sol Argentino TV en vivo para disfrutar de nuestra programación de calidad!</p>
-        <div class="video-container">
-          <!-- Reproductor de Clappr YouTube -->
-          <div id="player-wrapper"></div>
+        <div class="video-container" id="player-wrapper">
+          <!-- El reproductor de Clappr será insertado aquí -->
         </div>
       </div>
     </section>
@@ -106,10 +105,11 @@
     <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a href="contacto">Contactanos</a></p> 
   </footer>
 
+  <!-- Script de Clappr para insertar el reproductor de YouTube -->
   <script>
     // Crear el reproductor de Clappr
     var playerElement = document.getElementById("player-wrapper");
-    var videoId = 'NgTWF3HI_Cw'; // Cambia el ID del video de YouTube
+    var videoId = 'cb12KmMMDJA'; // Cambia el ID del video de YouTube
 
     var player = new Clappr.Player({
       source: videoId, // ID del video de YouTube
