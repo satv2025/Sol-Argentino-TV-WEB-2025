@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="footer.css">
   <link rel="stylesheet" href="satvclappr.css">
   <link rel="icon" href="Logo SATV WEB BETA.ico" type="image/x-icon">
+  <link rel="icon" href="Logo SATV 2024 NAVIDAD.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/skb10x/Gilroy-SATV@main/Gilroy.css"> <!-- Tipografía -->
   <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/ewwink/clappr-youtube-plugin@master/clappr-youtube-plugin.min.js"></script> <!-- Plugin de YouTube -->
@@ -27,15 +28,6 @@
     /* Eliminar bordes redondeados cuando está en fullscreen */
     .clappr-player.fullscreen {
       border-radius: 0 !important;
-    }
-
-        iframe {
-        height: 100vh;
-        width: 100vw;
-    }
-    
-    div.media-control-indicator {
-        color: #ffffff00;
     }
   </style>
 </head>
@@ -59,15 +51,10 @@
 
   <!-- Contenido principal -->
   <main class="main-content">
-    <!-- Sección de bienvenida -->
-    <section id="inicio">
+    <section id="transmision">
       <div class="hero">
-        <h1>Bienvenidos a Sol Argentino TV</h1>
-        <p>Tu canal de TV en línea, donde la información y el entretenimiento se encuentran.</p>
-      </div>
-    </section>
-
-    <!-- Sección de reproductor de video -->
+        <h1>Ver Transmisión en Vivo</h1>
+        <p>¡Sintoniza ahora Sol Argentino TV en vivo para disfrutar de nuestra programación de calidad!</p>
     <section id="intro-video">
       <h2>Video Introductorio</h2>
       <div id="video-player"></div> <!-- Contenedor del reproductor Clappr -->
@@ -78,7 +65,7 @@
   <script>
     // Crear el reproductor de Clappr con YouTube
     var playerElement = document.getElementById("video-player");
-    var videoId = 'qG3zlsYsYH0'; // Cambia el ID del video de YouTube
+    var videoId = 'v0KL2VPIVYY'; // Cambia el ID del video de YouTube
 
     var player = new Clappr.Player({
       source: videoId, // ID del video de YouTube
