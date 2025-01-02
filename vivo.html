@@ -48,6 +48,57 @@ border-radius: 0px !important;
 width: 100vw;
 height: 100vh;
 }
+
+        div.media-control-indicator {
+        color: #ffffff00;
+    }
+
+    .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration] {
+    color: hsl(0deg 0% 100% / 0%);
+    margin-right: 6px;
+}
+
+.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration], 
+.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position] {
+    display: inline-block;
+    font-size: 10px;
+    color: #ffffff00; /* Hacer transparente el texto original */
+    cursor: default;
+    line-height: 32px;
+    position: relative;
+}
+
+/* Agregar un círculo rojo con el texto "VIVO" */
+.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration]::after {
+    content: "VIVO";
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    top: -5px;
+    left: -30%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    display: inline-block;
+    z-index: 10;
+    margin-right: 6px;
+}
+
+.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position]::before {
+    content: "";
+    background-color: red;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    position: absolute;
+    margin-right: 6px;
+    top: 1.3em;
+    left: 19%;
+}
+
+    div.media-control-indicator::before {
+        color: #ffffff00;
+    }
   </style>
 </head>
 <body>
