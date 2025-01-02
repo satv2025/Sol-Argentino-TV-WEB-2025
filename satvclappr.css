@@ -1,9 +1,35 @@
 /* Bordes redondeados para el contenedor del reproductor */
 #video-player {
-  border-radius: 12px; /* Bordes redondeados */
+  border-radius: 8px; /* Bordes redondeados */
 }
 
 /* Tamaño de fuente más grande para el tiempo del reproductor */
 .clappr-media-control .media-control-indicator {
-  font-size: 16px; /* Tamaño de fuente más grande */
+  font-size: 14px; /* Tamaño de fuente más grande */
+}
+
+/* Responsivo para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+  /* Ajustamos el tamaño de fuente del tiempo para dispositivos móviles */
+  .clappr-media-control .media-control-indicator {
+    font-size: 12px; /* Fuente más pequeña en pantallas móviles */
+  }
+
+  /* Ajustamos los bordes redondeados del video para pantallas pequeñas */
+  #video-player {
+    border-radius: 6px; /* Bordes más pequeños en pantallas móviles */
+  }
+}
+
+/* Responsivo para pantallas medianas (tabletas) */
+@media (max-width: 1024px) {
+  /* Ajustamos el tamaño de fuente del tiempo para pantallas de tabletas */
+  .clappr-media-control .media-control-indicator {
+    font-size: 13px; /* Fuente ligeramente más pequeña para tablets */
+  }
+
+  /* Ajustamos los bordes redondeados para tabletas */
+  #video-player {
+    border-radius: 7px; /* Bordes redondeados más pequeños en tabletas */
+  }
 }
