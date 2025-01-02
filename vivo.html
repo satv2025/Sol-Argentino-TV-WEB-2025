@@ -87,13 +87,14 @@ iframe:fullscreen {
   <script>
     // Crear el reproductor de Clappr
     var playerElement = document.getElementById("player-wrapper");
-    var videoId = 'cb12KmMMDJA'; // Cambia el ID del video de YouTube
+    var videoId = '4yeK9S3mGhY'; // Cambia el ID del video de YouTube
 
     var player = new Clappr.Player({
       source: videoId, // ID del video de YouTube
       poster: 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg', // Imagen de vista previa
       height: '489.23px',  // Altura completa de la ventana
       width: '870px',    // Ancho completo del contenedor
+      autoPlay: true,    // Activar autoplay
       plugins: [YoutubePlugin], // Usar el plugin de YouTube
       youtubePlugin: {
         languageCode: 'es' // Configuración de idioma
