@@ -14,12 +14,12 @@
   <style>
     /* Estilos generales para el reproductor */
     #video-player {
-    height: 489.23px;
-    width: 870px;
-      margin: 0 auto;
-      background: #000;
-      overflow: hidden;
-      transition: border-radius 0.3s ease;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    background: #000;
+    overflow: hidden;
+    transition: border-radius 0.3s ease;
     }
 
     /* Eliminar bordes redondeados cuando está en fullscreen */
@@ -85,8 +85,8 @@ iframe:fullscreen {
     var player = new Clappr.Player({
       source: videoId, // ID del video de YouTube
       poster: 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg', // Imagen de vista previa
-      height: '100vh',  // Altura completa de la ventana
-      width: '100%',    // Ancho completo del contenedor
+      height: '489.23px',  // Altura completa de la ventana
+      width: '870px',    // Ancho completo del contenedor
       autoPlay: true,    // Activar autoplay
       plugins: [YoutubePlugin], // Usar el plugin de YouTube
       youtubePlugin: {
