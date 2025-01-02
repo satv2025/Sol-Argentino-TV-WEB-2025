@@ -29,6 +29,11 @@
     .clappr-player.fullscreen {
       border-radius: 0 !important;
     }
+
+        iframe {
+        height: 100vh;
+        width: 100vw;
+    }
   </style>
 </head>
 <body>
@@ -55,21 +60,20 @@
       <div class="hero">
         <h1>Ver Transmisión en Vivo</h1>
         <p>¡Sintoniza ahora Sol Argentino TV en vivo para disfrutar de nuestra programación de calidad!</p>
-      <div id="video-player"></div> <!-- Contenedor del reproductor Clappr -->
+      <div id="player-wrapper"></div>
     </section>
   </main>
 
-  <!-- Script para Clappr -->
   <script>
-    // Crear el reproductor de Clappr con YouTube
-    var playerElement = document.getElementById("video-player");
-    var videoId = 'np9xzJOGtd0'; // Cambia el ID del video de YouTube
+    // Crear el reproductor de Clappr
+    var playerElement = document.getElementById("player-wrapper");
+    var videoId = 'v0KL2VPIVYY'; // Cambia el ID del video de YouTube
 
     var player = new Clappr.Player({
       source: videoId, // ID del video de YouTube
       poster: 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg', // Imagen de vista previa
-      height: '100%',
-      width: '100%',
+      height: '100vh',  // Altura completa de la ventana
+      width: '100%',    // Ancho completo del contenedor
       plugins: [YoutubePlugin], // Usar el plugin de YouTube
       youtubePlugin: {
         languageCode: 'es' // Configuración de idioma
@@ -78,17 +82,7 @@
 
     // Adjuntar el reproductor al contenedor
     player.attachTo(playerElement);
-
-    // Detectar cuando el reproductor entra o sale del modo fullscreen
-    player.on(Clappr.Events.PLAYER_FULLSCREEN, function () {
-      document.querySelector('.clappr-player').classList.add('fullscreen');
-    });
-
-    player.on(Clappr.Events.PLAYER_FULLSCREEN_EXIT, function () {
-      document.querySelector('.clappr-player').classList.remove('fullscreen');
-    });
   </script>
-
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a href="contacto">Contactanos</a></p> 
