@@ -5,6 +5,7 @@
 }
 
     .clappr-player {
+      font-family: 'Gilroy', sans-serif;
       border-radius: 10px !important;  /* Bordes redondeados */
       overflow: hidden; /* Para que no se vean los bordes cuando está redondeado */
       transition: border-radius 0.3s ease; /* Transición suave */
