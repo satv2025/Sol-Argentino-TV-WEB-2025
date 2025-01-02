@@ -39,10 +39,10 @@
     /* Estilos generales para el reproductor */
     #video-player {
     height: 489.23px;
+    max-block-size:
     width: 870px;
     margin: 0 auto;
-    background: #000;
-    overflow: hidden;
+    background: #00000000;
     transition: border-radius 0.3s ease;
     }
 
