@@ -4,9 +4,8 @@
     font-size: 11.4px;
 }
 
-[data-player] div {
-    display: block;
-    border-radius: 10px;
+div#video-player {
+    border-radius: 10px;      /* Bordes redondeados opcionales */
 }
 
 /* Indicador de duración del reproductor con "content" y ajuste de fuente */
