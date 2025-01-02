@@ -36,10 +36,22 @@
     /* Puedes agregar más propiedades aquí si es necesario */
 }
 
-        iframe {
+iframe {
     height: 489.23px;
     width: 870px;
-    }
+}
+
+iframe:fullscreen {
+    height: 1080px;
+    width: 1920px;
+    border-radius: 0 !important;
+}
+
+#video-player:fullscreen {
+    height: 1080px;
+    width: 1920px;
+    border-radius: 0 !important;
+}
   </style>
 </head>
 <body>
@@ -72,42 +84,25 @@
     </section>
   </main>
 
-<script>
-  // Crear el reproductor de Clappr
-  var playerElement = document.getElementById("player-wrapper");
-  var videoId = 'cb12KmMMDJA'; // Cambia el ID del video de YouTube
+  <script>
+    // Crear el reproductor de Clappr
+    var playerElement = document.getElementById("player-wrapper");
+    var videoId = 'cb12KmMMDJA'; // Cambia el ID del video de YouTube
 
-  // Función para ajustar el tamaño del reproductor en función del tamaño de la pantalla
-  function resizePlayer() {
-    var width = window.innerWidth; // Ancho de la ventana
-    var height = window.innerHeight; // Alto de la ventana
-    playerElement.style.width = width + 'px';
-    playerElement.style.height = height + 'px';
-    
-    player.resize(width, height); // Ajustar el tamaño del reproductor
-  }
+    var player = new Clappr.Player({
+      source: videoId, // ID del video de YouTube
+      poster: 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg', // Imagen de vista previa
+      height: '489.23px',  // Altura completa de la ventana
+      width: '870px',    // Ancho completo del contenedor
+      plugins: [YoutubePlugin], // Usar el plugin de YouTube
+      youtubePlugin: {
+        languageCode: 'es' // Configuración de idioma
+      }
+    });
 
-  // Crear el reproductor de Clappr
-  var player = new Clappr.Player({
-    source: videoId, // ID del video de YouTube
-    poster: 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg', // Imagen de vista previa
-    height: '489.23px',  // Altura completa de la ventana
-    width: '870px',    // Ancho completo del contenedor
-    plugins: [YoutubePlugin], // Usar el plugin de YouTube
-    youtubePlugin: {
-      languageCode: 'es' // Configuración de idioma
-    }
-  });
-
-  // Adjuntar el reproductor al contenedor
-  player.attachTo(playerElement);
-
-  // Llamar a la función para ajustar el tamaño cuando la ventana cambie de tamaño
-  window.addEventListener('resize', resizePlayer);
-
-  // Ajustar el tamaño del reproductor cuando la página se cargue
-  resizePlayer();
-</script>
+    // Adjuntar el reproductor al contenedor
+    player.attachTo(playerElement);
+  </script>
 
   <!-- Footer -->
   <footer>
