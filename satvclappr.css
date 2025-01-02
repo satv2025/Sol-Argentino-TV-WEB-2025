@@ -20,3 +20,9 @@
     font-size: 11.5px;
     font-family: 'Gilroy', sans-serif;
 }
+
+.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration] {
+    color: hsla(0, 0%, 100%, .5);
+    font-size: 11.5px;
+    font-family: 'Gilroy', sans-serif;
+}
