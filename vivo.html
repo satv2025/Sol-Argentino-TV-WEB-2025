@@ -3,124 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sol Argentino TV - Ver Transmisión</title>
-  <link rel="stylesheet" href="satv.css">
+  <title>Sol Argentino TV - Canal de Televisión Argentino</title>
+  <link rel="stylesheet" href="satv.css"> <!-- Enlace a los estilos -->
   <link rel="stylesheet" href="footer.css">
-  <link rel="stylesheet" href="reproductor.css">
+  <link rel="stylesheet" href="satvclappr.css">
   <link rel="icon" href="Logo SATV WEB BETA.ico" type="image/x-icon">
-  <!-- CSS de Plyr desde el CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/plyr@3.7.5/dist/plyr.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/skb10x/Gilroy-SATV@main/Gilroy.css"> <!-- Tipografía -->
+  <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ewwink/clappr-youtube-plugin@master/clappr-youtube-plugin.min.js"></script> <!-- Plugin de YouTube -->
   <style>
-    @import url('https://cdn.jsdelivr.net/gh/skb10x/Gilroy-SATV@main/Gilroy.css');
-.plyr {
-    border-radius: 0.5em; /* Reemplazado px con em */
-  font-family: 'Gilroy', sans-serif;
-}
-.plyr--full-ui input[type=range] {
-    -webkit-appearance: none;
-    appearance: none;
-    background: #0000;
-    border: 0;
-    border-radius: calc(var(--plyr-range-thumb-height, 0.8em) * 2);
-    color: #0078d4;
-    display: block;
-    height: calc(var(--plyr-range-thumb-active-shadow-width, 0.2em) * 2 + var(--plyr-range-thumb-height, 0.8em));
-    margin: 0;
-    padding: 0;
-    transition: box-shadow 0.3s ease;
-    width: 100%;
-}
+    /* Estilos generales para el reproductor */
+    #video-player {
+      width: 100%;
+      max-width: 800px;
+      height: 450px; /* Altura del reproductor */
+      margin: 0 auto;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-radius 0.3s ease;
+    }
 
-.plyr--video .plyr__control.plyr__tab-focus,
-.plyr--video .plyr__control:hover,
-.plyr--video .plyr__control[aria-expanded=true] {
-    background: #0078d4;
-    color: #fff;
-}
-
-.plyr__controls .plyr__controls__item.plyr__time {
-    padding: 0 calc(var(--plyr-control-spacing, 0.625em) / 2);
-}
-
-.plyr__controls .plyr__controls__item {
-    margin-left: calc(var(--plyr-control-spacing, 0.625em) / 4);
-}
-
-.plyr__time {
-    font-size: var(--plyr-font-size-time, var(--plyr-font-size-small, 0.8em));
-}
-
-.plyr--full-ui *,
-.plyr--full-ui :after,
-.plyr--full-ui :before {
-    box-sizing: inherit;
-}
-
-.plyr--video .plyr__controls {
-    background: var(--plyr-video-controls-background, linear-gradient(#0000, #000000bf));
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
-    bottom: 0;
-    color: #0078d4;
-    left: 0;
-    padding: calc(var(--plyr-control-spacing, 0.625em) / 2);
-    padding-top: calc(var(--plyr-control-spacing, 0.625em) * 2);
-    position: absolute;
-    right: 0;
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-    z-index: 3;
-    font-weight: 700;
-}
-
-.plyr__menu__container .plyr__control[role=menuitemradio].plyr__tab-focus:before,
-.plyr__menu__container .plyr__control[role=menuitemradio]:hover:before {
-    background: #fff;
-}
-
-.plyr__menu__container .plyr__control > span {
-    align-items: inherit;
-    display: flex;
-    width: 100%;
-    color: #0078d4;
-}
-
-.plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]:before {
-    background: #0078d4;
-}
-
-.plyr__menu__container .plyr__control > span:hover {
-    color: #fff;
-}
-
-.plyr__control--overlaid {
-    background: #0078d4;
-    color: #fff;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.plyr__control--overlaid:hover {
-    background: #fff;
-    color: #0078d4;
-}
-
-        .plyr__video-embed {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* Esto mantiene la relación 16:9 */
-            background: black;
-        }
-
-        /* Asegurarse de que el iframe ocupe todo el espacio disponible */
-        .plyr__video-embed iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-      </style>
+    /* Eliminar bordes redondeados cuando está en fullscreen */
+    .clappr-player.fullscreen {
+      border-radius: 0 !important;
+    }
+  </style>
 </head>
 <body>
   <!-- Menú superior estilo Win11 -->
@@ -129,11 +37,11 @@
       <h1 class="logo">Sol Argentino TV</h1>
       <nav class="navbar">
         <ul class="nav-menu">
-          <li><a href="index">Inicio</a></li>
+          <li><a href="index" class="active">Inicio</a></li>
           <li><a href="grilla">Programación</a></li>
           <li><a href="vivo">Ver Transmisión</a></li>
           <li><a href="noticias">Noticias</a></li>
-          <li><a href="nosotros" class="active">Nosotros</a></li>
+          <li><a href="nosotros">Nosotros</a></li>
           <li><a href="contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -142,42 +50,54 @@
 
   <!-- Contenido principal -->
   <main class="main-content">
-    <section id="transmision">
+    <!-- Sección de bienvenida -->
+    <section id="inicio">
       <div class="hero">
-        <h1>Ver Transmisión en Vivo</h1>
-        <p>¡Sintoniza ahora Sol Argentino TV en vivo para disfrutar de nuestra programación de calidad!</p>
-        <div class="video-container">
-          <!-- Reproductor de video en vivo con Plyr -->
-          <div class="plyr__video-embed" id="player">
-            <iframe 
-              src="https://www.youtube.com/embed/v0KL2VPIVYY&controls=0&modestbranding=1&rel=0&showinfo=0&autohide=1"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen 
-              frameborder="0">
-            </iframe>
-          </div>
-        </div>
+        <h1>Bienvenidos a Sol Argentino TV</h1>
+        <p>Tu canal de TV en línea, donde la información y el entretenimiento se encuentran.</p>
       </div>
+    </section>
+
+    <!-- Sección de reproductor de video -->
+    <section id="intro-video">
+      <h2>Video Introductorio</h2>
+      <div id="video-player"></div> <!-- Contenedor del reproductor Clappr -->
     </section>
   </main>
 
-  <!-- Pie de página -->
-  <footer>
-    <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a href="contacto">Contactanos</a></p> 
-  </footer>
-
-  <!-- JS de Plyr desde el CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.5/dist/plyr.js"></script>
+  <!-- Script para Clappr -->
   <script>
-    // Inicialización del reproductor Plyr
-    const player = new Plyr('#player', {
-      youtube: {
-        noCookie: true, // Usar la versión sin cookies
-        playsinline: true, // Mostrar el video dentro de la página
+    // Crear el reproductor de Clappr con YouTube
+    var playerElement = document.getElementById("video-player");
+    var videoId = 'v0KL2VPIVYY'; // Cambia el ID del video de YouTube
+
+    var player = new Clappr.Player({
+      source: videoId, // ID del video de YouTube
+      poster: 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg', // Imagen de vista previa
+      height: '100%',
+      width: '100%',
+      plugins: [YoutubePlugin], // Usar el plugin de YouTube
+      youtubePlugin: {
+        languageCode: 'es' // Configuración de idioma
       }
+    });
+
+    // Adjuntar el reproductor al contenedor
+    player.attachTo(playerElement);
+
+    // Detectar cuando el reproductor entra o sale del modo fullscreen
+    player.on(Clappr.Events.PLAYER_FULLSCREEN, function () {
+      document.querySelector('.clappr-player').classList.add('fullscreen');
+    });
+
+    player.on(Clappr.Events.PLAYER_FULLSCREEN_EXIT, function () {
+      document.querySelector('.clappr-player').classList.remove('fullscreen');
     });
   </script>
 
-  <script src="script.js"></script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a href="contacto">Contactanos</a></p> 
+  </footer>
 </body>
 </html>
