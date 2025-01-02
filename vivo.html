@@ -6,104 +6,11 @@
   <title>Sol Argentino TV - Canal de Televisión Argentino</title>
   <link rel="stylesheet" href="satv.css"> <!-- Enlace a los estilos -->
   <link rel="stylesheet" href="footer.css">
-  <link rel="stylesheet" href="satvclappr.css">
   <link rel="icon" href="Logo SATV WEB BETA.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/skb10x/Gilroy-SATV@main/Gilroy.css"> <!-- Tipografía -->
   <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/ewwink/clappr-youtube-plugin@master/clappr-youtube-plugin.min.js"></script> <!-- Plugin de YouTube -->
   <style>
-    [data-player] {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    position: relative;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-style: normal;
-    font-weight: 400;
-    text-align: center;
-    overflow: hidden;
-    font-size: 100%;
-    font-family: 'Gilroy', sans-serif;
-    text-shadow: 0 0 0;
-    box-sizing: border-box;
-    border-radius: 10px;
-}
-
-.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position] {
-    margin: 0 6px 0 7px;
-    font-size: 12px;
-    font-family: 'Gilroy', sans-serif;
-}
-
-[data-player] a, [data-player] abbr, [data-player] acronym, [data-player] address, [data-player] applet, [data-player] article, [data-player] aside, [data-player] audio, [data-player] b, [data-player] big, [data-player] blockquote, [data-player] canvas, [data-player] caption, [data-player] center, [data-player] cite, [data-player] code, [data-player] dd, [data-player] del, [data-player] details, [data-player] dfn, [data-player] div, [data-player] dl, [data-player] dt, [data-player] em, [data-player] embed, [data-player] fieldset, [data-player] figcaption, [data-player] figure, [data-player] footer, [data-player] form, [data-player] h1, [data-player] h2, [data-player] h3, [data-player] h4, [data-player] h5, [data-player] h6, [data-player] header, [data-player] hgroup, [data-player] i, [data-player] iframe, [data-player] img, [data-player] ins, [data-player] kbd, [data-player] label, [data-player] legend, [data-player] li, [data-player] mark, [data-player] menu, [data-player] nav, [data-player] object, [data-player] ol, [data-player] output, [data-player] p, [data-player] pre, [data-player] q, [data-player] ruby, [data-player] s, [data-player] samp, [data-player] section, [data-player] small, [data-player] span, [data-player] strike, [data-player] strong, [data-player] sub, [data-player] summary, [data-player] sup, [data-player] table, [data-player] tbody, [data-player] td, [data-player] tfoot, [data-player] th, [data-player] thead, [data-player] time, [data-player] tr, [data-player] tt, [data-player] u, [data-player] ul, [data-player] var, [data-player] video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 100%;
-    vertical-align: baseline;
-}
-
-.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration]:before {
-    content: "|";
-    margin-right: 7px;
-    font-size: 11.5px;
-    font-family: 'Gilroy', sans-serif;
-}
-
-.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration] {
-    color: hsla(0, 0%, 100%, .5);
-    font-size: 12px;
-    font-family: 'Gilroy', sans-serif;
-}
-
-[data-player] a, [data-player] abbr, [data-player] acronym, [data-player] address, [data-player] applet, [data-player] article, [data-player] aside, [data-player] audio, [data-player] b, [data-player] big, [data-player] blockquote, [data-player] canvas, [data-player] caption, [data-player] center, [data-player] cite, [data-player] code, [data-player] dd, [data-player] del, [data-player] details, [data-player] dfn, [data-player] div, [data-player] dl, [data-player] dt, [data-player] em, [data-player] embed, [data-player] fieldset, [data-player] figcaption, [data-player] figure, [data-player] footer, [data-player] form, [data-player] h1, [data-player] h2, [data-player] h3, [data-player] h4, [data-player] h5, [data-player] h6, [data-player] header, [data-player] hgroup, [data-player] i, [data-player] iframe, [data-player] img, [data-player] ins, [data-player] kbd, [data-player] label, [data-player] legend, [data-player] li, [data-player] mark, [data-player] menu, [data-player] nav, [data-player] object, [data-player] ol, [data-player] output, [data-player] p, [data-player] pre, [data-player] q, [data-player] ruby, [data-player] s, [data-player] samp, [data-player] section, [data-player] small, [data-player] span, [data-player] strike, [data-player] strong, [data-player] sub, [data-player] summary, [data-player] sup, [data-player] table, [data-player] tbody, [data-player] td, [data-player] tfoot, [data-player] th, [data-player] thead, [data-player] time, [data-player] tr, [data-player] tt, [data-player] u, [data-player] ul, [data-player] var, [data-player] video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 100%;
-    vertical-align: baseline;
-    font-family: 'Gilroy', sans-serif;
-}
-
-    /* Estilos generales para el reproductor */
-    #video-player {
-    height: 489.23px;
-    max-block-size:
-    width: 870px;
-    margin: 0 auto;
-    background: #00000000;
-    transition: border-radius 0.3s ease;
-    }
-
-    /* Eliminar bordes redondeados cuando está en fullscreen */
-    .clappr-player.fullscreen {
-      border-radius: 0 !important;
-    }
-
-    /* Estilos para el contenedor con la clase fullscreen */
-.fullscreen {
-    height: 100vh;
-    width: 100vw;
-    border-radius: 0px !important;
-    /* Puedes agregar más propiedades aquí si es necesario */
-}
-
-iframe {
-    height: 489.23px;
-    width: 870px;
-}
-
 [data-player] {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -139,7 +46,8 @@ iframe {
     line-height: 1.8;
     vertical-align: baseline;
 }    
-    iframe {
+
+        iframe {
         height: 100vh;
         width: 100vw;
     }
