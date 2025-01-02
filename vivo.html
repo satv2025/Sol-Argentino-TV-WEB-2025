@@ -43,6 +43,11 @@ width: 1920px;
 height: 1080px;
 border-radius: 0px !important;
 }
+
+:fullscreen #player-wrapper {
+width: 100vw;
+height: 100vh;
+}
   </style>
 </head>
 <body>
@@ -83,7 +88,8 @@ border-radius: 0px !important;
     var player = new Clappr.Player({
       source: videoId, // ID del video de YouTube
       poster: 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg', // Imagen de vista previa
-
+      height: "100%", // Altura dinámica
+      width: "100%", // Ancho dinámico
       autoPlay: true,    // Activar autoplay
       plugins: [YoutubePlugin], // Usar el plugin de YouTube
       youtubePlugin: {
