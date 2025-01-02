@@ -71,7 +71,7 @@ iframe:fullscreen {
 }
 
 }
-<style>
+
 [data-player] {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -92,7 +92,7 @@ iframe:fullscreen {
     text-align: center;
     overflow: hidden;
     font-size: 100%;
-    font-family: Roboto, Open Sans, Arial, sans-serif;
+    font-family: 'Gilroy', sans-serif;
     text-shadow: 0 0 0;
     box-sizing: border-box;
     border-radius: 10px;
