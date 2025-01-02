@@ -79,16 +79,16 @@
       </div>
     </section>
   </main>
-  <script>
-    // Función que cambia el logo al seleccionar una opción del menú desplegable
-    function changeLogo() {
-      var logoSelector = document.getElementById("logoSelector");
-      var logoImage = document.getElementById("logoImage");
-      
-      // Cambia la fuente de la imagen al valor seleccionado
-      logoImage.src = logoSelector.value;
-    }
-  </script>
+<script>
+  // Función que cambia el logo al seleccionar una opción del menú desplegable
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function () {
+      var logoImage = document.getElementById('logoImage');
+      var newLogo = this.getAttribute('data-logo'); // Obtiene el valor del atributo data-logo
+      logoImage.src = newLogo; // Cambia la imagen del logo
+    });
+  });
+</script>
   
   <script src="dropdown.js"></script>
 <footer>
