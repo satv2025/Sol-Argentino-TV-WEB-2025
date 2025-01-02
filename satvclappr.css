@@ -4,15 +4,10 @@
     font-size: 11.4px;
 }
 
-/* Estilo general de los elementos dentro del reproductor */
-[data-player] a, [data-player] abbr, [data-player] acronym, [data-player] address, [data-player] applet, [data-player] article, [data-player] aside, [data-player] audio, [data-player] b, [data-player] big, [data-player] blockquote, [data-player] canvas, [data-player] caption, [data-player] center, [data-player] cite, [data-player] code, [data-player] dd, [data-player] del, [data-player] details, [data-player] dfn, [data-player] div, [data-player] dl, [data-player] dt, [data-player] em, [data-player] embed, [data-player] fieldset, [data-player] figcaption, [data-player] figure, [data-player] footer, [data-player] form, [data-player] h1, [data-player] h2, [data-player] h3, [data-player] h4, [data-player] h5, [data-player] h6, [data-player] header, [data-player] hgroup, [data-player] i, [data-player] iframe, [data-player] img, [data-player] ins, [data-player] kbd, [data-player] label, [data-player] legend, [data-player] li, [data-player] mark, [data-player] menu, [data-player] nav, [data-player] object, [data-player] ol, [data-player] output, [data-player] p, [data-player] pre, [data-player] q, [data-player] ruby, [data-player] s, [data-player] samp, [data-player] section, [data-player] small, [data-player] span, [data-player] strike, [data-player] strong, [data-player] sub, [data-player] summary, [data-player] sup, [data-player] table, [data-player] tbody, [data-player] td, [data-player] tfoot, [data-player] th, [data-player] thead, [data-player] time, [data-player] tr, [data-player] tt, [data-player] u, [data-player] ul, [data-player] var, [data-player] video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 100%;
-    vertical-align: baseline;
-    border-radius: 10px;
+div[data-player] {
+  height: 506px;
+  width: 100%;
+  border-radius: 8px; /* Bordes redondeados */
 }
 
 /* Indicador de duración del reproductor con "content" y ajuste de fuente */
@@ -20,28 +15,4 @@
     content: "|";
     margin-right: 7px;
     font-size: 11.5px;
-}
-
-/* Responsivo para pantallas pequeñas (móviles) */
-@media (max-width: 767px) {
-    .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position] {
-        font-size: 10px; /* Reducir el tamaño de fuente para pantallas pequeñas */
-        margin: 0 4px 0 5px; /* Ajustar márgenes para móviles */
-    }
-
-    .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration]:before {
-        font-size: 10px; /* Reducir el tamaño de la fuente del separador */
-    }
-}
-
-/* Responsivo para pantallas medianas (tabletas) */
-@media (max-width: 1024px) {
-    .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position] {
-        font-size: 11px; /* Tamaño de fuente más pequeño para tablets */
-        margin: 0 5px 0 6px; /* Ajustar márgenes para pantallas medianas */
-    }
-
-    .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration]:before {
-        font-size: 11px; /* Ajuste de tamaño para separador */
-    }
 }
