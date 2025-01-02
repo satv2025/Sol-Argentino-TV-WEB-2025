@@ -89,3 +89,13 @@ iframe {
     box-sizing: border-box;
     border-radius: 10px;
 }
+
+[data-player] a, [data-player] abbr, [data-player] acronym, [data-player] address, [data-player] applet, [data-player] article, [data-player] aside, [data-player] audio, [data-player] b, [data-player] big, [data-player] blockquote, [data-player] canvas, [data-player] caption, [data-player] center, [data-player] cite, [data-player] code, [data-player] dd, [data-player] del, [data-player] details, [data-player] dfn, [data-player] div, [data-player] dl, [data-player] dt, [data-player] em, [data-player] embed, [data-player] fieldset, [data-player] figcaption, [data-player] figure, [data-player] footer, [data-player] form, [data-player] h1, [data-player] h2, [data-player] h3, [data-player] h4, [data-player] h5, [data-player] h6, [data-player] header, [data-player] hgroup, [data-player] i, [data-player] iframe, [data-player] img, [data-player] ins, [data-player] kbd, [data-player] label, [data-player] legend, [data-player] li, [data-player] mark, [data-player] menu, [data-player] nav, [data-player] object, [data-player] ol, [data-player] output, [data-player] p, [data-player] pre, [data-player] q, [data-player] ruby, [data-player] s, [data-player] samp, [data-player] section, [data-player] small, [data-player] span, [data-player] strike, [data-player] strong, [data-player] sub, [data-player] summary, [data-player] sup, [data-player] table, [data-player] tbody, [data-player] td, [data-player] tfoot, [data-player] th, [data-player] thead, [data-player] time, [data-player] tr, [data-player] tt, [data-player] u, [data-player] ul, [data-player] var, [data-player] video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 100%;
+    line-height: 1.8;
+    vertical-align: baseline;
+}
