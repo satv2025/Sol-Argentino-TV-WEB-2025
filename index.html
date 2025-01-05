@@ -131,18 +131,24 @@
   </script>
 
   <script>
-  function toggleModal() {
-    const modal = document.getElementById('appsModal');
-    modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+function toggleModal() {
+  const modal = document.getElementById('appsModal');
+  // Cambiar la propiedad display del modal al hacer clic
+  if (modal.style.display === 'block') {
+    modal.style.display = 'none';
+  } else {
+    modal.style.display = 'block';
   }
+}
 
-  // Cerrar el modal si se hace clic fuera de él
-  window.onclick = function(event) {
-    const modal = document.getElementById('appsModal');
-    if (event.target !== modal && !modal.contains(event.target) && !event.target.classList.contains('apps-button')) {
-      modal.style.display = 'none';
-    }
-  };
+// Cerrar el modal si se hace clic fuera de él
+window.onclick = function(event) {
+  const modal = document.getElementById('appsModal');
+  const button = document.querySelector('.apps-button');
+  if (event.target !== modal && !modal.contains(event.target) && event.target !== button) {
+    modal.style.display = 'none';
+  }
+};
   </script>
 
   <!-- Footer -->
