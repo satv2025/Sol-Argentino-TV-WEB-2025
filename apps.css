@@ -1,0 +1,86 @@
+/* Botón de Apps estilo Google */
+.apps-button {
+  position: absolute;
+  right: 2em;
+  top: 0.75em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.apps-icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.apps-icon div {
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+/* Modal de Apps */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 4em;
+  right: 2em;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0.25em 1.25em rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  width: 300px; /* Tamaño fijo del modal */
+  height: auto; /* Ajusta su altura automáticamente según el contenido */
+  padding: 1em;
+  text-align: left;
+  overflow: hidden;
+}
+
+.modal h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal h3 .beta {
+  background-color: red;
+  color: white;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+}
+
+.modal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal ul li {
+  margin-bottom: 0.75em;
+}
+
+.modal ul li a {
+  text-decoration: none;
+  color: #0078d4;
+  font-weight: 600;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal ul li a:hover {
+  color: #0056a3;
+  transform: translateX(5px); /* Efecto de desplazamiento al pasar el cursor */
+}
