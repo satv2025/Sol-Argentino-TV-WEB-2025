@@ -131,27 +131,18 @@
   </script>
 
   <script>
-// Obtener los elementos necesarios
-const openModalBtn = document.getElementById('openModalBtn');
-const appModal = document.getElementById('appModal');
-const closeModalBtn = document.getElementById('closeModalBtn');
-
-// Abrir el modal
-openModalBtn.addEventListener('click', function() {
-  appModal.style.display = 'flex';
-});
-
-// Cerrar el modal cuando se haga clic en el botón de cerrar
-closeModalBtn.addEventListener('click', function() {
-  appModal.style.display = 'none';
-});
-
-// Cerrar el modal si se hace clic fuera de él
-window.addEventListener('click', function(event) {
-  if (event.target === appModal) {
-    appModal.style.display = 'none';
+  function toggleModal() {
+    const modal = document.getElementById('appsModal');
+    modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
   }
-});
+
+  // Cerrar el modal si se hace clic fuera de él
+  window.onclick = function(event) {
+    const modal = document.getElementById('appsModal');
+    if (event.target !== modal && !modal.contains(event.target) && !event.target.classList.contains('apps-button')) {
+      modal.style.display = 'none';
+    }
+  };
   </script>
 
   <!-- Footer -->
