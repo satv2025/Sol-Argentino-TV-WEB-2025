@@ -52,12 +52,18 @@
         width: 100vw;
     }
   
+   div.media-control-indicator {
+        color: #ffffff00;
+    }
 
-.media-control[data-media-control] .media-control-layer[data-controls] {
-    position: relative; /* Aseguramos que los elementos hijos se posicionen relativamente a este contenedor */
+    .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration] {
+    color: hsl(0deg 0% 100% / 0%);
+    margin-right: 6px;
 }
 
-.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration] {
+.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration], 
+.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position] {
+    display: inline-block;
     font-size: 10px;
     color: #ffffff00; /* Hacer transparente el texto original */
     cursor: default;
@@ -65,23 +71,22 @@
     position: relative;
 }
 
-/* Texto "VIVO" siempre en la misma posición */
+/* Agregar un círculo rojo con el texto "VIVO" */
 .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration]::after {
     content: "VIVO";
     color: white;
     font-size: 12px;
     font-weight: bold;
     position: absolute;
-    top: 10px; /* Fija la posición vertical */
-    left: 10px; /* Fija la posición horizontal */
-    transform: none; /* Eliminamos el centrado dinámico */
+    top: -5px;
+    left: -30%;
+    transform: translateX(-50%);
     padding: 5px 10px;
-    background-color: red;
-    border-radius: 5px;
+    display: inline-block;
     z-index: 10;
+    margin-right: 6px;
 }
 
-/* Punto rojo siempre en la misma posición */
 .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position]::before {
     content: "";
     background-color: red;
@@ -89,9 +94,13 @@
     height: 7px;
     border-radius: 50%;
     position: absolute;
-    top: 15px; /* Aseguramos una posición fija */
-    left: 80px; /* Aseguramos una posición fija */
-    z-index: 9;
+    margin-right: 6px;
+    top: 1.3em;
+    left: 19%;
+}
+
+div.media-control-indicator::before {
+    color: #ffffff00;
 }
 
 div#player-wrapper {
