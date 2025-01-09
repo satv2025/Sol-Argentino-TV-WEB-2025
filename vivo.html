@@ -61,7 +61,7 @@
     margin-right: 6px;
 }
 
-.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator, 
+.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration], 
 .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position] {
     display: inline-block;
     font-size: 10px;
@@ -71,22 +71,23 @@
     position: relative;
 }
 
-/* Agregar un círculo rojo con el texto "VIVO" */
-.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator::after {
+/* Círculo rojo con texto "VIVO" */
+.media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration]::after {
     content: "VIVO";
     color: white;
     font-size: 12px;
     font-weight: bold;
     position: absolute;
-    top: -5px;
-    left: -30%;
-    transform: translateX(-50%);
+    top: 0; /* Fijado a la parte superior del contenedor */
+    left: -50px; /* Fijar a la izquierda, ajusta este valor según el diseño */
+    transform: none; /* No usar transform para evitar desplazamientos variables */
     padding: 5px 10px;
     display: inline-block;
     z-index: 10;
-    margin-right: 6px;
+    margin-right: 0; /* Quitar márgenes que podrían generar desplazamientos */
 }
 
+/* Punto rojo */
 .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position]::before {
     content: "";
     background-color: red;
@@ -94,9 +95,10 @@
     height: 7px;
     border-radius: 50%;
     position: absolute;
-    margin-right: 6px;
-    top: 1.3em;
-    left: 19%;
+    top: 50%; /* Centrado verticalmente */
+    left: -20px; /* Fijar posición a la izquierda del contenedor */
+    transform: none; /* No usar transform para evitar desplazamientos */
+    margin-right: 0; /* Quitar márgenes innecesarios */
 }
 
 div.media-control-indicator::before {
