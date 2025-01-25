@@ -18,3 +18,13 @@
     }
   ]
 }
+
+{
+  "redirects": [
+    {
+      "source": "/:path*.css",
+      "destination": "/no-access.html",
+      "statusCode": 307
+    }
+  ]
+}
