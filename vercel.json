@@ -9,22 +9,17 @@
       "source": "/index",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/:path*.css",
+      "destination": "/no-access.html",
+      "statusCode": 307
     }
   ],
   "rewrites": [
     {
       "source": "/:path*",
       "destination": "/:path*.html"
-    }
-  ]
-}
-
-{
-  "redirects": [
-    {
-      "source": "/:path*.css",
-      "destination": "/no-access.html",
-      "statusCode": 307
     }
   ]
 }
