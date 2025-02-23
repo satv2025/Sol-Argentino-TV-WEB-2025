@@ -9,11 +9,6 @@
       "source": "/index",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "destination": "/404",
-      "statusCode": 404
     }
   ],
   "rewrites": [
