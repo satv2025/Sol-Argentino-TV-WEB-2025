@@ -11,9 +11,9 @@
       "permanent": true
     },
     {
-      "source": "/:path*.css",
-      "destination": "/no-access.html",
-      "statusCode": 307
+      "source": "/:path*",
+      "destination": "/404",
+      "statusCode": 404
     }
   ],
   "rewrites": [
