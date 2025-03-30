@@ -101,41 +101,14 @@
 
     <section id="intro-video">
       <h2>Video Introductorio</h2>
-      <div id="video-player"></div>
+      <div id="player"></div>
     </section>
   </main>
 
+  <script src="satvplayer.js" type="text/javascript"></script>
   <script>
-    // Inicializa el reproductor Clappr
-    const player = new Clappr.Player({
-      source: "Trailer SATV WEB BETA.mp4",
-      parentId: "#video-player",
-      width: "100%",
-      height: "506px",
-      autoPlay: false,
-      mediacontrol: { seekbar: "#0078d4", buttons: "#0078d4" },
-      poster: "Trailer SATV WEB BETA_46.png",
-    });
-
-    // Función para abrir y cerrar el modal
-    function toggleModal() {
-      const modal = document.getElementById('appsModal');
-      if (modal.style.display === 'block') {
-        modal.style.display = 'none';
-      } else {
-        modal.style.display = 'block';
-      }
-    }
-
-    // Cerrar el modal si se hace clic fuera de él
-    window.onclick = function(event) {
-      const modal = document.getElementById('appsModal');
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
-    };
+     var player = new Playerjs({id:"player", file:"Trailer SATV WEB BETA.mp4"});
   </script>
-
   <footer>
     <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a href="contacto">Contactanos</a></p> 
   </footer>
