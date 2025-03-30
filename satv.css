@@ -192,6 +192,10 @@ section p {
   }
 }
 
+pjsdiv, pjsdiv > * {
+  font-family: 'Gilroy';
+}
+
 #oframeplayer {
   border-radius: 0.9375em;
   margin-top: 0.4em;
