@@ -1,98 +1,56 @@
-// Datos de la programación por días y fechas especiales
 const schedules = {
-    lunes: [
-      { hora: "08:00", programa: "Buen Día - La Previa De BMN", descripcion: "" },
-      { hora: "10:00", programa: "Buena Mañana", descripcion: "" },
-      { hora: "12:10", programa: "HoyNoticias (Mediodía)", descripcion: "" },
-      { hora: "13:30", programa: "Los Argentinos Deciden (LAD)", descripcion: "" },
-      { hora: "15:15", programa: "Pasapalabra (Versión Sol Argentino TV)", descripcion: "" },
-      { hora: "16:30", programa: "Qatar Interviews", descripcion: "" },
-      { hora: "18:15", programa: "Notitarde", descripcion: "" },
-      { hora: "18:45", programa: "Historias Del Pasado", descripcion: "" },
-      { hora: "20:00", programa: "SATVNOTICIAS", descripcion: "" },
-      { hora: "21:00", programa: "Reality De Bronce", descripcion: "" },
-      { hora: "22:00", programa: "Gran Hermanastro", descripcion: "" },
-      { hora: "01:00", programa: "Llamá y Cortá", descripcion: "" }
-    ],
-    martes: [
-      { hora: "08:00", programa: "Buen Día - La Previa De BMN", descripcion: "" },
-      { hora: "10:00", programa: "Buena Mañana", descripcion: "" },
-      { hora: "12:10", programa: "HoyNoticias (Mediodía)", descripcion: "" },
-      { hora: "13:30", programa: "Los Argentinos Deciden (LAD)", descripcion: "" },
-      { hora: "15:15", programa: "Pasapalabra (Versión Sol Argentino TV)", descripcion: "" },
-      { hora: "16:30", programa: "Qatar Interviews", descripcion: "" },
-      { hora: "18:15", programa: "Notitarde", descripcion: "" },
-      { hora: "18:45", programa: "Historias Del Pasado", descripcion: "" },
-      { hora: "20:00", programa: "SATVNOTICIAS", descripcion: "" },
-      { hora: "21:00", programa: "Reality De Bronce", descripcion: "" },
-      { hora: "22:00", programa: "Gran Hermanastro", descripcion: "" },
-      { hora: "01:00", programa: "Llamá y Cortá", descripcion: "" }
-    ],
-    miercoles: [
-      { hora: "08:00", programa: "Buen Día - La Previa De BMN", descripcion: "" },
-      { hora: "10:00", programa: "Buena Mañana", descripcion: "" },
-      { hora: "12:10", programa: "HoyNoticias (Mediodía)", descripcion: "" },
-      { hora: "13:30", programa: "Los Argentinos Deciden (LAD)", descripcion: "" },
-      { hora: "15:15", programa: "Pasapalabra (Versión Sol Argentino TV)", descripcion: "" },
-      { hora: "16:30", programa: "Qatar Interviews", descripcion: "" },
-      { hora: "18:15", programa: "Notitarde", descripcion: "" },
-      { hora: "18:45", programa: "Historias Del Pasado", descripcion: "" },
-      { hora: "20:00", programa: "SATVNOTICIAS", descripcion: "" },
-      { hora: "21:00", programa: "Reality De Bronce", descripcion: "" },
-      { hora: "22:00", programa: "Gran Hermanastro", descripcion: "" },
-      { hora: "01:00", programa: "Llamá y Cortá", descripcion: "" }
-    ],
-    jueves: [
-      { hora: "08:00", programa: "Buen Día - La Previa De BMN", descripcion: "" },
-      { hora: "10:00", programa: "Buena Mañana", descripcion: "" },
-      { hora: "12:10", programa: "HoyNoticias (Mediodía)", descripcion: "" },
-      { hora: "13:30", programa: "Los Argentinos Deciden (LAD)", descripcion: "" },
-      { hora: "15:15", programa: "Pasapalabra (Versión Sol Argentino TV)", descripcion: "" },
-      { hora: "16:30", programa: "Qatar Interviews", descripcion: "" },
-      { hora: "18:15", programa: "Notitarde", descripcion: "" },
-      { hora: "18:45", programa: "Historias Del Pasado", descripcion: "" },
-      { hora: "20:00", programa: "SATVNOTICIAS", descripcion: "" },
-      { hora: "21:00", programa: "Gala de nominación de Reality De Bronce", descripcion: "" },
-      { hora: "22:00", programa: "Gala de nominación de Gran Hermanastro", descripcion: "" },
-      { hora: "01:00", programa: "Llamá y Cortá", descripcion: "" }
-    ],
-    viernes: [
-      { hora: "08:00", programa: "Buen Día - La Previa De BMN", descripcion: "" },
-      { hora: "10:00", programa: "Buena Mañana", descripcion: "" },
-      { hora: "12:10", programa: "HoyNoticias (Mediodía)", descripcion: "" },
-      { hora: "13:30", programa: "Los Argentinos Deciden (LAD)", descripcion: "" },
-      { hora: "15:15", programa: "Pasapalabra (Versión Sol Argentino TV)", descripcion: "" },
-      { hora: "16:30", programa: "Qatar Interviews", descripcion: "" },
-      { hora: "18:15", programa: "Notitarde", descripcion: "" },
-      { hora: "18:45", programa: "Historias Del Pasado", descripcion: "" },
-      { hora: "20:00", programa: "SATVNOTICIAS", descripcion: "" },
-      { hora: "21:00", programa: "Reality De Bronce", descripcion: "" },
-      { hora: "22:00", programa: "Gran Hermanastro", descripcion: "" },
-      { hora: "23:00", programa: "NoFerpaNoParty", descripcion: "" },
-      { hora: "03:00", programa: "Llamá y Cortá", descripcion: "" }
-    ],
-    sabado: [
-      { hora: "07:00", programa: "Batime El Café", descripcion: "" },
-      { hora: "09:00", programa: "Matías Ponce - La Película", descripcion: "" },
-      { hora: "10:00", programa: "Reite666", descripcion: "" },
-      { hora: "12:00", programa: "Reite666", descripcion: "" },
-      { hora: "15:45", programa: "Batime El Café", descripcion: "" },
-      { hora: "18:00", programa: "Payasos De La Deep Web", descripcion: "" },
-      { hora: "20:00", programa: "Reite666", descripcion: "" },
-      { hora: "23:00", programa: "NoFerpaNoParty", descripcion: "" },
-      { hora: "03:00", programa: "Llamá y Cortá", descripcion: "" }
-    ],
-    domingo: [
-      { hora: "07:00", programa: "Batime El Café", descripcion: "" },
-      { hora: "10:00", programa: "100%Lucha", descripcion: "" },
-      { hora: "12:00", programa: "Reite666", descripcion: "" },
-      { hora: "15:35", programa: "Batime El Café", descripcion: "" },
-      { hora: "18:00", programa: "Payasos De La Deep Web", descripcion: "" },
-      { hora: "20:00", programa: "Reite666", descripcion: "" },
-      { hora: "21:00", programa: "Gala de eliminación de Reality De Bronce", descripcion: "" },
-      { hora: "22:00", programa: "Gala de eliminación de Gran Hermanastro", descripcion: "" },
-      { hora: "01:00", programa: "Llamá y Cortá", descripcion: "" }
-    ],
+  lunes: [
+    { hora: "06:00", programa: "Buen Día - La Previa De BMN", descripcion: "La previa de Buena Mañana Noticias." },
+    { hora: "08:00", programa: "Buena Mañana", descripcion: "Un noticiero matutino que te informa antes de ir al trabajo, a la escuela, universidad o simplemente empezar tu día." },
+    { hora: "10:00", programa: "Todavía Es Temprano", descripcion: "Un magazine que resume todo lo acontecido en la semana mas la actualidad, mientras termina la media mañana." },
+    { hora: "12:00", programa: "NotiAlMuerzo (Mediodía)", descripcion: "El noticiero que te acompaña en el almuerzo y en la sobremesa." },
+    { hora: "14:00", programa: "Hoy Noticias", descripcion: "Un noticiero que se enfoca en la actualidad y lo popular." },
+    { hora: "15:00", programa: "NotiTarde", descripcion: "El noticiero de las tardes, que te mantiene informado mientras merendas, trabajas o estas haciendo ocio." }
+  ],
+  martes: [
+    { hora: "06:00", programa: "Buen Día - La Previa De BMN", descripcion: "La previa de Buena Mañana Noticias." },
+    { hora: "08:00", programa: "Buena Mañana", descripcion: "Un noticiero matutino que te informa antes de ir al trabajo, a la escuela, universidad o simplemente empezar tu día." },
+    { hora: "10:00", programa: "Todavía Es Temprano", descripcion: "Un magazine que resume todo lo acontecido en la semana mas la actualidad, mientras termina la media mañana." },
+    { hora: "12:00", programa: "NotiAlMuerzo (Mediodía)", descripcion: "El noticiero que te acompaña en el almuerzo y en la sobremesa." },
+    { hora: "14:00", programa: "Hoy Noticias", descripcion: "Un noticiero que se enfoca en la actualidad y lo popular." },
+    { hora: "15:00", programa: "NotiTarde", descripcion: "El noticiero de las tardes, que te mantiene informado mientras merendas, trabajas o estas haciendo ocio." }
+  ],
+  miercoles: [
+    { hora: "06:00", programa: "Buen Día - La Previa De BMN", descripcion: "La previa de Buena Mañana Noticias." },
+    { hora: "08:00", programa: "Buena Mañana", descripcion: "Un noticiero matutino que te informa antes de ir al trabajo, a la escuela, universidad o simplemente empezar tu día." },
+    { hora: "10:00", programa: "Todavía Es Temprano", descripcion: "Un magazine que resume todo lo acontecido en la semana mas la actualidad, mientras termina la media mañana." },
+    { hora: "12:00", programa: "NotiAlMuerzo (Mediodía)", descripcion: "El noticiero que te acompaña en el almuerzo y en la sobremesa." },
+    { hora: "14:00", programa: "Hoy Noticias", descripcion: "Un noticiero que se enfoca en la actualidad y lo popular." },
+    { hora: "15:00", programa: "NotiTarde", descripcion: "El noticiero de las tardes, que te mantiene informado mientras merendas, trabajas o estas haciendo ocio." }
+  ],
+  jueves: [
+    { hora: "06:00", programa: "Buen Día - La Previa De BMN", descripcion: "La previa de Buena Mañana Noticias." },
+    { hora: "08:00", programa: "Buena Mañana", descripcion: "Un noticiero matutino que te informa antes de ir al trabajo, a la escuela, universidad o simplemente empezar tu día." },
+    { hora: "10:00", programa: "Todavía Es Temprano", descripcion: "Un magazine que resume todo lo acontecido en la semana mas la actualidad, mientras termina la media mañana." },
+    { hora: "12:00", programa: "NotiAlMuerzo (Mediodía)", descripcion: "El noticiero que te acompaña en el almuerzo y en la sobremesa." },
+    { hora: "14:00", programa: "Hoy Noticias", descripcion: "Un noticiero que se enfoca en la actualidad y lo popular." },
+    { hora: "15:00", programa: "NotiTarde", descripcion: "El noticiero de las tardes, que te mantiene informado mientras merendas, trabajas o estas haciendo ocio." }
+  ],
+  viernes: [
+    { hora: "06:00", programa: "Buen Día - La Previa De BMN", descripcion: "La previa de Buena Mañana Noticias." },
+    { hora: "08:00", programa: "Buena Mañana", descripcion: "Un noticiero matutino que te informa antes de ir al trabajo, a la escuela, universidad o simplemente empezar tu día." },
+    { hora: "10:00", programa: "Todavía Es Temprano", descripcion: "Un magazine que resume todo lo acontecido en la semana mas la actualidad, mientras termina la media mañana." },
+    { hora: "12:00", programa: "NotiAlMuerzo (Mediodía)", descripcion: "El noticiero que te acompaña en el almuerzo y en la sobremesa." },
+    { hora: "14:00", programa: "Hoy Noticias", descripcion: "Un noticiero que se enfoca en la actualidad y lo popular." },
+    { hora: "15:00", programa: "NotiTarde", descripcion: "El noticiero de las tardes, que te mantiene informado mientras merendas, trabajas o estas haciendo ocio." }
+  ],
+  sabado: [
+    { hora: "10:00", programa: "Sábado y Café", descripcion: "Un resumen relajado de la semana con actualidad y temas livianos para arrancar el finde." },
+    { hora: "12:00", programa: "El Noticiero De Las Doce", descripcion: "El noticiero del mediodía que te pone al tanto mientras almorzás." },
+    { hora: "16:30", programa: "NotiTarde (Sábado)", descripcion: "Noticias de la tarde para mantenerte al tanto entre la merienda, el descanso o lo que estés haciendo." },
+    { hora: "23:30", programa: "La Previa de El Noticiero De Las 12 AM", descripcion: "Un repaso tranquilo antes de la medianoche con lo que necesitás saber." },
+    { hora: "00:00", programa: "El Noticiero De Las 12 AM", descripcion: "Un noticiero que te mantiene informado antes de dormir, con el cierre del día." }
+  ],
+  domingo: [
+    { hora: "10:00", programa: "Sábado y Café", descripcion: "Un resumen relajado de la semana con actualidad y temas livianos para arrancar el finde." },
+    { hora: "12:00", programa: "El Noticiero De Las Doce", descripcion: "El noticiero del mediodía que te pone al tanto mientras almorzás." },
+    { hora: "16:30", programa: "NotiTarde (Domingo)", descripcion: "Noticias de la tarde para mantenerte al tanto entre la merienda, el descanso o lo que estés haciendo." }
+  ],  
     "24/12": [
       { hora: "06:00", programa: "Mi Pobre Angelito", descripcion: "Navidad" },
       { hora: "20:00", programa: "Cuenta Regresiva a Navidad", descripcion: "Especial Navidad" }
@@ -121,7 +79,7 @@ const schedules = {
       row.innerHTML = `
         <td>${item.hora}</td>
         <td>${item.programa}</td>
-        <td>${item.descripcion}</td>
+        <td class='psynop'>${item.descripcion}</td>
       `;
       scheduleContent.appendChild(row);
     });
