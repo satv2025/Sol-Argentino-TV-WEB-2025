@@ -14,3 +14,25 @@ oframeplayer:fullscreen {
 pjsdiv:fullscreen, *:fullscreen{
   border-radius: 0 !important;
 }
+
+pjsdiv.outer {
+  position: absolute;
+  left: 17px;
+  top: 0px;
+}
+
+pjsdiv.inner {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.1s linear;
+  width: 20px;
+  height: 20px;
+  transform: scale(1);
+}
+
+svg .icon-path {
+  fill: rgb(0, 120, 212);
+}
