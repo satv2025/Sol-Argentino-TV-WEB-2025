@@ -14,7 +14,3 @@ oframeplayer:fullscreen {
 pjsdiv:fullscreen, *:fullscreen{
   border-radius: 0 !important;
 }
-
-pjsdiv {
-  left: 18px;
-}
