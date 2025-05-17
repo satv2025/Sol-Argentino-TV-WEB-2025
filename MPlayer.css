@@ -16,23 +16,5 @@ pjsdiv:fullscreen, *:fullscreen{
 }
 
 pjsdiv {
-  position: absolute;
-  left: 14px;
-  top: 0px;
-}
-
-pjsdiv > pjsdiv {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.1s linear;
-  width: 20px;
-  height: 20px;
-  transform: scale(1);
-}
-
-pjsdiv svg path {
-  fill: rgb(0, 120, 212);
+  left: 18px;
 }
