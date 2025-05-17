@@ -1,0 +1,16 @@
+pjsdiv, pjsdiv > * {
+  font-family: 'Gilroy';
+}
+
+#oframeplayer {
+  border-radius: 0.9375em;
+  margin-top: 0.4em;
+}
+
+oframeplayer:fullscreen {
+  border-radius: 0 !important;
+}
+
+pjsdiv:fullscreen, *:fullscreen{
+  border-radius: 0 !important;
+}
