@@ -12,6 +12,18 @@ body {
   font-size: 1em; /* Usar unidades relativas */
 }
 
+* {
+    font-family: 'Gilroy', sans-serif;
+}
+
+pjsdiv > * {
+    font-family: 'Gilroy', sans-serif;
+}
+
+pjsdiv > * {
+    font-family: 'Gilroy', sans-serif;
+}
+
 /* Scrollbar personalizada */
 ::-webkit-scrollbar {
   width: 8px; /* Grosor de la barra de desplazamiento */
