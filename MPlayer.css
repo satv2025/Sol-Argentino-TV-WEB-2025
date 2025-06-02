@@ -1,5 +1,5 @@
 pjsdiv, pjsdiv > * {
-  font-family: 'Gilroy';
+  font-family: 'Gilroy' !important;
 }
 
 #oframeplayer {
