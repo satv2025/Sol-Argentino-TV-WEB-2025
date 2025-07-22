@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,26 @@
   <link rel="stylesheet" href="footer.css">
   <link rel="stylesheet" href="footerc.css">
   <link rel="icon" href="Logo SATV WEB BETA.ico" type="image/x-icon">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden !important;
+      overflow-y: hidden !important;
+      /* ¡Importante! Elimina scroll nativo */
+    }
+
+    #page-scroll {
+      height: 100vh;
+      overflow: auto;
+      /* scroll va aquí */
+      position: relative;
+    }
+  </style>
+</head>
+
 <body>
   <!-- Menú superior estilo Win11 -->
   <header class="header">
@@ -33,7 +54,8 @@
       <div class="hero">
         <h1>Contacto</h1>
         <p>Si deseas ponerte en contacto con nosotros, puedes escribirnos al siguiente correo electrónico:</p>
-        <p><strong>E-Mail: <a href="mailto:solargentinotv@solargentinotv.com.ar">solargentinotv@solargentinotv.com.ar</a></strong></p>
+        <p><strong>E-Mail: <a
+              href="mailto:solargentinotv@solargentinotv.com.ar">solargentinotv@solargentinotv.com.ar</a></strong></p>
 
         <h2>Redes Sociales</h2>
         <p>¡Síguenos en nuestras redes sociales para estar al tanto de todo lo que pasa en Sol Argentino TV!</p>
@@ -49,9 +71,13 @@
   </main>
 
   <!-- Pie de página -->
-<footer>
-  <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a href="contacto">Contactanos</a></p> 
-</footer>
+  <footer>
+    <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a
+        href="contacto">Contactanos</a></p>
+  </footer>
   <script src="script.js"></script>
+  <script src="satv-scroll-main.js"></script>
+  <script src="satv-scroll-dropdown.js"></script>
 </body>
+
 </html>

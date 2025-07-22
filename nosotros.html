@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,26 @@
   <link rel="stylesheet" href="dropdown.css">
   <link rel="stylesheet" href="footern.css">
   <link rel="icon" href="Logo SATV WEB BETA.ico" type="image/x-icon">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden !important;
+      overflow-y: hidden !important;
+      /* ¡Importante! Elimina scroll nativo */
+    }
+
+    #page-scroll {
+      height: 100vh;
+      overflow: auto;
+      /* scroll va aquí */
+      position: relative;
+    }
+  </style>
 </head>
+
 <body>
   <!-- Menú superior estilo Win11 -->
   <header class="header">
@@ -38,61 +58,83 @@
 
       <div class="historia-contenido">
         <h2>El Comienzo</h2>
-        <p>A comienzos de diciembre y fines del 2020 en Buenos Aires, Argentina, nuestro creador/fundador SKB empezó a jugar en un programa de grabación/emisión (Xsplit Broadcaster) y Photoshop, creando un logo a color y otro en negro, el logo a color era cuando el canal estaba al aire, y el negro es cuando el canal estaba en espacio publicitario, y se le sacaba un poco la opacidad. Hasta ahí no había intención de llevarlo a la realidad, hasta que a fines del 2020 y principios del 2021 se estableció un logo, se fueron preparando cosas, y el 19 de enero de 2021 salió al aire por primera vez Sol Argentino TV con la primer saga "Bloopers y Datos Surtidos".</p>
+        <p>A comienzos de diciembre y fines del 2020 en Buenos Aires, Argentina, nuestro creador/fundador SKB empezó a
+          jugar en un programa de grabación/emisión (Xsplit Broadcaster) y Photoshop, creando un logo a color y otro en
+          negro, el logo a color era cuando el canal estaba al aire, y el negro es cuando el canal estaba en espacio
+          publicitario, y se le sacaba un poco la opacidad. Hasta ahí no había intención de llevarlo a la realidad,
+          hasta que a fines del 2020 y principios del 2021 se estableció un logo, se fueron preparando cosas, y el 19 de
+          enero de 2021 salió al aire por primera vez Sol Argentino TV con la primer saga "Bloopers y Datos Surtidos".
+        </p>
 
-<h3>Cambio del Logo</h3>
-<!-- Contenedor para el logo -->
-<img id="logoImage" src="Logo 1.png" alt="Logo" style="width: 100%; max-width: 200px;">
+        <h3>Cambio del Logo</h3>
+        <!-- Contenedor para el logo -->
+        <img id="logoImage" src="Logo 1.png" alt="Logo" style="width: 100%; max-width: 200px;">
 
-<div class="dropdown">
-  <button class="dropbtn">Selecciona un Logo</button>
-  <div class="dropdown-content">
-    <div class="dropdown-item" data-logo="Logo 1.png">19/01/21: Primer emisión y cambio de logo</div>
-    <div class="dropdown-item" data-logo="Logo 2.png">Mitad de año 2021: Evolución del canal</div>
-    <div class="dropdown-item" data-logo="Logo 3.png">2022: Desperfecto técnico y recuperación</div>
-    <div class="dropdown-item" data-logo="Logo 4.png">24/03/2022: Emitimos "Hoy Noticias" con especial</div>
-    <div class="dropdown-item" data-logo="Logo 5.png">19/12/2022 - 31/12/2022: Nuevo logo post-campeonato mundial</div>
-    <div class="dropdown-item" data-logo="Logo 6.png">2023-2024: Crecimiento y perfeccionamiento</div>
-    <div class="dropdown-item" data-logo="Logo 7.png">2024: Renovación y expansión del canal</div>
-    <div class="dropdown-item" data-logo="Logo 8.png">2024: Mayor presencia digital y nuevas iniciativas</div>
-    <div class="dropdown-item" data-logo="Logo 9.png">2024: Consolidación y crecimiento continuo</div>
-    <div class="dropdown-item" data-logo="Logo 10.png">2024 - Presente: Nueva fase y más innovación</div>
-    <div class="dropdown-item" data-logo="Logo 11.png">Especial | Logo exclusivo de navidad</div>
-    <div class="dropdown-item" data-logo="Logo 12.png">Especial | Logo exclusivo de galas y premios como Martin Fierro</div>
-    <div class="dropdown-item" data-logo="Logo 13.png">Especial | Logo exclusivo de eventos patrios</div>
-  </div>
-</div>
+        <div class="dropdown">
+          <button class="dropbtn">Selecciona un Logo</button>
+          <div class="dropdown-content">
+            <div class="dropdown-item" data-logo="Logo 1.png">19/01/21: Primer emisión y cambio de logo</div>
+            <div class="dropdown-item" data-logo="Logo 2.png">Mitad de año 2021: Evolución del canal</div>
+            <div class="dropdown-item" data-logo="Logo 3.png">2022: Desperfecto técnico y recuperación</div>
+            <div class="dropdown-item" data-logo="Logo 4.png">24/03/2022: Emitimos "Hoy Noticias" con especial</div>
+            <div class="dropdown-item" data-logo="Logo 5.png">19/12/2022 - 31/12/2022: Nuevo logo post-campeonato
+              mundial</div>
+            <div class="dropdown-item" data-logo="Logo 6.png">2023-2024: Crecimiento y perfeccionamiento</div>
+            <div class="dropdown-item" data-logo="Logo 7.png">2024: Renovación y expansión del canal</div>
+            <div class="dropdown-item" data-logo="Logo 8.png">2024: Mayor presencia digital y nuevas iniciativas</div>
+            <div class="dropdown-item" data-logo="Logo 9.png">2024: Consolidación y crecimiento continuo</div>
+            <div class="dropdown-item" data-logo="Logo 10.png">2024 - Presente: Nueva fase y más innovación</div>
+            <div class="dropdown-item" data-logo="Logo 11.png">Especial | Logo exclusivo de navidad</div>
+            <div class="dropdown-item" data-logo="Logo 12.png">Especial | Logo exclusivo de galas y premios como Martin
+              Fierro</div>
+            <div class="dropdown-item" data-logo="Logo 13.png">Especial | Logo exclusivo de eventos patrios</div>
+          </div>
+        </div>
 
         <h2>Nuestra Historia: El Sueño Argentino que Sigue Creciendo</h2>
         <p><strong>Fundación:</strong> 2020 | <strong>Primera Transmisión:</strong> 19 de enero de 2021</p>
-        <p>En 2020, mientras el mundo se daba vuelta, nosotros apostamos por algo grande. Queríamos crear un canal de televisión de verdad. No una radio, no un podcast, sino un canal que se sintiera auténtico, hecho con ganas, con pasión y pensado para todos los que creen que la tele todavía tiene mucho para dar.</p>
+        <p>En 2020, mientras el mundo se daba vuelta, nosotros apostamos por algo grande. Queríamos crear un canal de
+          televisión de verdad. No una radio, no un podcast, sino un canal que se sintiera auténtico, hecho con ganas,
+          con pasión y pensado para todos los que creen que la tele todavía tiene mucho para dar.</p>
 
-        <p>El 19 de enero de 2021 hicimos nuestra primera transmisión. Fue un momento único, lleno de nervios, pero también de emoción. Ese día empezamos un camino que no se detuvo, con el objetivo claro de ofrecer contenido de calidad, historias que emocionen, que diviertan, que nos acerquen a nuestra audiencia de una manera distinta.</p>
+        <p>El 19 de enero de 2021 hicimos nuestra primera transmisión. Fue un momento único, lleno de nervios, pero
+          también de emoción. Ese día empezamos un camino que no se detuvo, con el objetivo claro de ofrecer contenido
+          de calidad, historias que emocionen, que diviertan, que nos acerquen a nuestra audiencia de una manera
+          distinta.</p>
 
-        <p>Desde el principio supimos que no queríamos ser “uno más”. Nuestro objetivo siempre fue crear algo diferente, algo que represente el espíritu de la televisión de verdad, pero con la frescura y libertad que plataformas como YouTube nos permiten.</p>
+        <p>Desde el principio supimos que no queríamos ser “uno más”. Nuestro objetivo siempre fue crear algo diferente,
+          algo que represente el espíritu de la televisión de verdad, pero con la frescura y libertad que plataformas
+          como YouTube nos permiten.</p>
 
-        <p>Hoy seguimos creciendo, soñando más alto y laburando cada día para que esto no sea solo un canal, sino un espacio en el que vos también te sientas parte. No creemos en los límites, y vamos por mucho más.</p>
+        <p>Hoy seguimos creciendo, soñando más alto y laburando cada día para que esto no sea solo un canal, sino un
+          espacio en el que vos también te sientas parte. No creemos en los límites, y vamos por mucho más.</p>
 
-        <p>Esta Navidad, queremos que la vivas con nosotros. Estamos preparando algo especial, algo que te va a hacer sentir lo mismo que sentimos nosotros cuando soñamos este proyecto por primera vez: esa emoción de saber que lo mejor siempre está por venir.</p>
+        <p>Esta Navidad, queremos que la vivas con nosotros. Estamos preparando algo especial, algo que te va a hacer
+          sentir lo mismo que sentimos nosotros cuando soñamos este proyecto por primera vez: esa emoción de saber que
+          lo mejor siempre está por venir.</p>
 
         <p>Desde 2020 hasta hoy, esta es nuestra historia. Y vos, ¿te sumás a ser parte de lo que viene?</p>
       </div>
     </section>
   </main>
-<script>
-  // Función que cambia el logo al seleccionar una opción del menú desplegable
-  document.querySelectorAll('.dropdown-item').forEach(item => {
-    item.addEventListener('click', function () {
-      var logoImage = document.getElementById('logoImage');
-      var newLogo = this.getAttribute('data-logo'); // Obtiene el valor del atributo data-logo
-      logoImage.src = newLogo; // Cambia la imagen del logo
+  <script>
+    // Función que cambia el logo al seleccionar una opción del menú desplegable
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', function () {
+        var logoImage = document.getElementById('logoImage');
+        var newLogo = this.getAttribute('data-logo'); // Obtiene el valor del atributo data-logo
+        logoImage.src = newLogo; // Cambia la imagen del logo
+      });
     });
-  });
-</script>
-  
+  </script>
+
   <script src="dropdown.js"></script>
-<footer>
-  <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a href="contacto">Contactanos</a></p> 
-</footer>
+  <script src="satv-scroll-main.js"></script>
+  <script src="satv-scroll-dropdown.js"></script>
+  <footer>
+    <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a
+        href="contacto">Contactanos</a></p>
+  </footer>
 </body>
+
 </html>

@@ -17,7 +17,8 @@
       height: 100%;
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      overflow-x: hidden !important;
+      overflow-y: hidden !important;
       /* ¡Importante! Elimina scroll nativo */
     }
 
@@ -242,7 +243,7 @@
 
       #page-scroll {
         height: 100vh;
-        overflow: auto !important;
+        overflow: hidden !important;
         position: relative;
       }
 
@@ -258,6 +259,7 @@
         transition: none !important;
         pointer-events: auto !important;
         right: 2px !important;
+        z-index: 1000 !important;
       }
 
       .ps__rail-y.ps--active,
@@ -268,9 +270,13 @@
       }
 
       .ps__thumb-y {
-        background-color: #02a22a !important;
+        background-color: #0078d4 !important;
         border-radius: 4px;
       }
+
+      .ps__rail-y:hover>.ps__thumb-y {
+    width: 8px !important;
+}
     `;
 
         const styleTag = document.createElement('style');
