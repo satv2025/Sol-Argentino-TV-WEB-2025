@@ -314,6 +314,53 @@
     <script>
       const ps = new PerfectScrollbar('.scroll-body', { wheelPropagation: false, suppressScrollX: true });
     </script>
+    <script>
+      // Datos correctos
+      const correctUser = 'trustceodev';
+      const correctPass = 'trustgovermentsecret11';
+
+      // Crear overlay dinámicamente
+      const overlay = document.createElement('div');
+      overlay.id = 'loginOverlay';
+      overlay.style.position = 'fixed';
+      overlay.style.top = '0';
+      overlay.style.left = '0';
+      overlay.style.width = '100%';
+      overlay.style.height = '100%';
+      overlay.style.background = 'rgba(0,0,0,0.85)';
+      overlay.style.display = 'flex';
+      overlay.style.justifyContent = 'center';
+      overlay.style.alignItems = 'center';
+      overlay.style.zIndex = '9999';
+
+      overlay.innerHTML = `
+    <div style="background:#fff;padding:30px;border-radius:10px;max-width:300px;width:90%;text-align:center;">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Usuario" style="width:90%;margin:10px 0;padding:5px"><br>
+      <input type="password" id="password" placeholder="Contraseña" style="width:90%;margin:10px 0;padding:5px"><br>
+      <button onclick="login()" style="padding:5px 15px;">Ingresar</button>
+      <div id="loginError" style="color:red;margin-top:10px;"></div>
+    </div>
+  `;
+
+      document.body.appendChild(overlay);
+
+      function login() {
+        const user = document.getElementById('username').value;
+        const pass = document.getElementById('password').value;
+        const errorDiv = document.getElementById('loginError');
+
+        if (user === correctUser && pass === correctPass) {
+          overlay.style.display = 'none';
+        } else {
+          errorDiv.textContent = 'Usuario o contraseña incorrectos';
+        }
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') login();
+      });
+    </script>
 
 </body>
 
