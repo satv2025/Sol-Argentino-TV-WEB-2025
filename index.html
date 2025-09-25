@@ -5,13 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sol Argentino TV - Canal de Televisión Argentino</title>
-  <link rel="stylesheet" href="satv.css">
-  <link rel="stylesheet" href="footer.css">
-  <link rel="stylesheet" href="MPlayer.css">
-  <link rel="stylesheet" href="apps.css">
-  <link rel="icon" href="Logo SATV WEB BETA.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/skb10x/Gilroy-SATV@main/Gilroy.css">
+
+  <!-- CSS Absolutos -->
+  <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/satv.css">
+  <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/footer.css">
+  <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/MPlayer.css">
+  <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/apps.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico" type="image/x-icon">
+
   <style>
+    @import url('https://solargentinotv.com.ar/assets/fonts/Gilroy/Gilroy.css');
+
     html,
     body {
       height: 100%;
@@ -19,13 +25,11 @@
       padding: 0;
       overflow-x: hidden !important;
       overflow-y: hidden !important;
-      /* ¡Importante! Elimina scroll nativo */
     }
 
     #page-scroll {
       height: 100vh;
       overflow: auto;
-      /* scroll va aquí */
       position: relative;
     }
 
@@ -142,6 +146,8 @@
       border-radius: 10px;
     }
   </style>
+
+  <!-- Clappr CDN -->
   <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 </head>
 
@@ -203,10 +209,15 @@
       </section>
     </main>
 
-    <script src="MPlayer2025V2.js" type="text/javascript"></script>
+    <!-- JS Absolutos -->
+    <script src="https://solargentinotv.com.ar/assets/js/MPlayer2025V2.js" type="text/javascript"></script>
     <script>
-      var player = new Playerjs({ id: "player", file: "Trailer SATV WEB BETA.mp4" });
+      var player = new Playerjs({
+        id: "player",
+        file: "https://solargentinotv.com.ar/assets/media/video/Trailer SATV WEB BETA.mp4"
+      });
     </script>
+
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         function loadCSS(href) {
@@ -275,8 +286,8 @@
       }
 
       .ps__rail-y:hover>.ps__thumb-y {
-    width: 8px !important;
-}
+        width: 8px !important;
+      }
     `;
 
         const styleTag = document.createElement('style');
