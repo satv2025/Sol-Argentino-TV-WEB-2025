@@ -105,6 +105,94 @@
     <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a
         href="https://solargentinotv.com.ar/contacto">Contactanos</a></p>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function loadCSS(href) {
+        return new Promise(function (resolve, reject) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = href;
+          link.onload = () => resolve();
+          link.onerror = () => reject(`Error cargando CSS: ${href}`);
+          document.head.appendChild(link);
+        });
+      }
+
+      function loadJS(src) {
+        return new Promise(function (resolve, reject) {
+          const script = document.createElement('script');
+          script.src = src;
+          script.onload = () => resolve();
+          script.onerror = () => reject(`Error cargando JS: ${src}`);
+          document.body.appendChild(script);
+        });
+      }
+
+      const psCSS = 'https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/css/perfect-scrollbar.css';
+      const psJS = 'https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/dist/perfect-scrollbar.min.js';
+
+      const customStyle = `
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+      }
+
+      #page-scroll {
+        height: 100vh;
+        overflow: hidden !important;
+        position: relative;
+      }
+
+      .ps__rail-x {
+        display: none !important;
+      }
+
+      .ps__rail-y {
+        background-color: transparent !important;
+        width: 8px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: none !important;
+        pointer-events: auto !important;
+        right: 2px !important;
+        z-index: 1000 !important;
+      }
+
+      .ps__rail-y.ps--active,
+      .ps__rail-y:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: none !important;
+      }
+
+      .ps__thumb-y {
+        background-color: #0078d4 !important;
+        border-radius: 4px;
+      }
+
+      .ps__rail-y:hover>.ps__thumb-y {
+        width: 8px !important;
+      }
+    `;
+
+      const styleTag = document.createElement('style');
+      styleTag.textContent = customStyle;
+      document.head.appendChild(styleTag);
+
+      loadCSS(psCSS)
+        .then(() => loadJS(psJS))
+        .then(() => {
+          const scrollContainer = document.querySelector('#page-scroll');
+          new PerfectScrollbar(scrollContainer, {
+            wheelPropagation: false,
+            suppressScrollX: true
+          });
+        })
+        .catch(console.error);
+    });
+  </script>
 </body>
 
 </html>
