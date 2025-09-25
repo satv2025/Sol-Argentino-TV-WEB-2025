@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSteam y CrackedSteam, los primeros hacks del mundo gamer - Sol Argentino TV</title>
+
+    <!-- CSS Absolutos -->
+    <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/satv.css">
+    <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/betasatv.css">
+    <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/footer.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico"
+        type="image/x-icon">
+
+    <style>
+        /* Import de fuente Gilroy */
+        @import url('https://solargentinotv.com.ar/assets/fonts/Gilroy/Gilroy.css');
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden !important;
+            overflow-y: hidden !important;
+            font-family: 'Gilroy', sans-serif;
+        }
+
+        #page-scroll {
+            height: 100vh;
+            overflow: auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page-scroll">
+        <!-- Menú superior estilo Win11 -->
+        <header class="header">
+            <div class="menu-container">
+                <h1 class="logo">Sol Argentino TV</h1>
+                <nav class="navbar">
+                    <ul class="nav-menu">
+                        <li><a href="https://solargentinotv.com.ar/index">Inicio</a></li>
+                        <li><a href="https://solargentinotv.com.ar/grilla">Programación</a></li>
+                        <li><a href="https://solargentinotv.com.ar/vivo">Ver Transmisión</a></li>
+                        <li><a href="https://solargentinotv.com.ar/noticias">Noticias</a></li>
+                        <li><a href="https://solargentinotv.com.ar/nosotros">Nosotros</a></li>
+                        <li><a href="https://solargentinotv.com.ar/contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <section id="articulo">
+                <h1 id="h1article">SmartSteam y CrackedSteam: El fin de una era gamer</h1>
+                <img src="https://solargentinotv.com.ar/assets/media/images/noticia1.jpg"
+                    alt="Imagen representativa de SmartSteam y CrackedSteam">
+                <p>
+                    Durante años, <strong>SmartSteamEmu</strong> fue la herramienta secreta de muchos gamers para jugar
+                    títulos de Steam sin instalar el cliente oficial.
+                    Permitía ejecutar juegos con todos los logros, estadísticas y DLCs listos para usar, e incluso
+                    habilitaba partidas LAN sin conexión a Internet. ¡Un sueño para los que querían todo listo al toque!
+                </p>
+                <p>
+                    SmartSteamEmu era un emulador que replicaba el cliente de Steam y permitía arrancar juegos
+                    directamente, evitando las restricciones de la plataforma.
+                    Originalmente creado para Age of Empires II HD, pronto se expandió a otros títulos, convirtiéndose
+                    en un recurso indispensable para algunos jugadores que querían saltarse la instalación oficial.
+                </p>
+                <p>
+                    Por su parte, <strong>CrackedSteam</strong> llevaba esto un paso más allá: se trataba de métodos y
+                    parches que permitían jugar a cualquier juego de Steam sin tener una copia legítima.
+                    Esto incluía modificar archivos de Steam para saltarse protecciones y hacer que los juegos
+                    funcionaran sin el cliente oficial. ¡Era la fantasía de cualquier gamer impaciente!
+                </p>
+                <p>
+                    Pero no todo era color de rosa: con el tiempo, Valve reforzó su seguridad y detectó estos emuladores
+                    y cracks. La mayoría de los juegos dejaron de funcionar y las cuentas que los usaban podían recibir
+                    sanciones, incluyendo la expulsión permanente de Steam.
+                </p>
+                <p>
+                    Hoy en día, SmartSteamEmu y CrackedSteam ya no tienen soporte oficial, son ilegales y su uso puede
+                    traerte problemas serios.
+                    La recomendación de los expertos es clara: si querés jugar, hacelo por vías legales. No vale la pena
+                    arriesgar tu cuenta y tus datos por un acceso rápido.
+                </p>
+                <p>
+                    En resumen: SmartSteam y CrackedSteam marcaron un capítulo curioso en la historia gamer, demostrando
+                    creatividad técnica y un poco de rebeldía, pero también recordándonos los riesgos de usar software
+                    no autorizado.
+                </p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos.
+                <a href="https://solargentinotv.com.ar/contacto">Contactanos</a>
+            </p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function loadCSS(href) {
+                return new Promise(function (resolve, reject) {
+                    const link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = href;
+                    link.onload = () => resolve();
+                    link.onerror = () => reject(`Error cargando CSS: ${href}`);
+                    document.head.appendChild(link);
+                });
+            }
+
+            function loadJS(src) {
+                return new Promise(function (resolve, reject) {
+                    const script = document.createElement('script');
+                    script.src = src;
+                    script.onload = () => resolve();
+                    script.onerror = () => reject(`Error cargando JS: ${src}`);
+                    document.body.appendChild(script);
+                });
+            }
+
+            const psCSS = 'https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/css/perfect-scrollbar.css';
+            const psJS = 'https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/dist/perfect-scrollbar.min.js';
+
+            const customStyle = `
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+      }
+
+      #page-scroll {
+        height: 100vh;
+        overflow: hidden !important;
+        position: relative;
+      }
+
+      .ps__rail-x {
+        display: none !important;
+      }
+
+      .ps__rail-y {
+        background-color: transparent !important;
+        width: 8px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: none !important;
+        pointer-events: auto !important;
+        right: 2px !important;
+        z-index: 1000 !important;
+      }
+
+      .ps__rail-y.ps--active,
+      .ps__rail-y:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: none !important;
+      }
+
+      .ps__thumb-y {
+        background-color: #0078d4 !important;
+        border-radius: 4px;
+      }
+
+      .ps__rail-y:hover>.ps__thumb-y {
+        width: 8px !important;
+      }
+    `;
+
+            const styleTag = document.createElement('style');
+            styleTag.textContent = customStyle;
+            document.head.appendChild(styleTag);
+
+            loadCSS(psCSS)
+                .then(() => loadJS(psJS))
+                .then(() => {
+                    const scrollContainer = document.querySelector('#page-scroll');
+                    new PerfectScrollbar(scrollContainer, {
+                        wheelPropagation: false,
+                        suppressScrollX: true
+                    });
+                })
+                .catch(console.error);
+        });
+    </script>
+</body>
+
+</html>
