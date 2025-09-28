@@ -206,14 +206,16 @@
     </main>
 
     <!-- JS Absolutos -->
-    <!-- Bundle React del player -->
+    <!-- React y ReactDOM desde CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Tu bundle -->
     <script src="https://cdn2.solargentinotv.com.ar/dist/bundle.js"></script>
+
     <script>
-      // Asumiendo que tu bundle exporta el componente como global PlayerReact o similar
       document.addEventListener('DOMContentLoaded', function () {
         const container = document.getElementById('player');
-
-        // ReactDOM debe estar disponible globalmente en tu bundle o importarlo en bundle
         ReactDOM.render(
           React.createElement(VideoPlayer, {
             src: "https://solargentinotv.com.ar/assets/media/videos/Trailer%20SATV%20WEB%20BETA.mp4",
