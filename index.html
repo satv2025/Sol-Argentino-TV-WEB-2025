@@ -2,11 +2,11 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sol Argentino TV - Canal de Televisión Argentino</title>
 
-  <!-- CSS Absolutos -->
+  <!-- CSS -->
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/satv.css">
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/footer.css">
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/MPlayer.css">
@@ -23,128 +23,21 @@
       height: 100%;
       margin: 0;
       padding: 0;
-      overflow-x: hidden !important;
-      overflow-y: hidden !important;
     }
 
-    #page-scroll {
-      height: 100vh;
-      overflow: auto;
-      position: relative;
+    /* Ajustes mínimos para el player-root */
+    #player-react-root {
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto;
     }
 
-    [data-player] a,
-    [data-player] abbr,
-    [data-player] acronym,
-    [data-player] address,
-    [data-player] applet,
-    [data-player] article,
-    [data-player] aside,
-    [data-player] audio,
-    [data-player] b,
-    [data-player] big,
-    [data-player] blockquote,
-    [data-player] canvas,
-    [data-player] caption,
-    [data-player] center,
-    [data-player] cite,
-    [data-player] code,
-    [data-player] dd,
-    [data-player] del,
-    [data-player] details,
-    [data-player] dfn,
-    [data-player] div,
-    [data-player] dl,
-    [data-player] dt,
-    [data-player] em,
-    [data-player] embed,
-    [data-player] fieldset,
-    [data-player] figcaption,
-    [data-player] figure,
-    [data-player] footer,
-    [data-player] form,
-    [data-player] h1,
-    [data-player] h2,
-    [data-player] h3,
-    [data-player] h4,
-    [data-player] h5,
-    [data-player] h6,
-    [data-player] header,
-    [data-player] hgroup,
-    [data-player] i,
-    [data-player] iframe,
-    [data-player] img,
-    [data-player] ins,
-    [data-player] kbd,
-    [data-player] label,
-    [data-player] legend,
-    [data-player] li,
-    [data-player] mark,
-    [data-player] menu,
-    [data-player] nav,
-    [data-player] object,
-    [data-player] ol,
-    [data-player] output,
-    [data-player] p,
-    [data-player] pre,
-    [data-player] q,
-    [data-player] ruby,
-    [data-player] s,
-    [data-player] samp,
-    [data-player] section,
-    [data-player] small,
-    [data-player] span,
-    [data-player] strike,
-    [data-player] strong,
-    [data-player] sub,
-    [data-player] summary,
-    [data-player] sup,
-    [data-player] table,
-    [data-player] tbody,
-    [data-player] td,
-    [data-player] tfoot,
-    [data-player] th,
-    [data-player] thead,
-    [data-player] time,
-    [data-player] tr,
-    [data-player] tt,
-    [data-player] u,
-    [data-player] ul,
-    [data-player] var,
-    [data-player] video {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-family: Gilroy;
-      font-size: 100%;
-      vertical-align: baseline;
+    .custom-mplayer {
+      width: 100%;
+      height: 480px;
     }
 
-    [data-player] {
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -o-user-select: none;
-      user-select: none;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-      position: relative;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-style: normal;
-      font-weight: 400;
-      text-align: center;
-      overflow: hidden;
-      font-size: 100%;
-      font-family: 'Gilroy', sans-serif;
-      text-shadow: 0 0 0;
-      box-sizing: border-box;
-      border-radius: 10px;
-    }
+    /* puedes ajustar */
   </style>
 </head>
 
@@ -164,29 +57,7 @@
           </ul>
         </nav>
       </div>
-      <button class="apps-button" onclick="toggleModal()">
-        <div class="apps-icon">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </button>
     </header>
-
-    <!-- Modal de Apps -->
-    <div class="modal" id="appsModal">
-      <h3>Apps <span class="beta">BETA</span></h3>
-      <ul>
-        <li><a href="https://movies.solargentinotv.com.ar" target="_blank">🎥</a></li>
-        <li><a href="https://sports.solargentinotv.com.ar" target="_blank">⚽</a></li>
-      </ul>
-    </div>
 
     <main class="main-content">
       <section id="inicio">
@@ -196,129 +67,130 @@
         </div>
       </section>
 
-      <!-- Video Introductorio con MPlayerNormal -->
       <section id="intro-video">
         <h2>Video Introductorio</h2>
+        <!-- Aquí montamos React -->
         <div id="player-react-root"></div>
       </section>
     </main>
 
-    <!-- React y ReactDOM -->
+    <!-- Dependencias que el player podría necesitar globalmente -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+
+    <!-- React y ReactDOM (UMD globals) -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
-    <!-- MPlayerNormal CDN -->
-    <script
-      src="https://cdn.jsdelivr.net/gh/satv2025/MPlayer-React-Normal-Version@main/build/MPlayerNormal.js"></script>
-
+    <!-- Script que carga el CDN dinámicamente (import() primero; si falla -> UMD fallback)
+         y monta el componente en React. -->
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const { VideoPlayer } = window; // MPlayerNormal expone VideoPlayer
-        const root = document.getElementById('player-react-root');
+      (async function () {
+        const CDN = 'https://cdn.jsdelivr.net/gh/satv2025/MPlayer-React-Normal-Version@main/build/MPlayerNormal.js';
+        const rootId = 'player-react-root';
 
-        ReactDOM.createRoot(root).render(
-          React.createElement(VideoPlayer, {
+        function loadScript(src) {
+          return new Promise((resolve, reject) => {
+            const s = document.createElement('script');
+            s.src = src;
+            s.async = true;
+            s.onload = () => resolve();
+            s.onerror = (e) => reject(new Error('load script failed: ' + src));
+            document.head.appendChild(s);
+          });
+        }
+
+        function waitForGlobal(names, timeout = 5000) {
+          const start = Date.now();
+          return new Promise((resolve, reject) => {
+            (function check() {
+              for (const name of names) {
+                const parts = name.split('.');
+                let obj = window;
+                let ok = true;
+                for (const p of parts) {
+                  if (!(p in obj)) { ok = false; break; }
+                  obj = obj[p];
+                }
+                if (ok) return resolve(obj);
+              }
+              if (Date.now() - start > timeout) return reject(new Error('global not found: ' + names.join(',')));
+              setTimeout(check, 80);
+            })();
+          });
+        }
+
+        let VideoPlayerComp = null;
+
+        // 1) intentar import() dinámico (ESM) — es la forma "React moderna" si el bundle soporta ESM.
+        try {
+          const mod = await import(CDN);
+          // posibles export names
+          VideoPlayerComp = mod?.default || mod?.VideoPlayer || mod?.MPlayerNormal || mod;
+          console.info('MPlayer loaded via import()', VideoPlayerComp);
+        } catch (errImport) {
+          console.warn('import() falló (probablemente CDN no exporta ESM). Intentando fallback UMD...', errImport);
+
+          // 2) fallback: cargar el script como UMD y esperar global
+          try {
+            await loadScript(CDN);
+            // probar nombres globales comunes que el bundle podría usar
+            const globalObj = await waitForGlobal([
+              'VideoPlayer',
+              'MPlayerNormal',
+              'MPlayerNormal.VideoPlayer',
+              'satv.MPlayerNormal',
+              'satv.VideoPlayer'
+            ], 4000);
+
+            // Normalizar
+            VideoPlayerComp = (globalObj && (globalObj.VideoPlayer || globalObj.default || globalObj)) || window.VideoPlayer;
+            console.info('MPlayer loaded via UMD global', VideoPlayerComp);
+          } catch (errUmd) {
+            console.error('No se pudo cargar MPlayerNormal desde el CDN con ninguno de los métodos.', errUmd);
+            const root = document.getElementById(rootId);
+            if (root) root.innerHTML = '<p style="color:red">Error: no se pudo cargar el reproductor desde CDN.</p>';
+            return;
+          }
+        }
+
+        // 3) Montar el componente con ReactDOM
+        try {
+          const rootEl = document.getElementById(rootId);
+          if (!rootEl) {
+            console.error('Elemento de montaje no encontrado:', rootId);
+            return;
+          }
+
+          const props = {
             src: "https://solargentinotv.com.ar/assets/media/videos/Trailer%20SATV%20WEB%20BETA.mp4",
             poster: "https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico",
             className: "custom-mplayer"
-          })
-        );
-      });
-    </script>
+          };
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        function loadCSS(href) {
-          return new Promise(function (resolve, reject) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href;
-            link.onload = () => resolve();
-            link.onerror = () => reject(`Error cargando CSS: ${href}`);
-            document.head.appendChild(link);
-          });
+          // Si VideoPlayerComp es el módulo entero (no la función), intentar obtener la propiedad correcta
+          const Comp = VideoPlayerComp?.default || VideoPlayerComp?.VideoPlayer || VideoPlayerComp;
+
+          if (!Comp) {
+            rootEl.innerHTML = '<p style="color:red">Error: componente no encontrado en el bundle del CDN.</p>';
+            console.error('Componente inválido recibido desde CDN:', VideoPlayerComp);
+            return;
+          }
+
+          // Montaje con ReactDOM (UMD React ya cargado como global)
+          ReactDOM.createRoot(rootEl).render(React.createElement(Comp, props));
+          console.info('MPlayer montado correctamente.');
+        } catch (errMount) {
+          console.error('Error montando componente React:', errMount);
+          const root = document.getElementById(rootId);
+          if (root) root.innerHTML = '<p style="color:red">Error al montar el reproductor.</p>';
         }
-
-        function loadJS(src) {
-          return new Promise(function (resolve, reject) {
-            const script = document.createElement('script');
-            script.src = src;
-            script.onload = () => resolve();
-            script.onerror = () => reject(`Error cargando JS: ${src}`);
-            document.body.appendChild(script);
-          });
-        }
-
-        const psCSS = 'https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/css/perfect-scrollbar.css';
-        const psJS = 'https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/dist/perfect-scrollbar.min.js';
-
-        const customStyle = `
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden !important;
-      }
-
-      #page-scroll {
-        height: 100vh;
-        overflow: hidden !important;
-        position: relative;
-      }
-
-      .ps__rail-x {
-        display: none !important;
-      }
-
-      .ps__rail-y {
-        background-color: transparent !important;
-        width: 8px !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        transition: none !important;
-        pointer-events: auto !important;
-        right: 2px !important;
-        z-index: 1000 !important;
-      }
-
-      .ps__rail-y.ps--active,
-      .ps__rail-y:hover {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transition: none !important;
-      }
-
-      .ps__thumb-y {
-        background-color: #0078d4 !important;
-        border-radius: 4px;
-      }
-
-      .ps__rail-y:hover>.ps__thumb-y {
-        width: 8px !important;
-      }
-    `;
-
-        const styleTag = document.createElement('style');
-        styleTag.textContent = customStyle;
-        document.head.appendChild(styleTag);
-
-        loadCSS(psCSS)
-          .then(() => loadJS(psJS))
-          .then(() => {
-            const scrollContainer = document.querySelector('#page-scroll');
-            new PerfectScrollbar(scrollContainer, {
-              wheelPropagation: false,
-              suppressScrollX: true
-            });
-          })
-          .catch(console.error);
-      });
+      })();
     </script>
 
     <footer>
-      <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos.
-        <a href="contacto">Contactanos</a>
-      </p>
+      <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a
+          href="contacto">Contactanos</a></p>
     </footer>
   </div>
 </body>
