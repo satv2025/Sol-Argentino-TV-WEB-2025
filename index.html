@@ -146,9 +146,6 @@
       border-radius: 10px;
     }
   </style>
-
-  <!-- Clappr CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 </head>
 
 <body>
@@ -186,12 +183,8 @@
     <div class="modal" id="appsModal">
       <h3>Apps <span class="beta">BETA</span></h3>
       <ul>
-        <li>
-          <a href="https://movies.solargentinotv.com.ar" target="_blank">🎥</a>
-        </li>
-        <li>
-          <a href="https://sports.solargentinotv.com.ar" target="_blank">⚽</a>
-        </li>
+        <li><a href="https://movies.solargentinotv.com.ar" target="_blank">🎥</a></li>
+        <li><a href="https://sports.solargentinotv.com.ar" target="_blank">⚽</a></li>
       </ul>
     </div>
 
@@ -203,18 +196,33 @@
         </div>
       </section>
 
+      <!-- Video Introductorio con MPlayerNormal -->
       <section id="intro-video">
         <h2>Video Introductorio</h2>
-        <div id="player"></div>
+        <div id="player-react-root"></div>
       </section>
     </main>
 
-    <!-- JS Absolutos -->
-    <script src="https://solargentinotv.com.ar/assets/js/MPlayer2025V2.js" type="text/javascript"></script>
+    <!-- React y ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <!-- MPlayerNormal CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/satv2025/MPlayer-React-Normal-Version@main/build/MPlayerNormal.js"></script>
+
     <script>
-      var player = new Playerjs({
-        id: "player",
-        file: "https://solargentinotv.com.ar/assets/media/videos/Trailer%20SATV%20WEB%20BETA.mp4"
+      document.addEventListener('DOMContentLoaded', function () {
+        const { VideoPlayer } = window; // MPlayerNormal expone VideoPlayer
+        const root = document.getElementById('player-react-root');
+
+        ReactDOM.createRoot(root).render(
+          React.createElement(VideoPlayer, {
+            src: "https://solargentinotv.com.ar/assets/media/videos/Trailer%20SATV%20WEB%20BETA.mp4",
+            poster: "https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico",
+            className: "custom-mplayer"
+          })
+        );
       });
     </script>
 
@@ -306,9 +314,11 @@
           .catch(console.error);
       });
     </script>
+
     <footer>
-      <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a
-          href="contacto">Contactanos</a></p>
+      <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos.
+        <a href="contacto">Contactanos</a>
+      </p>
     </footer>
   </div>
 </body>
