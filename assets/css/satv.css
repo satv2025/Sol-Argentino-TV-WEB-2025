@@ -225,3 +225,7 @@ section {
     font-size: 1em;
   }
 }
+
+.vp-video {
+  width: 99.99% !important;
+}
