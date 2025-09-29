@@ -29,6 +29,25 @@ a
       /* scroll va aquí */
       position: relative;
     }
+
+    .vp-time.live::after {
+      content: '●';
+      display: inline-block;
+      margin-right: 30.5em !important;
+      vertical-align: middle;
+      font-size: 1em;
+      margin-top: -0.28em;
+      position: relative;
+      margin-left: -4.55em;
+    }
+
+    .vp-time.live {
+      margin-left: 0.8em;
+    }
+
+    .vp-play-btn {
+      margin-top: 0.04em !important;
+    }
   </style>
 </head>
 
@@ -56,19 +75,40 @@ a
       <div class="hero">
         <h1>Ver Transmisión en Vivo</h1>
         <p>¡Sintoniza ahora Sol Argentino TV en vivo para disfrutar de nuestra programación de calidad!</p>
+        <!-- Player real -->
         <div id="player"></div>
       </div>
     </section>
   </main>
-
   <!-- Pie de página -->
   <footer>
     <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a
         href="contacto">Contactanos</a></p>
   </footer>
-  <script src="https://solargentinotv.com.ar/assets/js/MPlayer2025LV2.js" type="text/javascript"></script>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://cdn2.solargentinotv.com.ar/dist/bundle.js"></script>
   <script>
-    var player = new Playerjs({ id: "player", file: "https://www.youtube.com/watch?v=DXAFdyeCnJg" });
+    document.addEventListener('DOMContentLoaded', function () {
+      // Montar el player
+      window.mountVideoPlayer('player', {
+        src: "http://186.129.117.201:8080/hls/mistream.m3u8",
+        poster: "https://solargentinotv.com.ar/assets/media/images/Trailer%20SATV%20WEB%20BETA_46.png"
+      });
+
+      // Overlay y botón
+      const overlay = document.getElementById('videoOverlay');
+      const playButton = document.getElementById('playButton');
+
+      playButton.addEventListener('click', function () {
+        overlay.style.display = 'none'; // Ocultar overlay
+        const videoEl = document.querySelector('#player video');
+        if (videoEl) {
+          videoEl.play(); // Reproducir
+        }
+      });
+    });
   </script>
   <script src="https://solargentinotv.com.ar/assets/js/script.js"></script>
   <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-main.js"></script>
