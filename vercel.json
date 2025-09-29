@@ -21,6 +21,10 @@
     {
       "source": "/:segment",
       "destination": "/:segment/:segment.html"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/:path*.html"
     }
   ]
 }
