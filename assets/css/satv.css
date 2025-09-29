@@ -233,6 +233,7 @@ section {
 .vp-container {
   width: 99.99% !important;
   margin-bottom: -5em;
+  border-radius: 0.9375em;
 }
 
 .vp-container:fullscreen {
