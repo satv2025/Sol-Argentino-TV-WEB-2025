@@ -229,3 +229,9 @@ section {
 .vp-video {
   width: 99.99% !important;
 }
+
+.vp-container {
+  width: 99.99% !important;
+  border-radius: 0.9375em;
+  margin-bottom: -5em;
+}
