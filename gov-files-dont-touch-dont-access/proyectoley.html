@@ -334,68 +334,6 @@
     <script>
       const ps = new PerfectScrollbar('.scroll-body', { wheelPropagation: false, suppressScrollX: true });
     </script>
-    <script>
-      (function () {
-        const correctUser = 'trustceodev';
-        const correctPass = 'trustgovermentsecret11';
-
-        function createOverlay() {
-          const overlay = document.createElement('div');
-          overlay.id = 'loginOverlay';
-          overlay.style.position = 'fixed';
-          overlay.style.top = '0';
-          overlay.style.left = '0';
-          overlay.style.width = '100%';
-          overlay.style.height = '100%';
-          overlay.style.background = '#fff';
-          overlay.style.display = 'flex';
-          overlay.style.justifyContent = 'center';
-          overlay.style.alignItems = 'center';
-          overlay.style.zIndex = '99999';
-
-          overlay.innerHTML = `
-      <div style="background:#fff;outline: 3px solid #141414;padding:30px;border-radius:10px;max-width:300px;width:90%;text-align:center;">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Usuario" style="width:90%;margin:10px 0;padding:5px"><br>
-        <input type="password" id="password" placeholder="Contraseña" style="width:90%;margin:10px 0;padding:5px"><br>
-        <button id="loginBtn" style="padding:5px 15px;">Ingresar</button>
-        <div id="loginError" style="color:red;margin-top:10px;"></div>
-      </div>
-    `;
-          document.body.appendChild(overlay);
-
-          document.getElementById('loginBtn').addEventListener('click', login);
-          document.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') login();
-          });
-        }
-
-        function login() {
-          const user = document.getElementById('username').value;
-          const pass = document.getElementById('password').value;
-          const errorDiv = document.getElementById('loginError');
-
-          if (user === correctUser && pass === correctPass) {
-            const ov = document.getElementById('loginOverlay');
-            if (ov) ov.remove();
-          } else {
-            errorDiv.textContent = 'Usuario o contraseña incorrectos';
-          }
-        }
-
-        // Crear overlay al cargar la página
-        createOverlay();
-
-        // Vigilar si alguien intenta borrar el overlay
-        const observer = new MutationObserver((mutations) => {
-          if (!document.getElementById('loginOverlay')) {
-            createOverlay();
-          }
-        });
-
-        observer.observe(document.body, { childList: true });
-      })();
-    </script>
 
 </body>
 
