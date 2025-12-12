@@ -151,3 +151,17 @@
     font-weight: 950;
     font-style: italic;
 }
+
+@font-face {
+    font-family: "ActoMN";
+    src: url("Acto Bold MonoNums.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ActoMN";
+    src: url("Acto ExtraBold MonoNums.otf") format("opentype");
+    font-weight: 800;
+    font-style: normal;
+}
