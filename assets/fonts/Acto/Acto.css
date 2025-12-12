@@ -1,0 +1,153 @@
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-Hairline.otf") format("opentype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-UltraLight.otf") format("opentype");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-Thin.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-Light.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-Book.otf") format("opentype");
+    font-weight: 450;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-SemiBold.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-ExtraBold.otf") format("opentype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-Black.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-UltraBlack.otf") format("opentype");
+    font-weight: 950;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-HairlineItalic.otf") format("opentype");
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-UltraLightItalic.otf") format("opentype");
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-ThinItalic.otf") format("opentype");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-LightItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-BookItalic.otf") format("opentype");
+    font-weight: 450;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-MediumItalic.otf") format("opentype");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-SemiBoldItalic.otf") format("opentype");
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-ExtraBoldItalic.otf") format("opentype");
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-BlackItalic.otf") format("opentype");
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Acto";
+    src: url("Acto-UltraBlackItalic.otf") format("opentype");
+    font-weight: 950;
+    font-style: italic;
+}
