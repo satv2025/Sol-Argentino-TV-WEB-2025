@@ -1650,7 +1650,7 @@ iframe.vds-youtube[data-no-controls] {
     left: 0;
     border-radius: 0 !important;
     transform: translateY(-50%) translateZ(0);
-    background-color: var(--media-slider-track-bg, rgb(255 255 255 / .3));
+    background-color: #7e7d7d69;
     contain: strict
 }
 
