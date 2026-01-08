@@ -14,8 +14,9 @@
 
 [data-media-player][data-layout=video]:not([data-fullscreen]) {
     border-radius: var(--video-border-radius, 6px);
-    border: var(--video-border, 1px solid rgb(255 255 255 / .1))
+    box-shadow: 0 0 17px rgb(0 0 0 / 70%);
 }
+
 
 :where(.vds-video-layout) {
     --media-brand: var(--video-brand, #0078d4) !important;
