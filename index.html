@@ -6,12 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sol Argentino TV - Canal de Televisión Argentino</title>
 
-  <!-- CSS Absolutos -->
+  <!-- CSS ABSOLUTOS -->
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/satv.css">
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/footer.css">
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/apps.css">
 
-  <!-- Favicon -->
+  <!-- VIDSTACK CSS -->
+  <link rel="stylesheet" href="assets/css/vidstack/1.css">
+  <link rel="stylesheet" href="assets/css/vidstack/2.css">
+
+  <!-- VIDSTACK -->
+  <script src="https://cdn.vidstack.io/player" type="module"></script>
+
+  <!-- FAVICON -->
   <link rel="icon" href="https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico" type="image/x-icon">
 
   <style>
@@ -32,199 +39,19 @@
       position: relative;
     }
 
-    [data-player] a,
-    [data-player] abbr,
-    [data-player] acronym,
-    [data-player] address,
-    [data-player] applet,
-    [data-player] article,
-    [data-player] aside,
-    [data-player] audio,
-    [data-player] b,
-    [data-player] big,
-    [data-player] blockquote,
-    [data-player] canvas,
-    [data-player] caption,
-    [data-player] center,
-    [data-player] cite,
-    [data-player] code,
-    [data-player] dd,
-    [data-player] del,
-    [data-player] details,
-    [data-player] dfn,
-    [data-player] div,
-    [data-player] dl,
-    [data-player] dt,
-    [data-player] em,
-    [data-player] embed,
-    [data-player] fieldset,
-    [data-player] figcaption,
-    [data-player] figure,
-    [data-player] footer,
-    [data-player] form,
-    [data-player] h1,
-    [data-player] h2,
-    [data-player] h3,
-    [data-player] h4,
-    [data-player] h5,
-    [data-player] h6,
-    [data-player] header,
-    [data-player] hgroup,
-    [data-player] i,
-    [data-player] iframe,
-    [data-player] img,
-    [data-player] ins,
-    [data-player] kbd,
-    [data-player] label,
-    [data-player] legend,
-    [data-player] li,
-    [data-player] mark,
-    [data-player] menu,
-    [data-player] nav,
-    [data-player] object,
-    [data-player] ol,
-    [data-player] output,
-    [data-player] p,
-    [data-player] pre,
-    [data-player] q,
-    [data-player] ruby,
-    [data-player] s,
-    [data-player] samp,
-    [data-player] section,
-    [data-player] small,
-    [data-player] span,
-    [data-player] strike,
-    [data-player] strong,
-    [data-player] sub,
-    [data-player] summary,
-    [data-player] sup,
-    [data-player] table,
-    [data-player] tbody,
-    [data-player] td,
-    [data-player] tfoot,
-    [data-player] th,
-    [data-player] thead,
-    [data-player] time,
-    [data-player] tr,
-    [data-player] tt,
-    [data-player] u,
-    [data-player] ul,
-    [data-player] var,
-    [data-player] video {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-family: Gilroy;
-      font-size: 100%;
-      vertical-align: baseline;
-    }
-
-    [data-player] {
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -o-user-select: none;
-      user-select: none;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-      position: relative;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-style: normal;
-      font-weight: 400;
-      text-align: center;
-      overflow: hidden;
-      font-size: 100%;
-      font-family: 'Gilroy', sans-serif;
-      text-shadow: 0 0 0;
-      box-sizing: border-box;
-      border-radius: 10px;
-    }
-
-    .vp-progress-bg {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      height: 4px !important;
-      background: rgb(0 0 0 / 19%) !important;
-    }
-
     #player {
       aspect-ratio: 16 / 9 !important;
     }
 
-    .vp-controls {
-      margin-top: 0em !important;
-      margin-bottom: 0.1em !important;
+    media-player {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
     }
 
-    .vp-controls {
-      margin-top: 0.1em;
-      padding-top: 0.5em;
-      padding-bottom: 01em;
-    }
-
-    .vp-controls {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 10px;
-      gap: 8px;
-    }
-
-    .vp-settings-btn {
-      padding-bottom: 0.4em;
-      margin-bottom: -0.2em;
-      position: absolute;
-      left: 48.2em;
-    }
-
-    .vp-fs-btn {
-      margin-bottom: 0.2em;
-    }
-
-    .vp-container:fullscreen .vp-settings-btn {
-      position: absolute;
-      left: 114.3em !important;
-    }
-
-    .vp-settings-menu,
-    .vp-submenu {
-      position: absolute !important;
-      bottom: 4.5em !important;
-      right: -2.5em !important;
-      background: #0078d465 !important;
-      border-radius: 6px !important;
-      padding: 6px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      min-width: 140px !important;
-      z-index: 100 !important;
-      animation: slideUpFade 0.25s ease-out !important;
-    }
-
-    .vp-controls {
-      display: flex !important;
-      flex-wrap: wrap !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      padding: 12px 10px !important;
-      gap: 8px !important;
-      background: transparent !important;
-    }
-
-    .vp-time {
-      font-size: 16px !important;
-      font-weight: 700;
-    }
-
-    /* Overlay personalizado */
+    /* OVERLAY ORIGINAL */
     .video-wrapper {
       position: relative;
       max-width: 100%;
@@ -250,42 +77,31 @@
 
     .play-button {
       position: absolute;
-      font-size: 80px;
-      color: white;
-      border: none;
-      border-radius: 50%;
       width: 120px;
       height: 120px;
-      cursor: pointer;
+      border-radius: 50%;
+      background: white;
       border: 5px solid #0078d4;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      background: #fff;
+      cursor: pointer;
     }
 
-    button#playButton:after {
+    .play-button::after {
       content: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="%230078d4" stroke-width="1.5"/></svg>');
       position: absolute;
-      top: 38.5%;
-      left: 53%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       width: 60px;
-      /* tamaño del SVG */
       height: 60px;
-    }
-
-    .play-button:hover {
-      transform: scale(1.1);
-    }
-
-    .vp-play-btn,
-    .vp-fs-btn {
-      margin-top: 0.23em !important;
     }
   </style>
 </head>
 
 <body>
+
   <div id="page-scroll">
+
+    <!-- HEADER -->
     <header class="header">
       <div class="menu-container">
         <h1 class="logo">Sol Argentino TV</h1>
@@ -315,20 +131,18 @@
       </button>
     </header>
 
-    <!-- Modal de Apps -->
+    <!-- MODAL APPS -->
     <div class="modal" id="appsModal">
       <h3>Apps <span class="beta">BETA</span></h3>
       <ul>
-        <li>
-          <a href="https://movies.solargentinotv.com.ar" target="_blank">🎥</a>
-        </li>
-        <li>
-          <a href="https://sports.solargentinotv.com.ar" target="_blank">⚽</a>
-        </li>
+        <li><a href="https://movies.solargentinotv.com.ar" target="_blank">🎥</a></li>
+        <li><a href="https://sports.solargentinotv.com.ar" target="_blank">⚽</a></li>
       </ul>
     </div>
 
+    <!-- MAIN -->
     <main class="main-content">
+
       <section id="inicio">
         <div class="hero">
           <h1>Bienvenidos a Sol Argentino TV</h1>
@@ -338,138 +152,59 @@
 
       <section id="intro-video">
         <h2>Video Introductorio</h2>
+
         <div class="video-wrapper">
-          <!-- Overlay con poster y botón -->
+
+          <!-- OVERLAY -->
           <div class="video-overlay" id="videoOverlay">
-            <img src="https://solargentinotv.com.ar/assets/media/images/Trailer%20SATV%20WEB%20BETA_46.png" alt="Poster"
-              class="video-poster">
+            <img src="https://solargentinotv.com.ar/assets/media/images/Trailer%20SATV%20WEB%20BETA_46.png"
+              class="video-poster" alt="Poster">
             <button class="play-button" id="playButton"></button>
           </div>
-          <!-- Player real -->
-          <div id="player"></div>
+
+          <!-- PLAYER (ID MANTENIDO) -->
+          <div id="player">
+            <media-player id="introPlayer"
+              src="https://solargentinotv.com.ar/assets/media/videos/Trailer%20SATV%20WEB%20BETA.mp4"
+              poster="https://solargentinotv.com.ar/assets/media/images/Trailer%20SATV%20WEB%20BETA_46.png" playsinline>
+              <media-provider></media-provider>
+              <media-video-layout></media-video-layout>
+            </media-player>
+          </div>
+
         </div>
       </section>
+
     </main>
 
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://cdn2.solargentinotv.com.ar/dist/bundle.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Montar el player
-        window.mountVideoPlayer('player', {
-          src: "https://solargentinotv.com.ar/assets/media/videos/Trailer%20SATV%20WEB%20BETA.mp4",
-          poster: "https://solargentinotv.com.ar/assets/media/images/Trailer%20SATV%20WEB%20BETA_46.png"
-        });
-
-        // Overlay y botón
-        const overlay = document.getElementById('videoOverlay');
-        const playButton = document.getElementById('playButton');
-
-        playButton.addEventListener('click', function () {
-          overlay.style.display = 'none'; // Ocultar overlay
-          const videoEl = document.querySelector('#player video');
-          if (videoEl) {
-            videoEl.play(); // Reproducir
-          }
-        });
-      });
-    </script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        function loadCSS(href) {
-          return new Promise(function (resolve, reject) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href;
-            link.onload = () => resolve();
-            link.onerror = () => reject(`Error cargando CSS: ${href}`);
-            document.head.appendChild(link);
-          });
-        }
-
-        function loadJS(src) {
-          return new Promise(function (resolve, reject) {
-            const script = document.createElement('script');
-            script.src = src;
-            script.onload = () => resolve();
-            script.onerror = () => reject(`Error cargando JS: ${src}`);
-            document.body.appendChild(script);
-          });
-        }
-
-        const psCSS = 'https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/css/perfect-scrollbar.css';
-        const psJS = 'https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/dist/perfect-scrollbar.min.js';
-
-        const customStyle = `
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden !important;
-      }
-
-      #page-scroll {
-        height: 100vh;
-        overflow: hidden !important;
-        position: relative;
-      }
-
-      .ps__rail-x {
-        display: none !important;
-      }
-
-      .ps__rail-y {
-        background-color: transparent !important;
-        width: 8px !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        transition: none !important;
-        pointer-events: auto !important;
-        right: 2px !important;
-        z-index: 1000 !important;
-      }
-
-      .ps__rail-y.ps--active,
-      .ps__rail-y:hover {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transition: none !important;
-      }
-
-      .ps__thumb-y {
-        background-color: #0078d4 !important;
-        border-radius: 4px;
-      }
-
-      .ps__rail-y:hover>.ps__thumb-y {
-        width: 8px !important;
-      }
-    `;
-
-        const styleTag = document.createElement('style');
-        styleTag.textContent = customStyle;
-        document.head.appendChild(styleTag);
-
-        loadCSS(psCSS)
-          .then(() => loadJS(psJS))
-          .then(() => {
-            const scrollContainer = document.querySelector('#page-scroll');
-            new PerfectScrollbar(scrollContainer, {
-              wheelPropagation: false,
-              suppressScrollX: true
-            });
-          })
-          .catch(console.error);
-      });
-    </script>
-
+    <!-- FOOTER -->
     <footer>
-      <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a
-          href="contacto">Contactanos</a></p>
+      <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados.
+        <a href="contacto">Contactanos</a>
+      </p>
     </footer>
+
   </div>
+
+  <!-- JS OVERLAY (IDS ORIGINALES) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const overlay = document.getElementById('videoOverlay');
+      const playButton = document.getElementById('playButton');
+      const player = document.getElementById('introPlayer');
+
+      playButton.addEventListener('click', function () {
+        overlay.style.display = 'none';
+        player.play().catch(() => { });
+      });
+    });
+  </script>
+
+  <!-- JS EXISTENTES -->
+  <script src="https://solargentinotv.com.ar/assets/js/script.js"></script>
+  <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-main.js"></script>
+  <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-dropdown.js"></script>
+
 </body>
 
 </html>
