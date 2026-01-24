@@ -191,7 +191,7 @@ section p {
 }
 
 section {
-  padding: 1.875em 1.25em;
+  padding: 1.875em 1.25em !important;
   padding-bottom: 3em;
 }
 }

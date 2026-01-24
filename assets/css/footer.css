@@ -3,14 +3,20 @@
 /* Estilo del Footer */
 footer {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
-  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1); /* Sombras para dar profundidad */
-  padding: 1.25em 1.875em; /* Espaciado */
+  background-color: #fff;
+  /* Fondo semi-transparente */
+  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1);
+  /* Sombras para dar profundidad */
+  padding: 1.25em 1.875em;
+  /* Espaciado */
   text-align: center;
   font-size: 1em;
   color: #333;
-  margin-top: auto; /* Asegura que el footer se mantenga al fondo */
-  backdrop-filter: blur(5px); /* Efecto blur */
+  margin-top: auto;
+  /* Asegura que el footer se mantenga al fondo */
+  backdrop-filter: blur(5px);
+  /* Efecto blur */
+  box-sizing: border-box;
 }
 
 footer p {
@@ -35,7 +41,8 @@ footer a {
 }
 
 footer a:hover {
-  background-color: #0078d4; /* Fondo azul en hover */
+  background-color: #0078d4;
+  /* Fondo azul en hover */
   color: #fff;
   text-decoration: none;
 }
@@ -74,19 +81,24 @@ footer a:hover {
 /* El contenido principal dentro de la grilla debe ocupar el espacio disponible */
 .grilla .main-content {
   flex: 1;
-  padding: 1.5em; /* Espaciado alrededor del contenido */
+  padding: 1.5em;
+  /* Espaciado alrededor del contenido */
 }
 
 /* footer.css ajustado para .grilla */
 .grilla footer {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
-  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-  padding: 1.25em 1.875em; /* Espaciado */
+  background-color: rgba(255, 255, 255, 0.9);
+  /* Fondo semi-transparente */
+  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1);
+  /* Sombra para dar profundidad */
+  padding: 1.25em 1.875em;
+  /* Espaciado */
   text-align: center;
   font-size: 1em;
   color: #333;
-  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  backdrop-filter: blur(5px);
+  /* Efecto de desenfoque */
   margin-top: 1.1em;
   position: relative;
   bottom: 0;
@@ -115,8 +127,10 @@ footer a:hover {
 }
 
 .grilla footer a:hover {
-  background-color: #0078d4; /* Fondo azul al hacer hover */
-  color: #fff; /* Texto blanco al hacer hover */
+  background-color: #0078d4;
+  /* Fondo azul al hacer hover */
+  color: #fff;
+  /* Texto blanco al hacer hover */
   text-decoration: none;
 }
 

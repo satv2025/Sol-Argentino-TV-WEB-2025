@@ -95,17 +95,22 @@
                 email: email.value,
                 password: password.value
             });
+
             if (error) return alert(error.message);
+
             init();
         }
+
 
         async function logout() {
             await sb.auth.signOut();
             location.reload();
         }
 
+
         async function init() {
             const { data: { session } } = await sb.auth.getSession();
+
             if (session) {
                 loginBox.classList.add("hidden");
                 dash.classList.remove("hidden");
@@ -113,49 +118,116 @@
             }
         }
 
+
+        /* 🔥 UPLOAD FIX REAL */
         async function upload(file) {
-            const name = crypto.randomUUID() + "." + file.name.split('.').pop();
-            await sb.storage.from("articulos").upload(name, file);
-            return sb.storage.from("articulos").getPublicUrl(name).data.publicUrl;
+
+            const ext = file.name.split('.').pop();
+            const name = crypto.randomUUID() + "." + ext;
+
+            const { error } = await sb
+                .storage
+                .from("articulos")
+                .upload(name, file, {
+                    cacheControl: "3600",
+                    upsert: false
+                });
+
+            if (error) {
+                alert("❌ Error subiendo imagen:\n" + error.message);
+                throw error;
+            }
+
+            const { data } = sb
+                .storage
+                .from("articulos")
+                .getPublicUrl(name);
+
+            return data.publicUrl;
         }
 
+
+        /* 🔥 CREAR ARTICULO */
         async function crear() {
 
-            let img = null;
-            if (imagenFile.files[0]) img = await upload(imagenFile.files[0]);
+            try {
 
-            await sb.from("articulos").insert({
-                titulo: titulo.value,
-                slug: titulo.value.toLowerCase().replaceAll(" ", "-"),
-                resumen: resumen.value,
-                contenido: contenido.value,
-                imagen: img,
-                publicado: publicado.checked
-            });
+                let img = null;
 
-            alert("Creado 🚀");
-            location.reload();
+                if (imagenFile.files[0]) {
+                    img = await upload(imagenFile.files[0]);
+                }
+
+                const { error } = await sb
+                    .from("articulos")
+                    .insert({
+                        titulo: titulo.value,
+                        slug: titulo.value.toLowerCase().replaceAll(" ", "-"),
+                        resumen: resumen.value,
+                        contenido: contenido.value,
+                        imagen: img,
+                        publicado: publicado.checked
+                    });
+
+                if (error) {
+                    alert(error.message);
+                    return;
+                }
+
+                alert("✅ Artículo creado 🚀");
+                location.reload();
+
+            } catch (err) {
+                console.error(err);
+            }
         }
 
+
+        /* 🔥 LISTAR */
         async function cargar() {
-            const { data } = await sb.from("articulos").select("*").order("fecha_creacion", { ascending: false });
+
+            const { data, error } = await sb
+                .from("articulos")
+                .select("*")
+                .order("fecha_creacion", { ascending: false });
+
+            if (error) return console.error(error);
+
             lista.innerHTML = "";
+
             data.forEach(a => {
+
                 lista.innerHTML += `
-<div class="card">
-<b>${a.titulo}</b><br>
-${a.publicado ? "🟢 Publicado" : "🔴 Borrador"}<br>
-<button onclick="del('${a.id}')">Eliminar</button>
-<a href="https://solargentinotv.com.ar/articulos/articulo.html?id=${a.id}" target="_blank"><button>Ver</button></a>
-</div>`;
+        <div class="card">
+            <b>${a.titulo}</b><br>
+            ${a.publicado ? "🟢 Publicado" : "🔴 Borrador"}<br>
+
+            <button onclick="del('${a.id}')">Eliminar</button>
+
+            <a href="https://solargentinotv.com.ar/articulos/articulo.html?id=${a.id}" target="_blank">
+                <button>Ver</button>
+            </a>
+        </div>
+        `;
             });
         }
 
+
+        /* 🔥 BORRAR */
         async function del(id) {
-            if (!confirm("Eliminar?")) return;
-            await sb.from("articulos").delete().eq("id", id);
+
+            if (!confirm("Eliminar artículo?")) return;
+
+            const { error } = await sb
+                .from("articulos")
+                .delete()
+                .eq("id", id);
+
+            if (error) return alert(error.message);
+
             location.reload();
         }
+
 
         init();
 
