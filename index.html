@@ -17,7 +17,14 @@
 
   <!-- VIDSTACK -->
   <script src="https://cdn.vidstack.io/player" type="module"></script>
-
+  <!-- 🔥 SUPABASE (AGREGADO) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const supabase = window.supabase.createClient(
+      "https://moacgzwrvegpoatwjqto.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vYWNnendydmVncG9hdHdqcXRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkyOTM5MDQsImV4cCI6MjA4NDg2OTkwNH0.WGzWhO1KYKTXKLaIXIpE1OLs6o4BJK-Q4JLK_RPZkGM"
+    );
+  </script>
   <!-- FAVICON -->
   <link rel="icon" href="https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico" type="image/x-icon">
 
@@ -150,6 +157,16 @@
         </div>
       </section>
 
+      <!-- 🔥 ÚLTIMAS NOTICIAS (AGREGADO) -->
+      <section style="padding:40px">
+        <h2>Últimas Noticias</h2>
+        <div id="homeNoticias" style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+  "></div>
+      </section>
+
       <section id="intro-video">
         <h2>Video Introductorio</h2>
 
@@ -204,7 +221,37 @@
   <script src="https://solargentinotv.com.ar/assets/js/script.js"></script>
   <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-main.js"></script>
   <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-dropdown.js"></script>
+  <!-- 🔥 CARGA DINÁMICA NOTICIAS (AGREGADO) -->
+  <script>
+    async function cargarHomeNoticias() {
 
+      const { data, error } = await supabase
+        .from("articulos")
+        .select("*")
+        .eq("publicado", true)
+        .order("fecha_creacion", { ascending: false })
+        .limit(3);
+
+      if (error) return console.error(error);
+
+      const container = document.getElementById("homeNoticias");
+
+      data.forEach(n => {
+        container.innerHTML += `
+      <div style="background:#111;padding:12px;border-radius:12px">
+        <img src="${n.imagen}" style="width:100%;border-radius:10px;margin-bottom:10px">
+        <h3>${n.titulo}</h3>
+        <p>${n.resumen ?? ""}</p>
+        <a href="/articulos/articulo.html?id=${n.id}" style="color:#0078d4;font-weight:bold">
+          Leer más →
+        </a>
+      </div>
+    `;
+      });
+    }
+
+    cargarHomeNoticias();
+  </script>
 </body>
 
 </html>

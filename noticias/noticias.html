@@ -33,6 +33,14 @@
       position: relative;
     }
   </style>
+  <!-- 🔥 SUPABASE (AGREGADO) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const supabase = window.supabase.createClient(
+      "https://moacgzwrvegpoatwjqto.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vYWNnendydmVncG9hdHdqcXRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkyOTM5MDQsImV4cCI6MjA4NDg2OTkwNH0.WGzWhO1KYKTXKLaIXIpE1OLs6o4BJK-Q4JLK_RPZkGM"
+    );
+  </script>
 </head>
 
 <body>
@@ -55,35 +63,12 @@
 
   <!-- Contenido principal -->
   <main class="main-content">
+    <!-- 🔥 SECTION DINÁMICA -->
     <section id="noticias">
       <h2>Últimas Noticias</h2>
       <p>Entérate de las novedades y actualizaciones de Sol Argentino TV.</p>
 
-      <div class="noticias-container">
-        <!-- Contenedor de la Noticia 1 -->
-        <div class="noticia">
-          <img src="https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico" alt="Noticia 1">
-          <div class="noticia-content">
-            <h3>Beta del sitio web de Sol Argentino TV</h3>
-            <p>Una experiencia moderna, fluida y diseñada para vos. Inspirada en el estilo de Windows 11, nuestra nueva
-              web lo tiene todo: funcionalidad, diseño y una navegación única. ¡Entrá y descubrí el futuro de Sol
-              Argentino TV! Seguí leyendo y enterate de todas las novedades que hemos preparado para vos.</p>
-            <a href="https://solargentinotv.com.ar/noticias/betasatv">Leer más</a>
-          </div>
-        </div>
-
-        <!-- Contenedor de la Noticia 2 -->
-        <div class="noticia">
-          <img src="https://wallpapercat.com/w/full/f/0/4/297029-3840x2160-desktop-4k-steam-wallpaper-image.jpg"
-            alt="Noticia 2">
-          <div class="noticia-content">
-            <h3>SmartSteamEmu, una leyenda de internet</h3>
-            <p>SmartSteamEmu: el emulador que permitía jugar todos los juegos de Steam sin Steam. Ilegal, legendario y
-              ya parte de la historia gamer.</p>
-            <a href="https://solargentinotv.com.ar/noticias/smartsteam">Leer más</a>
-          </div>
-        </div>
-      </div>
+      <div class="noticias-container" id="noticiasContainer"></div>
     </section>
   </main>
 
@@ -97,6 +82,36 @@
     <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a
         href="https://solargentinotv.com.ar/contacto">Contactanos</a></p>
   </footer>
+  <!-- 🔥 CARGA NOTICIAS DESDE SUPABASE (AGREGADO) -->
+  <script>
+    async function cargarNoticias() {
+
+      const { data, error } = await supabase
+        .from("articulos")
+        .select("*")
+        .eq("publicado", true)
+        .order("fecha_creacion", { ascending: false });
+
+      if (error) return console.error(error);
+
+      const container = document.getElementById("noticiasContainer");
+
+      data.forEach(n => {
+        container.innerHTML += `
+      <div class="noticia">
+        <img src="${n.imagen}">
+        <div class="noticia-content">
+          <h3>${n.titulo}</h3>
+          <p>${n.resumen ?? ""}</p>
+          <a href="/articulos/articulo.html?id=${n.id}">Leer más</a>
+        </div>
+      </div>
+    `;
+      });
+    }
+
+    cargarNoticias();
+  </script>
 </body>
 
 </html>

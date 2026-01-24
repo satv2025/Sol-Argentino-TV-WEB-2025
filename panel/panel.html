@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Admin SATV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SOLO 1 SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        const sb = window.supabase.createClient(
+            "https://moacgzwrvegpoatwjqto.supabase.co",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vYWNnendydmVncG9hdHdqcXRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkyOTM5MDQsImV4cCI6MjA4NDg2OTkwNH0.WGzWhO1KYKTXKLaIXIpE1OLs6o4BJK-Q4JLK_RPZkGM"
+        );
+    </script>
+
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: sans-serif;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            margin: 6px 0;
+            padding: 10px;
+            border-radius: 8px;
+            border: none
+        }
+
+        button {
+            background: #0078d4;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer
+        }
+
+        .card {
+            background: #1b1b1b;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px
+        }
+
+        .hidden {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Panel Admin</h1>
+
+    <div id="loginBox">
+        <input id="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+        <button onclick="login()">Entrar</button>
+    </div>
+
+    <div id="dash" class="hidden">
+
+        <button onclick="logout()">Cerrar sesión</button>
+
+        <h2>Nuevo artículo</h2>
+
+        <input id="titulo" placeholder="Título">
+        <textarea id="resumen" placeholder="Resumen"></textarea>
+        <textarea id="contenido" rows="8" placeholder="Contenido HTML"></textarea>
+        <input type="file" id="imagenFile">
+        <label><input type="checkbox" id="publicado"> Publicar</label>
+
+        <button onclick="crear()">Guardar</button>
+
+        <hr>
+
+        <h2>Artículos</h2>
+        <div id="lista"></div>
+
+    </div>
+
+    <script>
+
+        async function login() {
+            const { error } = await sb.auth.signInWithPassword({
+                email: email.value,
+                password: password.value
+            });
+            if (error) return alert(error.message);
+            init();
+        }
+
+        async function logout() {
+            await sb.auth.signOut();
+            location.reload();
+        }
+
+        async function init() {
+            const { data: { session } } = await sb.auth.getSession();
+            if (session) {
+                loginBox.classList.add("hidden");
+                dash.classList.remove("hidden");
+                cargar();
+            }
+        }
+
+        async function upload(file) {
+            const name = crypto.randomUUID() + "." + file.name.split('.').pop();
+            await sb.storage.from("articulos").upload(name, file);
+            return sb.storage.from("articulos").getPublicUrl(name).data.publicUrl;
+        }
+
+        async function crear() {
+
+            let img = null;
+            if (imagenFile.files[0]) img = await upload(imagenFile.files[0]);
+
+            await sb.from("articulos").insert({
+                titulo: titulo.value,
+                slug: titulo.value.toLowerCase().replaceAll(" ", "-"),
+                resumen: resumen.value,
+                contenido: contenido.value,
+                imagen: img,
+                publicado: publicado.checked
+            });
+
+            alert("Creado 🚀");
+            location.reload();
+        }
+
+        async function cargar() {
+            const { data } = await sb.from("articulos").select("*").order("fecha_creacion", { ascending: false });
+            lista.innerHTML = "";
+            data.forEach(a => {
+                lista.innerHTML += `
+<div class="card">
+<b>${a.titulo}</b><br>
+${a.publicado ? "🟢 Publicado" : "🔴 Borrador"}<br>
+<button onclick="del('${a.id}')">Eliminar</button>
+<a href="/articulos/articulo.html?id=${a.id}" target="_blank"><button>Ver</button></a>
+</div>`;
+            });
+        }
+
+        async function del(id) {
+            if (!confirm("Eliminar?")) return;
+            await sb.from("articulos").delete().eq("id", id);
+            location.reload();
+        }
+
+        init();
+
+    </script>
+
+</body>
+
+</html>
