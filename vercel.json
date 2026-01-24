@@ -19,6 +19,10 @@
   ],
   "rewrites": [
     {
+      "source": "/articulos/articulo",
+      "destination": "/articulos/articulo"
+    },
+    {
       "source": "/:segment",
       "destination": "/:segment/:segment.html"
     },
