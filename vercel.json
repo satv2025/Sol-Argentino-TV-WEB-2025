@@ -7,25 +7,12 @@
       "permanent": true
     },
     {
-      "source": "/:segment/:segment.html",
-      "destination": "/:segment",
-      "permanent": true
-    },
-    {
       "source": "/:path*.html",
       "destination": "/:path*",
       "permanent": true
     }
   ],
   "rewrites": [
-    {
-      "source": "/articulos/articulo",
-      "destination": "/articulos/articulo"
-    },
-    {
-      "source": "/:segment",
-      "destination": "/:segment/:segment.html"
-    },
     {
       "source": "/:path*",
       "destination": "/:path*.html"

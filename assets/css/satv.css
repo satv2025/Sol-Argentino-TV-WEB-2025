@@ -1,245 +1,223 @@
-/* Importar la fuente Gilroy desde el enlace proporcionado */
+/* =========================
+   Fuente
+========================= */
 @import url('https://cdn.jsdelivr.net/gh/skb10x/Gilroy-SATV@main/Gilroy.css');
 
-/* Estilos globales */
-body {
+
+/* =========================
+   Reset básico
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Gilroy', sans-serif;
+  padding: 0;
+  font-family: 'Gilroy', sans-serif !important;
+}
+
+body {
   background: linear-gradient(145deg, #e0e6ed, #f9f9f9);
   color: #333;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
   text-align: center;
-  /* Centrado del contenido por defecto */
-  font-size: 1em;
-  /* Usar unidades relativas */
+  line-height: 1.5;
 }
 
-* {
-  font-family: 'Gilroy' !important;
-}
 
-vercel-live-feedback {
-  display: none;
-}
-
-pjsdiv>* {
-  font-family: 'Gilroy', !important;
-}
-
-pjsdiv>* {
-  font-family: 'Gilroy', !important;
-}
-
-/* Scrollbar personalizada */
+/* =========================
+   Scrollbar
+========================= */
 ::-webkit-scrollbar {
   width: 8px;
-  /* Grosor de la barra de desplazamiento */
 }
 
 ::-webkit-scrollbar-track {
-  background: #22222200;
-  /* Color de fondo de la barra de desplazamiento */
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #0078d4;
-  /* Color del "agarre" de la barra de desplazamiento */
   border-radius: 6px;
 }
 
+
+/* =========================
+   Header
+========================= */
 header {
-  position: absolute;
-  width: 100%;
+  position: sticky;
   top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0px 0.25em 1.25em rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(0.625em);
-  z-index: 1000;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  z-index: 999;
 }
 
-/* Logo y menú */
+
+/* =========================
+   Menú
+========================= */
 .menu-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 24px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.625em 1.875em;
-  max-width: 75em;
-  margin: 0 auto;
-  /* Centra todo el menú dentro del encabezado */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* Estilo por defecto */
 .logo {
-  font-size: 1.8em;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: #0078d4;
-  margin-left: -3em;
 }
 
+
+/* NAV */
 .navbar .nav-menu {
   display: flex;
-  gap: 1.5em;
+  gap: 22px;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  margin-left: -16em;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.navbar .nav-menu li a {
+.navbar .nav-menu a {
   text-decoration: none;
   color: #0078d4;
-  font-size: 1.1em;
   font-weight: 600;
-  padding: 0.5em 0.75em;
-  border-radius: 0.5em;
-  transition: all 0.3s ease-in-out;
+  padding: 8px 14px;
+  border-radius: 10px;
+  transition: 0.25s;
 }
 
-.navbar .nav-menu li a:hover {
-  background-color: #0078d4;
-  color: #fff;
-  box-shadow: 0px 0.25em 0.5em rgba(0, 0, 0, 0.2);
+.navbar .nav-menu a:hover {
+  background: #0078d4;
+  color: white;
 }
 
-/* Hero principal */
+
+/* =========================
+   Hero
+========================= */
 .hero {
-  margin-top: -8em;
-  text-align: center;
-  padding: 6.25em 1.25em;
-  border-radius: 0.9375em;
-  max-width: 62.5em;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1000px;
+  margin: 80px auto 40px;
+  padding: 60px 20px;
 }
 
 .hero h1 {
-  font-size: 2.8em;
-  font-weight: 700;
-  margin-top: 1.5em;
-  margin-bottom: 1.25em;
+  font-size: clamp(2rem, 5vw, 3rem);
   color: #0078d4;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 1.4em;
-  line-height: 1.6;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: #555;
 }
 
-/* Secciones */
+
+/* =========================
+   Secciones
+========================= */
 section {
-  top: 3em;
-  position: relative;
-  margin: 3.75em auto;
-  padding: 2.5em;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 0.9375em;
-  box-shadow: 0px 0.25em 0.9375em rgba(0, 0, 0, 0.1);
-  max-width: 56.25em;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px 30px;
+
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
   text-align: justify;
 }
 
 section h2 {
-  font-size: 2em;
-  font-weight: 700;
+  text-align: center;
+  font-size: 2rem;
   color: #0078d4;
-  margin-bottom: 0.9375em;
+  margin-bottom: 18px;
 }
 
 section p {
-  font-size: 1.2em;
-  color: #0078d4;
-  padding-left: 4em;
-  padding-right: 4em;
+  font-size: 1.1rem;
+  color: #444;
 }
 
-/* Centrado con márgenes moderados */
-.main-content {
-  margin: 0 auto;
-  padding: 0 1.25em;
-  /* Márgenes pequeños en los lados */
-  max-width: 75em;
-}
 
-/* Responsividad */
-@media (max-width: 48em) {
-
-  /* 768px */
-  .menu-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo {
-    font-size: 1.5em;
-    /* Reducir tamaño de fuente en pantallas más pequeñas */
-    margin-left: -2em;
-    /* Ajustar margen */
-  }
-
-  .navbar .nav-menu {
-    gap: 1.2em;
-    /* Reducir espacio entre los elementos */
-    margin-left: -10em;
-    /* Ajustar margen para pantallas más pequeñas */
-  }
-}
-
-.hero {
-  padding: 3.75em 1.25em;
-}
-
-section {
-  padding: 1.875em 1.25em !important;
-  padding-bottom: 3em;
-}
-}
-
-@media screen and (max-width: 32em) {
-
-  /* Aproximadamente 512px */
-  .logo {
-    font-size: 1.2em;
-    /* Ajustar aún más el tamaño de la fuente */
-    margin-left: -1em;
-    /* Ajustar margen para pantallas pequeñas */
-  }
-
-  .navbar .nav-menu {
-    gap: 1em;
-    /* Reducir el espacio */
-    margin-left: -6em;
-    /* Ajustar el margen */
-  }
-
-  .hero h1 {
-    font-size: 2.2em;
-  }
-
-  .hero p {
-    font-size: 1.2em;
-  }
-
-  section h2 {
-    font-size: 1.6em;
-  }
-
-  section p {
-    font-size: 1em;
-  }
-}
-
-.vp-video {
-  width: 99.99% !important;
-}
-
+/* =========================
+   Videos
+========================= */
+.vp-video,
 .vp-container {
-  width: 99.99% !important;
-  margin-bottom: -5em;
-  border-radius: 0.9375em;
+  width: 100% !important;
+  border-radius: 14px;
 }
 
 .vp-container:fullscreen {
   border-radius: 0;
+}
+
+
+/* =========================
+   Layout general
+========================= */
+.main-content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+
+  .menu-container {
+    flex-direction: column;
+  }
+
+  .navbar .nav-menu {
+    gap: 14px;
+  }
+
+  .hero {
+    padding: 40px 18px;
+  }
+
+  section {
+    padding: 28px 20px;
+  }
+}
+
+
+/* Móviles */
+@media (max-width: 480px) {
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .navbar .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  section {
+    text-align: left;
+  }
+}
+
+/* Extras */
+vercel-live-feedback {
+  display: none;
 }
