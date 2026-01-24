@@ -87,15 +87,39 @@
 
       data.forEach(n => {
         container.innerHTML += `
-      <div class="noticia">
-        <img src="${n.imagen}">
-        <div class="noticia-content">
-          <h3>${n.titulo}</h3>
-          <p>${n.resumen ?? ""}</p>
-          <a href="/articulos/articulo?id=${n.id}">Leer más</a>
-        </div>
-      </div>
-    `;
+    <div style="
+      background:#FFF;
+      padding:12px;
+      border-radius:12px;
+      overflow:hidden;
+      color:#0078d4;
+    ">
+      
+      <img src="${n.imagen}" style="
+        width:27.48em;
+        margin-bottom:10px;
+        margin-left:-0.76em;
+        margin-top:-0.71em;
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
+        display:block;
+      ">
+
+      <h3 style="margin:8px 0 6px 0;">${n.titulo}</h3>
+
+      <p style="margin-bottom:10px;">
+        ${n.resumen ?? ""}
+      </p>
+
+      <a href="/articulos/articulo.html?id=${n.id}" style="
+        color:#0078d4;
+        font-weight:bold;
+        text-decoration:none;
+      ">
+        Leer más →
+      </a>
+    </div>
+  `;
       });
     }
 
