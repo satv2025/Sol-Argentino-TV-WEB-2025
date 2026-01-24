@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- título dinámico -->
+    <title id="pageTitle">Artículo - Sol Argentino TV</title>
+
+    <!-- CSS originales tuyos -->
+    <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/satv.css">
+    <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/footer.css">
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        const sb = window.supabase.createClient(
+            "https://moacgzwrvegpoatwjqto.supabase.co",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vYWNnendydmVncG9hdHdqcXRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkyOTM5MDQsImV4cCI6MjA4NDg2OTkwNH0.WGzWhO1KYKTXKLaIXIpE1OLs6o4BJK-Q4JLK_RPZkGM"
+        );
+    </script>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+        }
+
+        .article-img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .contenido {
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="titulo">Cargando...</h1>
+
+    <img id="imagen" class="article-img" style="display:none">
+
+    <div id="contenido" class="contenido"></div>
+
+
+    <!-- SCRIPT DINÁMICO -->
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        // 👉 si alguien entra sin id → redirigir a noticias
+        if (!id) {
+            window.location.href = "/noticias";
+        }
+
+        async function cargar() {
+
+            const { data, error } = await sb
+                .from("articulos")
+                .select("*")
+                .eq("id", id)
+                .single();
+
+            if (error || !data) {
+                document.body.innerHTML = "<h2>Artículo no encontrado</h2>";
+                return;
+            }
+
+            // título
+            titulo.innerText = data.titulo;
+            pageTitle.innerText = data.titulo + " - Sol Argentino TV";
+
+            // imagen
+            if (data.imagen) {
+                imagen.src = data.imagen;
+                imagen.style.display = "block";
+            }
+
+            // contenido HTML
+            contenido.innerHTML = data.contenido;
+        }
+
+        cargar();
+    </script>
+
+</body>
+
+</html>

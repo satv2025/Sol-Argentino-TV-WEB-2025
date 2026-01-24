@@ -6,23 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noticias - Sol Argentino TV</title>
 
-  <!-- CSS Absolutos -->
+  <!-- CSS -->
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/satv.css">
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/noticias.css">
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/footer.css">
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico" type="image/x-icon">
+  <link rel="icon" href="https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico">
+
+  <!-- 🔥 SOLO ESTO -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/sb.js"></script>
 
   <style>
-    /* Import de fuente Gilroy */
     @import url('https://solargentinotv.com.ar/assets/fonts/Gilroy/Gilroy.css');
 
     html,
     body {
       height: 100%;
       margin: 0;
-      padding: 0;
       overflow-x: hidden !important;
       overflow-y: hidden !important;
     }
@@ -33,24 +34,16 @@
       position: relative;
     }
   </style>
-  <!-- 🔥 SUPABASE (AGREGADO) -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    const supabase = window.supabase.createClient(
-      "https://moacgzwrvegpoatwjqto.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vYWNnendydmVncG9hdHdqcXRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkyOTM5MDQsImV4cCI6MjA4NDg2OTkwNH0.WGzWhO1KYKTXKLaIXIpE1OLs6o4BJK-Q4JLK_RPZkGM"
-    );
-  </script>
 </head>
 
 <body>
-  <!-- Menú superior estilo Win11 -->
+
   <header class="header">
     <div class="menu-container">
       <h1 class="logo">Sol Argentino TV</h1>
       <nav class="navbar">
         <ul class="nav-menu">
-          <li><a href="https://solargentinotv.com.ar/index">Inicio</a></li>
+          <li><a href="https://solargentinotv.com.ar/">Inicio</a></li>
           <li><a href="https://solargentinotv.com.ar/grilla">Programación</a></li>
           <li><a href="https://solargentinotv.com.ar/vivo">Ver Transmisión</a></li>
           <li><a href="https://solargentinotv.com.ar/noticias" class="active">Noticias</a></li>
@@ -61,32 +54,28 @@
     </div>
   </header>
 
-  <!-- Contenido principal -->
   <main class="main-content">
-    <!-- 🔥 SECTION DINÁMICA -->
+
     <section id="noticias">
       <h2>Últimas Noticias</h2>
       <p>Entérate de las novedades y actualizaciones de Sol Argentino TV.</p>
 
       <div class="noticias-container" id="noticiasContainer"></div>
     </section>
+
   </main>
 
-  <!-- JS Absolutos -->
-  <script src="https://solargentinotv.com.ar/assets/js/script.js"></script>
-  <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-main.js"></script>
-  <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-dropdown.js"></script>
-
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados. Nos actualizamos cada día pensando en vos. <a
-        href="https://solargentinotv.com.ar/contacto">Contactanos</a></p>
+    <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados.
+      <a href="/contacto">Contactanos</a>
+    </p>
   </footer>
-  <!-- 🔥 CARGA NOTICIAS DESDE SUPABASE (AGREGADO) -->
+
+  <!-- 🔥 JS DINÁMICO -->
   <script>
     async function cargarNoticias() {
 
-      const { data, error } = await supabase
+      const { data, error } = await sb
         .from("articulos")
         .select("*")
         .eq("publicado", true)
@@ -103,7 +92,7 @@
         <div class="noticia-content">
           <h3>${n.titulo}</h3>
           <p>${n.resumen ?? ""}</p>
-          <a href="/articulos/articulo.html?id=${n.id}">Leer más</a>
+          <a href="/articulos/articulo?id=${n.id}">Leer más</a>
         </div>
       </div>
     `;
@@ -112,6 +101,7 @@
 
     cargarNoticias();
   </script>
+
 </body>
 
 </html>

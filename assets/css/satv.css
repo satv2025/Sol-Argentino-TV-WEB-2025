@@ -18,6 +18,10 @@ body {
   font-family: 'Gilroy' !important;
 }
 
+vercel-live-feedback {
+  display: none;
+}
+
 pjsdiv>* {
   font-family: 'Gilroy', !important;
 }
