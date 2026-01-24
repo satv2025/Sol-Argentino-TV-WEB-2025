@@ -4,64 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- título dinámico -->
     <title id="pageTitle">Artículo - Sol Argentino TV</title>
 
-    <!-- CSS originales tuyos -->
+    <!-- CSS Absolutos -->
     <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/satv.css">
+    <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/betasatv.css">
     <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/footer.css">
 
-    <!-- SUPABASE -->
+    <!-- 🔥 SUPABASE -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/js/sb.js"></script>
 
-    <script>
-        const sb = window.supabase.createClient(
-            "https://moacgzwrvegpoatwjqto.supabase.co",
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vYWNnendydmVncG9hdHdqcXRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkyOTM5MDQsImV4cCI6MjA4NDg2OTkwNH0.WGzWhO1KYKTXKLaIXIpE1OLs6o4BJK-Q4JLK_RPZkGM"
-        );
-    </script>
+    <link rel="icon" href="https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico">
 
     <style>
+        @import url('https://solargentinotv.com.ar/assets/fonts/Gilroy/Gilroy.css');
+
+        html,
         body {
-            font-family: sans-serif;
-            max-width: 900px;
-            margin: auto;
-            padding: 40px;
+            height: 100%;
+            margin: 0;
+            overflow-x: hidden !important;
+            overflow-y: hidden !important;
+            font-family: 'Gilroy', sans-serif;
         }
 
-        .article-img {
-            width: 100%;
-            border-radius: 12px;
-            margin: 20px 0;
+        #page-scroll {
+            height: 100vh;
+            overflow: auto;
+            position: relative;
         }
 
-        .contenido {
-            line-height: 1.7;
+        img {
+            width: 46.518em;
+            margin-left: 4.88em;
         }
     </style>
 </head>
 
 <body>
 
-    <h1 id="titulo">Cargando...</h1>
+    <div id="page-scroll">
 
-    <img id="imagen" class="article-img" style="display:none">
+        <header class="header">
+            <div class="menu-container">
+                <h1 class="logo">Sol Argentino TV</h1>
+                <nav class="navbar">
+                    <ul class="nav-menu">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/grilla">Programación</a></li>
+                        <li><a href="/vivo">Ver Transmisión</a></li>
+                        <li><a href="/noticias">Noticias</a></li>
+                        <li><a href="/nosotros">Nosotros</a></li>
+                        <li><a href="/contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-    <div id="contenido" class="contenido"></div>
+        <!-- 🔥 TU MISMO FORMATO, PERO DINÁMICO -->
+        <main class="main-content">
+            <section id="articulo">
+
+                <h1 id="h1article"></h1>
+
+                <img id="imgArticle">
+
+                <div id="contenidoArticle"></div>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados.
+                <a href="/contacto">Contactanos</a>
+            </p>
+        </footer>
+
+    </div>
 
 
-    <!-- SCRIPT DINÁMICO -->
+    <!-- 🔥 CARGA ARTICULO DESDE SUPABASE -->
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get("id");
+        async function cargarArticulo() {
 
-        // 👉 si alguien entra sin id → redirigir a noticias
-        if (!id) {
-            window.location.href = "/noticias";
-        }
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get("id");
 
-        async function cargar() {
+            if (!id) return;
 
             const { data, error } = await sb
                 .from("articulos")
@@ -69,26 +99,19 @@
                 .eq("id", id)
                 .single();
 
-            if (error || !data) {
-                document.body.innerHTML = "<h2>Artículo no encontrado</h2>";
-                return;
-            }
+            if (error) return console.error(error);
 
-            // título
-            titulo.innerText = data.titulo;
-            pageTitle.innerText = data.titulo + " - Sol Argentino TV";
+            document.title = data.titulo + " - Sol Argentino TV";
 
-            // imagen
-            if (data.imagen) {
-                imagen.src = data.imagen;
-                imagen.style.display = "block";
-            }
+            document.getElementById("h1article").textContent = data.titulo;
 
-            // contenido HTML
-            contenido.innerHTML = data.contenido;
+            document.getElementById("imgArticle").src = data.imagen;
+
+            // contenido como HTML (permite <p>, <br>, etc)
+            document.getElementById("contenidoArticle").innerHTML = data.contenido;
         }
 
-        cargar();
+        cargarArticulo();
     </script>
 
 </body>

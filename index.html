@@ -6,21 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sol Argentino TV - Canal de Televisión Argentino</title>
 
-  <!-- CSS -->
+  <!-- CSS ABSOLUTOS -->
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/satv.css">
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/footer.css">
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/apps.css">
 
-  <!-- VIDSTACK -->
+  <!-- VIDSTACK CSS -->
   <link rel="stylesheet" href="assets/css/vidstack/1.css">
   <link rel="stylesheet" href="assets/css/vidstack/2.css">
+
+  <!-- VIDSTACK -->
   <script src="https://cdn.vidstack.io/player" type="module"></script>
 
-  <!-- 🔥 SUPABASE GLOBAL (SOLO ESTO) -->
+  <!-- 🔥 SUPABASE (GLOBAL) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="/assets/js/sb.js"></script>
+  <script src="assets/js/sb.js"></script>
 
-  <link rel="icon" href="https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico">
+  <!-- FAVICON -->
+  <link rel="icon" href="https://solargentinotv.com.ar/assets/media/images/Logo SATV WEB BETA.ico" type="image/x-icon">
 
   <style>
     @import url('https://solargentinotv.com.ar/assets/fonts/Gilroy/Gilroy.css');
@@ -29,6 +32,7 @@
     body {
       height: 100%;
       margin: 0;
+      padding: 0;
       overflow-x: hidden !important;
       overflow-y: hidden !important;
     }
@@ -90,12 +94,13 @@
 
   <div id="page-scroll">
 
+    <!-- HEADER -->
     <header class="header">
       <div class="menu-container">
         <h1 class="logo">Sol Argentino TV</h1>
         <nav class="navbar">
           <ul class="nav-menu">
-            <li><a href="/" class="active">Inicio</a></li>
+            <li><a href="https://solargentinotv.com.ar" class="active">Inicio</a></li>
             <li><a href="grilla">Programación</a></li>
             <li><a href="vivo">Ver Transmisión</a></li>
             <li><a href="noticias">Noticias</a></li>
@@ -106,6 +111,7 @@
       </div>
     </header>
 
+    <!-- MAIN -->
     <main class="main-content">
 
       <section id="inicio">
@@ -115,7 +121,7 @@
         </div>
       </section>
 
-      <!-- 🔥 NOTICIAS DINÁMICAS -->
+      <!-- 🔥 ÚLTIMAS NOTICIAS DINÁMICAS -->
       <section style="padding:40px">
         <h2>Últimas Noticias</h2>
 
@@ -130,6 +136,7 @@
         <h2>Video Introductorio</h2>
 
         <div class="video-wrapper">
+
           <div class="video-overlay" id="videoOverlay">
             <img src="https://solargentinotv.com.ar/assets/media/images/Trailer%20SATV%20WEB%20BETA_46.png"
               class="video-poster">
@@ -143,11 +150,13 @@
               <media-video-layout></media-video-layout>
             </media-player>
           </div>
+
         </div>
       </section>
 
     </main>
 
+    <!-- FOOTER -->
     <footer>
       <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados.
         <a href="contacto">Contactanos</a>
@@ -156,7 +165,7 @@
 
   </div>
 
-  <!-- VIDEO OVERLAY -->
+  <!-- OVERLAY -->
   <script>
     document.getElementById('playButton').onclick = () => {
       document.getElementById('videoOverlay').style.display = 'none';
@@ -164,7 +173,7 @@
     };
   </script>
 
-  <!-- 🔥 NOTICIAS JS -->
+  <!-- 🔥 NOTICIAS DESDE SUPABASE -->
   <script>
     async function cargarHomeNoticias() {
 
@@ -185,7 +194,7 @@
         <img src="${n.imagen}" style="width:100%;border-radius:10px;margin-bottom:10px">
         <h3>${n.titulo}</h3>
         <p>${n.resumen ?? ""}</p>
-        <a href="/articulos/articulo?id=${n.id}" style="color:#0078d4;font-weight:bold">
+        <a href="/articulos/articulo.html?id=${n.id}" style="color:#0078d4;font-weight:bold">
           Leer más →
         </a>
       </div>
