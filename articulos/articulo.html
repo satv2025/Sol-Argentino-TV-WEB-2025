@@ -24,20 +24,76 @@
         body {
             height: 100%;
             margin: 0;
-            overflow-x: hidden !important;
-            overflow-y: hidden !important;
             font-family: 'Gilroy', sans-serif;
+            background: #0f0f0f;
+            color: white;
         }
 
         #page-scroll {
-            height: 100vh;
-            overflow: auto;
-            position: relative;
+            min-height: 100vh;
+            overflow-y: auto;
         }
 
-        img {
-            width: 46.518em;
-            margin-left: 4.88em;
+        /* 🔥 CONTENEDOR ESTILO BLOG */
+        #articulo {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 50px;
+            background: #161616;
+            border-radius: 18px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
+        }
+
+        /* 🔥 TÍTULO */
+        #h1article {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        /* 🔥 IMAGEN */
+        #imgArticle {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 35px;
+        }
+
+        /* 🔥 CONTENIDO */
+        #contenidoArticle {
+            font-size: 1.15rem;
+            line-height: 1.85;
+            color: #ddd;
+        }
+
+        #contenidoArticle p {
+            margin-bottom: 22px;
+        }
+
+        #contenidoArticle h2,
+        #contenidoArticle h3 {
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        #contenidoArticle img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        /* 🔥 MOBILE */
+        @media (max-width: 768px) {
+            #articulo {
+                margin: 20px;
+                padding: 25px;
+            }
+
+            #h1article {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -46,6 +102,7 @@
 
     <div id="page-scroll">
 
+        <!-- HEADER -->
         <header class="header">
             <div class="menu-container">
                 <h1 class="logo">Sol Argentino TV</h1>
@@ -62,7 +119,7 @@
             </div>
         </header>
 
-        <!-- 🔥 TU MISMO FORMATO, PERO DINÁMICO -->
+        <!-- 🔥 ARTICULO -->
         <main class="main-content">
             <section id="articulo">
 
@@ -75,6 +132,7 @@
             </section>
         </main>
 
+        <!-- FOOTER -->
         <footer>
             <p>&copy; 2025 Sol Argentino TV - Todos los derechos reservados.
                 <a href="/contacto">Contactanos</a>
@@ -84,7 +142,7 @@
     </div>
 
 
-    <!-- 🔥 CARGA ARTICULO DESDE SUPABASE -->
+    <!-- 🔥 CARGA ARTICULO -->
     <script>
         async function cargarArticulo() {
 
@@ -103,12 +161,9 @@
 
             document.title = data.titulo + " - Sol Argentino TV";
 
-            document.getElementById("h1article").textContent = data.titulo;
-
-            document.getElementById("imgArticle").src = data.imagen;
-
-            // contenido como HTML (permite <p>, <br>, etc)
-            document.getElementById("contenidoArticle").innerHTML = data.contenido;
+            h1article.textContent = data.titulo;
+            imgArticle.src = data.imagen;
+            contenidoArticle.innerHTML = data.contenido;
         }
 
         cargarArticulo();
