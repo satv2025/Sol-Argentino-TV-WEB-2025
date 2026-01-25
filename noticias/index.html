@@ -85,49 +85,80 @@
 
       const container = document.getElementById("noticiasContainer");
 
+      container.innerHTML = "";
+
       data.forEach(n => {
+
         container.innerHTML += `
-    <div style="
-      background:#FFF;
-      padding:12px;
-      border-radius:12px;
-      overflow:hidden;
-      color:#0078d4;
-      outline: 2px solid #0078d4;
+    
+    <article style="
+      background:#fff;
+      color:#111;
+      padding:20px 0;
+      box-shadow:0 0 20px rgb(0 0 0 / 61%) !important;
+      border-radius: 12px;
     ">
-      
-      <img src="${n.imagen}" style="
-        width:27.48em;
-        margin-bottom:10px;
-        margin-left:-0.76em;
-        margin-top:-0.71em;
-        border-top-left-radius:10px;
-        border-top-right-radius:10px;
-        border-bottom: 2px solid #0078d4;
-        display:block;
+
+      <!-- TITULO -->
+      <h2 style="
+        font-size:28px;
+        margin-bottom:14px;
+        padding-left: 1em;
+        font-weight:700;
+        text-align: left;
+        width: 100%;
+        line-height: 1.23;
+      ">
+        ${n.titulo}
+      </h2>
+
+      <!-- CONTENIDO -->
+      <div style="
+        display:flex;
+        gap:20px;
+        align-items:flex-start;
       ">
 
-      <h3 style="margin:8px 0 6px 0;">${n.titulo}</h3>
+        <!-- IMAGEN IZQUIERDA -->
+        <img src="${n.imagen}" style="
+          width:260px;
+          height:160px;
+          object-fit:cover;
+          border-radius:8px;
+          flex-shrink:0;
+          margin-left:1em;
+        ">
 
-      <p style="margin-bottom:10px;">
-        ${n.resumen ?? ""}
-      </p>
+        <!-- TEXTO DERECHA -->
+        <div style="flex:1">
 
-      <a href="/articulos/articulo.html?id=${n.id}" style="
-        color:#0078d4;
-        font-weight:bold;
-        text-decoration:none;
-      ">
-        Leer más →
-      </a>
-    </div>
-  `;
+          <p style="
+            font-size:16px;
+            line-height:1.6;
+            margin-bottom:12px;
+          ">
+            ${n.resumen ?? ""}
+          </p>
+
+          <a href="/articulos/articulo?id=${n.id}" style="
+            color:#0078d4;
+            font-weight:bold;
+            text-decoration:none;
+          ">
+            Leer más →
+          </a>
+
+        </div>
+
+      </div>
+    </article>
+    
+    `;
       });
     }
 
     cargarNoticias();
   </script>
-
 </body>
 
 </html>
