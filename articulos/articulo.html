@@ -148,13 +148,16 @@
                ARTÍCULO
             ============================= */
 
-            const { data: art } = await sb
+            const { data: art, error: artErr } = await sb
                 .from("articulos")
                 .select("*")
                 .eq("id", id)
                 .single();
 
-            if (!art) return;
+            if (artErr || !art) {
+                console.error("Artículo no encontrado");
+                return;
+            }
 
             document.title = art.titulo + " - Sol Argentino TV";
             h1article.textContent = art.titulo;
@@ -176,7 +179,6 @@
                 .eq("articulo_id", id)
                 .order("orden");
 
-
             let html = art.contenido || "";
 
             // auto <p>
@@ -191,21 +193,23 @@
 
             videos.forEach(v => {
 
-                // 🔥 convierte .mp4 → .vtt automático
-                const vtt = v.url.replace(/\.[^/.]+$/, ".vtt");
+                const videoUrl = v.url;
+
+                // 🔥 .mp4 → .vtt (MISMO NOMBRE)
+                const vttUrl = videoUrl.replace(/\.[^/.]+$/, ".vtt");
 
                 const player = `
 <div class="video-wrapper">
     <media-player
-        src="${v.url}"
+        src="${videoUrl}"
         playsinline
         preload="metadata"
+        crossorigin
     >
         <media-provider></media-provider>
 
-        <!-- 🔥 thumbnails automáticos -->
         <media-video-layout
-            thumbnails="${vtt}"
+            thumbnails="${vttUrl}"
         ></media-video-layout>
 
     </media-player>
@@ -219,7 +223,6 @@
                 else
                     html += player;
             });
-
 
             contenidoArticle.innerHTML = html;
         }
