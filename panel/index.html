@@ -12,7 +12,7 @@
 
     <script>
         const sb = window.supabase.createClient(
-            "https://spzgxvkedsdjjhzzyysr.supabase.co",
+            "https://api.solargentinotv.com.ar",
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNwemd4dmtlZHNkampoenp5eXNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk1MzQwOTAsImV4cCI6MjA4NTExMDA5MH0.RgFghlZVV4Ww27rfh96nTiafDwRu9jtC3S6Y6aFdIxE"
         );
     </script>
@@ -78,6 +78,8 @@
         <textarea id="resumen" placeholder="Resumen"></textarea>
         <textarea id="contenido" rows="8" placeholder="Contenido HTML"></textarea>
         <input type="file" id="imagenFile">
+        <label>Videos (podés subir varios)</label>
+        <input type="file" id="videosFiles" multiple accept="video/*">
         <label><input type="checkbox" id="publicado"> Publicar</label>
 
         <button onclick="crear()">Guardar</button>

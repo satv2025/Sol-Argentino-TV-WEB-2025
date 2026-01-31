@@ -4,6 +4,13 @@
  *
  * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
  */
+
+@import url('https://solargentinotv.com.ar/assets/fonts/Gilroy/Gilroy.css');
+
+* {
+    font-family: Gilroy, !important;
+}
+
 [data-media-player] {
     width: 100%;
     display: inline-flex;
@@ -132,7 +139,6 @@ iframe.vds-youtube[data-no-controls] {
     justify-content: center;
     flex-direction: column;
     color: #dedede;
-    font-family: sans-serif;
     font-weight: 500
 }
 

@@ -1,228 +1,230 @@
-/* =========================
+    @import url('https://solargentinotv.com.ar/assets/fonts/Gilroy/Gilroy.css');
+
+    /* =========================
    RESET + BASE
 ========================= */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Gilroy', sans-serif;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Gilroy';
+    }
 
-html,
-body {
-  height: 100%;
-}
+    html,
+    body {
+      height: 100%;
+    }
 
-body {
-  background: linear-gradient(145deg, #e0e6ed, #f9f9f9);
-  color: #333;
-  line-height: 1.5;
-}
+    body {
+      background: linear-gradient(145deg, #e0e6ed, #f9f9f9);
+      color: #333;
+      line-height: 1.5;
+    }
 
-/* =========================
+    /* =========================
    LAYOUT GENERAL
 ========================= */
 
-.page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-.main-content {
-  flex: 1;
-  width: min(1200px, 95%);
-  margin: auto;
-}
+    .main-content {
+      flex: 1;
+      width: min(1200px, 95%);
+      margin: auto;
+    }
 
-/* =========================
+    /* =========================
    HEADER
 ========================= */
 
-header {
-  position: relative;
-  top: 0;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-  z-index: 100;
-}
+    header {
+      position: relative;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+    }
 
-.menu-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 20px;
-  gap: 20px;
-}
+    .menu-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      gap: 20px;
+    }
 
-.logo {
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: #0078d4;
-}
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0078d4;
+    }
 
-/* NAV */
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
+    /* NAV */
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
 
-.nav-menu a {
-  text-decoration: none;
-  font-weight: 600;
-  color: #0078d4;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: 0.25s;
-}
+    .nav-menu a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #0078d4;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.25s;
+    }
 
-.nav-menu a:hover {
-  background: #0078d4;
-  color: white;
-}
+    .nav-menu a:hover {
+      background: #0078d4;
+      color: white;
+    }
 
-/* =========================
+    /* =========================
    HERO
 ========================= */
 
-.hero {
-  text-align: center;
-  padding: 70px 15px 40px;
-}
+    .hero {
+      text-align: center;
+      padding: 70px 15px 40px;
+    }
 
-.hero h1 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  color: #0078d4;
-  margin-bottom: 12px;
-}
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: #0078d4;
+      margin-bottom: 12px;
+    }
 
-/* =========================
+    /* =========================
    SECTIONS
 ========================= */
 
-section {
-  margin: 40px 0;
-  padding: 30px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
-}
+    section {
+      margin: 40px 0;
+      padding: 30px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    }
 
-section h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #0078d4;
-}
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0078d4;
+    }
 
-/* =========================
+    /* =========================
    NOTICIAS GRID
 ========================= */
 
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
 
-.news-card {
-  border: 2px solid #0078d4;
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 12px;
-  background: white;
-  display: flex;
-  flex-direction: column;
-}
+    .news-card {
+      border: 2px solid #0078d4;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 12px;
+      background: white;
+      display: flex;
+      flex-direction: column;
+    }
 
-.news-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
+    .news-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
 
-.news-card a {
-  margin-top: auto;
-  font-weight: bold;
-  color: #0078d4;
-  text-decoration: none;
-}
+    .news-card a {
+      margin-top: auto;
+      font-weight: bold;
+      color: #0078d4;
+      text-decoration: none;
+    }
 
-/* =========================
+    /* =========================
    VIDEO
 ========================= */
 
-.video-wrapper {
-  position: relative;
-  aspect-ratio: 16/9;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
-}
+    .video-wrapper {
+      position: relative;
+      aspect-ratio: 16/9;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 14px;
+    }
 
-media-player {
-  width: 100%;
-  height: 100%;
-  background: black;
-}
+    media-player {
+      width: 100%;
+      height: 100%;
+      background: black;
+    }
 
-.video-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  cursor: pointer;
-  z-index: 10;
-}
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      cursor: pointer;
+      z-index: 10;
+    }
 
-.video-poster {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .video-poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.play-button {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: white;
-  border: 5px solid #0078d4;
-}
+    .play-button {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: white;
+      border: 5px solid #0078d4;
+    }
 
-/* =========================
+    /* =========================
    RESPONSIVE
 ========================= */
 
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
 
-  .menu-container {
-    flex-direction: column;
-  }
+      .menu-container {
+        flex-direction: column;
+      }
 
-  .nav-menu {
-    justify-content: center;
-  }
+      .nav-menu {
+        justify-content: center;
+      }
 
-  section {
-    padding: 20px;
-  }
-}
+      section {
+        padding: 20px;
+      }
+    }
 
-@media (max-width: 480px) {
+    @media (max-width: 480px) {
 
-  .logo {
-    font-size: 1.3rem;
-  }
+      .logo {
+        font-size: 1.3rem;
+      }
 
-  .nav-menu {
-    flex-direction: column;
-    align-items: center;
-  }
-}
+      .nav-menu {
+        flex-direction: column;
+        align-items: center;
+      }
+    }

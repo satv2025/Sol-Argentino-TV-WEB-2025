@@ -4,6 +4,13 @@
  *
  * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
  */
+
+@import url('https://solargentinotv.com.ar/assets/fonts/Gilroy/Gilroy.css');
+
+* {
+    font-family: Gilroy, !important;
+}
+
 [data-media-player] .vds-video-layout:not([data-match]) {
     display: none !important
 }
@@ -98,7 +105,7 @@
 }
 
 .vds-video-layout .vds-time-slider .vds-slider-value {
-    background-color: #181818;
+    background-color: #0078d4;
     color: #fff !important;
 
     width: 10em;

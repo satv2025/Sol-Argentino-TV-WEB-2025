@@ -179,7 +179,7 @@
       const { data, error } = await sb
         .from("articulos")
         .select("*")
-        .eq("publicado", true)
+        .eq("estado", "publicado")
         .order("fecha_creacion", { ascending: false })
         .limit(10);
 
@@ -239,7 +239,7 @@
             line-height:1.6;
             margin-bottom:12px;
           ">
-            ${n.resumen ?? ""}
+            ${n.resumen || ""}
           </p>
 
           <a href="/articulos/articulo?id=${n.id}" style="
