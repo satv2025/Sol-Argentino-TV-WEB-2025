@@ -107,16 +107,12 @@
 .vds-video-layout .vds-time-slider .vds-slider-value {
     background-color: #0078d4;
     color: #fff !important;
-
-    width: 10em;
+    width: 3em !important;
 
     /* padding centrado calculado */
-    padding-left: calc((3.56em + 4em) / 2);
-    padding-right: calc((3.56em + 4em) / 2);
-
-    padding-top: 0.25em;
+    margin: 0 auto;
+    padding-top: 0.7em;
     padding-bottom: 0.3em;
-
     margin-top: -0.4em;
     font-size: 16px;
 
