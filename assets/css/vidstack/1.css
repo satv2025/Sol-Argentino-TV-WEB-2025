@@ -311,7 +311,7 @@ iframe.vds-youtube[data-no-controls] {
 }
 
 :where(.vds-live-button-text) {
-    font-family: var(--media-font-family, sans-serif);
+
     font-size: var(--media-live-button-font-size, 12px);
     font-weight: var(--media-live-button-font-weight, 600);
     letter-spacing: var(--media-live-button-letter-spacing, 1.5px);
@@ -524,7 +524,7 @@ iframe.vds-youtube[data-no-controls] {
 :where(.vds-chapter-title) {
     --color: var(--media-chapter-title-color, rgba(255 255 255 / 0.64));
     display: inline-block;
-    font-family: var(--media-font-family, sans-serif);
+
     font-size: var(--media-chapter-title-font-size, 16px);
     font-weight: 700;
     color: #0078d4;
@@ -625,7 +625,7 @@ iframe.vds-youtube[data-no-controls] {
 :where(.vds-kb-text) {
     display: inline-block;
     font-size: var(--media-kb-text-size, 150%);
-    font-family: var(--media-font-family, sans-serif);
+
     backdrop-filter: blur(2px);
     border-radius: var(--media-kb-border-radius, 2.5px);
     pointer-events: none
@@ -771,8 +771,7 @@ iframe.vds-youtube[data-no-controls] {
 }
 
 :where(.vds-menu-items) {
-    --font-family: var(--media-font-family, sans-serif);
-    --font-size: var(--media-menu-font-size, 14px);
+    -- --font-size: var(--media-menu-font-size, 14px);
     --font-weight: var(--media-menu-font-weight, 500);
     --root-bg: var(--media-menu-bg, var(--color-gray-400));
     --root-padding: var(--media-menu-padding, 12px);
@@ -1724,7 +1723,7 @@ iframe.vds-youtube[data-no-controls] {
     display: inline-block;
     contain: content;
     font-size: 14px;
-    font-family: var(--media-font-family, sans-serif)
+
 }
 
 :where(.vds-slider-thumbnail) {
@@ -1934,7 +1933,7 @@ iframe.vds-youtube[data-no-controls] {
 }
 
 :where(.vds-time-slider .vds-slider-chapter-title) {
-    font-family: var(--media-font-family, sans-serif);
+
     font-size: var(--media-slider-chapter-title-font-size, 14px);
     color: var(--media-slider-chapter-title-color, #f5f5f5);
     background-color: var(--media-slider-chapter-title-bg)
@@ -1990,7 +1989,7 @@ iframe.vds-youtube[data-no-controls] {
     contain: content;
     font-size: var(--media-time-font-size, 15px);
     font-weight: var(--media-time-font-weight, 400);
-    font-family: var(--media-font-family, sans-serif);
+
     border-radius: var(--media-time-border-radius, 2px);
     letter-spacing: var(--media-time-letter-spacing, .025em)
 }
@@ -2022,7 +2021,7 @@ iframe.vds-youtube[data-no-controls] {
 :where(.vds-tooltip-content) {
     display: inline-block;
     box-sizing: border-box;
-    font-family: var(--media-font-family, sans-serif);
+
     font-size: var(--media-tooltip-font-size, 13px);
     font-weight: var(--media-tooltip-font-weight, 500);
     opacity: 0;
