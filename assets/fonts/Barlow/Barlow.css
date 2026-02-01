@@ -1,0 +1,449 @@
+/* =====================================================
+   Barlow Family – WOFF2 + TTF fallback
+   Normal:  Barlow
+   Cond:    BarlowC
+   Semi:    BarlowSC
+   ===================================================== */
+
+
+/* ========= Barlow ========= */
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Thin.woff2") format("woff2"), url("./Barlow Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Thin Italic.woff2") format("woff2"), url("./Barlow Thin Italic.ttf") format("truetype");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow ExtraLight.woff2") format("woff2"), url("./Barlow ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow ExtraLight Italic.woff2") format("woff2"), url("./Barlow ExtraLight Italic.ttf") format("truetype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Light.woff2") format("woff2"), url("./Barlow Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Light Italic.woff2") format("woff2"), url("./Barlow Light Italic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Regular.woff2") format("woff2"), url("./Barlow Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Italic.woff2") format("woff2"), url("./Barlow Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Medium.woff2") format("woff2"), url("./Barlow Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Medium Italic.woff2") format("woff2"), url("./Barlow Medium Italic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow SemiBold.woff2") format("woff2"), url("./Barlow SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow SemiBold Italic.woff2") format("woff2"), url("./Barlow SemiBold Italic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Bold.woff2") format("woff2"), url("./Barlow Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Bold Italic.woff2") format("woff2"), url("./Barlow Bold Italic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow ExtraBold.woff2") format("woff2"), url("./Barlow ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow ExtraBold Italic.woff2") format("woff2"), url("./Barlow ExtraBold Italic.ttf") format("truetype");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Black.woff2") format("woff2"), url("./Barlow Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("./Barlow Black Italic.woff2") format("woff2"), url("./Barlow Black Italic.ttf") format("truetype");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
+/* ========= BarlowC (Condensed) ========= */
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Thin.woff2") format("woff2"), url("./Barlow Condensed Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Thin Italic.woff2") format("woff2"), url("./Barlow Condensed Thin Italic.ttf") format("truetype");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed ExtraLight.woff2") format("woff2"), url("./Barlow Condensed ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed ExtraLight Italic.woff2") format("woff2"), url("./Barlow Condensed ExtraLight Italic.ttf") format("truetype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Light.woff2") format("woff2"), url("./Barlow Condensed Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Light Italic.woff2") format("woff2"), url("./Barlow Condensed Light Italic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Regular.woff2") format("woff2"), url("./Barlow Condensed Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Italic.woff2") format("woff2"), url("./Barlow Condensed Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Medium.woff2") format("woff2"), url("./Barlow Condensed Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Medium Italic.woff2") format("woff2"), url("./Barlow Condensed Medium Italic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed SemiBold.woff2") format("woff2"), url("./Barlow Condensed SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed SemiBold Italic.woff2") format("woff2"), url("./Barlow Condensed SemiBold Italic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Bold.woff2") format("woff2"), url("./Barlow Condensed Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Bold Italic.woff2") format("woff2"), url("./Barlow Condensed Bold Italic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed ExtraBold.woff2") format("woff2"), url("./Barlow Condensed ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed ExtraBold Italic.woff2") format("woff2"), url("./Barlow Condensed ExtraBold Italic.ttf") format("truetype");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Black.woff2") format("woff2"), url("./Barlow Condensed Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowC";
+    src: url("./Barlow Condensed Black Italic.woff2") format("woff2"), url("./Barlow Condensed Black Italic.ttf") format("truetype");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
+/* ========= BarlowSC (Semi Condensed) ========= */
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Thin.woff2") format("woff2"), url("./Barlow Semi Condensed Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Thin Italic.woff2") format("woff2"), url("./Barlow Semi Condensed Thin Italic.ttf") format("truetype");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed ExtraLight.woff2") format("woff2"), url("./Barlow Semi Condensed ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed ExtraLight Italic.woff2") format("woff2"), url("./Barlow Semi Condensed ExtraLight Italic.ttf") format("truetype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Light.woff2") format("woff2"), url("./Barlow Semi Condensed Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Light Italic.woff2") format("woff2"), url("./Barlow Semi Condensed Light Italic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Regular.woff2") format("woff2"), url("./Barlow Semi Condensed Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Italic.woff2") format("woff2"), url("./Barlow Semi Condensed Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Medium.woff2") format("woff2"), url("./Barlow Semi Condensed Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Medium Italic.woff2") format("woff2"), url("./Barlow Semi Condensed Medium Italic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed SemiBold.woff2") format("woff2"), url("./Barlow Semi Condensed SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed SemiBold Italic.woff2") format("woff2"), url("./Barlow Semi Condensed SemiBold Italic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Bold.woff2") format("woff2"), url("./Barlow Semi Condensed Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Bold Italic.woff2") format("woff2"), url("./Barlow Semi Condensed Bold Italic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed ExtraBold.woff2") format("woff2"), url("./Barlow Semi Condensed ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed ExtraBold Italic.woff2") format("woff2"), url("./Barlow Semi Condensed ExtraBold Italic.ttf") format("truetype");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Black.woff2") format("woff2"), url("./Barlow Semi Condensed Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BarlowSC";
+    src: url("./Barlow Semi Condensed Black Italic.woff2") format("woff2"), url("./Barlow Semi Condensed Black Italic.ttf") format("truetype");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
