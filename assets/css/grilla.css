@@ -1,186 +1,303 @@
-/* Tabla de programación con bordes redondeados */
-.grilla-container {
-  margin-top: -0.125em;
-  max-width: 56.25em;
-  margin-left: auto;
-  margin-right: auto;
-  overflow-x: auto; /* Hace la tabla desplazable horizontalmente en móviles */
-}
-
-.grilla-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.25em 0;
-  font-size: 1.1em;
-  text-align: left;
-  border-radius: 0.625em; /* Bordes redondeados para la tabla */
-  overflow: hidden; /* Para que los bordes redondeados no se vean cortados */
-  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-.grilla-table thead tr {
-  background-color: #0078d4; /* Azul estilo Win11 */
-  color: #fff;
-  text-align: center;
-}
-
-.grilla-table th,
-.grilla-table td {
-  padding: 0.75em 1em;
-  border: 0.0625em solid #ddd;
-}
-
-.grilla-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3; /* Alternar colores */
-}
-
-.grilla-table tbody tr:hover {
-  background-color: #eef4ff; /* Hover suave */
-  cursor: pointer;
-}
-
-.grilla-table td {
-  text-align: center;
-  color: #333;
-}
-
-.psynop {
-  text-align: justify !important;
-}
-
-/* Estilos para el selector de días */
-#day-select {
-  padding: 0.5em;
-  font-size: 1em;
-  font-family: 'Gilroy';
-  margin-bottom: 1.25em;
-  border-radius: 0.5em;
-  border: 2px solid #0078d4;
-  background-color: #fff;
-}
-#day-option {
-  border: 2px solid #0078d4;
-  background-color: #fff;
+/* Gilroy Bold */
+@font-face {
+  font-family: "GilroyMN";
+  src: url("../fonts/Gilroy/Gilroy Bold MonoNums.otf") format("opentype");
   font-weight: 700;
+  font-style: normal;
 }
 
-#day-option:hover {
-  background: #0078d4;
+@import url('https://solargentinotv.com.ar/assets/fonts/Gilroy/Gilroy.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gilroy';
+}
+
+body {
+  background: #101418;
+  color: #f1f1f1;
+  padding: 40px 20px;
+  /* Más padding en el body para dar más espacio */
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  font-size: 2.5rem;
+  /* Aumentamos el tamaño de la fuente para mayor impacto */
+  font-weight: 800;
+  padding: 40px 20px;
+  /* Aumentamos el padding */
+  border-bottom: 4px solid #e42052;
+  /* Borde más grueso */
+  margin-bottom: 30px;
+  /* Más margen inferior */
   color: #fff;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  /* Sombra suave para más elegancia */
 }
 
-
-
-#day-select:focus {
-  outline: none;
-  border-color: #0078d4; /* Azul estilo Win11 */
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  /* Más espacio entre la topbar y el contenido */
+  padding: 10px 0;
+  /* Ajustamos padding */
 }
 
-/* Estilos básicos para el dropdown */
+/* DROPDOWN */
 .dropdown {
   position: relative;
-  display: inline-block;
-  width: 100%;  /* Ancho del contenedor principal al 41% */
 }
 
-.dropbtn {
-  background-color: #fff;
-  color: #0078d4;
-  padding: 0.625em 1.25em;  /* Convertido a 'em' */
-  border: 0.125em solid #0078d4;
-  cursor: pointer;
-  font-size: 1em;
+.dropdown.open #dayBtn {
+  border: 2px solid #e42052;
+  background: #e42052;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* Sombra suave */
+}
+
+#dayBtn {
+  background: none;
+  border: 2px solid #e42052;
+  padding: 12px 24px;
+  /* Más padding para un botón más grande */
+  border-radius: 12px;
+  /* Bordes más redondeados */
+  color: white;
   font-weight: 700;
-  border-radius: 0.5em;
-  width: 25%;  /* Hace que el botón ocupe el 100% del ancho de su contenedor (41%) */
-  box-sizing: border-box;  /* Asegura que el padding no afecte el tamaño total */
-  margin-left: 12.5em;
-  text-align: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  /* Aumentamos el tamaño de la fuente */
+  transition: background 0.3s, box-shadow 0.3s;
+  width: auto;
+  min-width: 8em;
 }
 
-.dropbtn:hover {
-  background-color: #0078d4;
-  color: #fff;
+#dayBtn:hover {
+  background: #e42052cc;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  /* Agregamos sombra al hover */
 }
 
-.dropdown-content {
+.dropdown-menu {
   display: none;
   position: absolute;
-  background-color: #ffffff;
-  border: 0.125em solid #0078d4;
-  font-weight: 700;
-  border-radius: 0.5em;
-  width: 25%;  /* El menú ahora tiene un ancho del 41% */
-  margin-left: 12.5em;  /* Desplazamiento hacia la derecha de 12.5em */
-  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
-  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  margin-top: 0.2em; /* Margen superior para separar el menú del botón */
-  text-align: center;
-  height: 17em;
-  overflow-y: auto;
+  top: 55px;
+  background: #252938;
+  border-radius: 8px;
+  padding: 16px;
+  z-index: 99;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.dropdown-item {
-  color: #0078d4;
-  padding: 0.75em 1em;  /* Convertido a 'em' */
-  text-decoration: none;
-  display: block;
+.dropdown-menu div {
+  padding: 16px 20px;
   cursor: pointer;
-  position: relative;
+  font-size: 1rem;
+  /* Tamaño de fuente más grande */
+  color: #f1f1f1;
+  text-align: center;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
 }
 
-.dropdown-item:hover {
-  background-color: #0078d4;
+.dropdown-menu div:hover {
+  background: #e42052;
+  color: white;
+  border-radius: 8px;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+#clock {
+  font-family: GilroyMN !important;
+  font-size: 1.2rem;
+  /* Aumentamos el tamaño de la fuente */
+  color: #e42052;
+  padding: 8px 16px;
+  background: #1c1f2b;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* Sombra para destacar */
+  margin-top: 10px;
+}
+
+/* TIMELINE */
+.timeline {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 2px solid #222;
+}
+
+.timeline div {
+  min-width: 150px;
+  opacity: 0.8;
+  text-align: center;
+  font-size: 1rem;
+  /* Fuente más grande */
+  color: #f1f1f1;
+  transition: opacity 0.3s, transform 0.3s;
+  /* Efecto de transformación */
+}
+
+.timeline div:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  /* Efecto de ampliación */
+}
+
+/* GRID */
+.epg {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+
+.program {
+  min-width: 220px;
+  background: #1c1f2b;
+  padding: 25px;
+  border-radius: 16px;
+  /* Bordes más redondeados */
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  /* Sombra más profunda */
+}
+
+.program:hover {
+  background: #252938;
+  transform: scale(1.05);
+  /* Efecto de ampliación */
+}
+
+.program h4 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  /* Más espacio entre título y descripción */
+  color: #f1f1f1;
+}
+
+.program span {
+  opacity: 0.7;
+  font-size: 1rem;
+  color: #f1f1f1;
+}
+
+.program-description {
+  font-size: 0.95rem;
+  color: #b0b0b0;
+  /* Color más suave para la descripción */
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+/* LIVE */
+.live {
+  margin-top: 12px;
+  background: #e42052;
+  padding: 8px 16px;
+  font-size: 1rem;
+  /* Aumentamos el tamaño de la fuente */
+  font-weight: 800;
+  border-radius: 8px;
+  display: inline-block;
   color: white;
 }
 
-.dropdown-item ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 0.5em;
+/* MODAL */
+#modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
 }
 
-.dropdown-item ul li {
-  font-size: 0.9em;
-  color: #333;
+.modal-content {
+  background: #252938;
+  padding: 30px;
+  border-radius: 16px;
+  /* Bordes más redondeados */
+  width: 90%;
+  max-width: 450px;
+  color: #f1f1f1;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Diseño responsive */
-@media screen and (max-width: 48em) {  /* 768px */
-  .dropbtn {
-    padding: 0.5em 1em;
-    font-size: 0.875em;  /* Ajuste de tamaño de fuente */
-    width: 100%;  /* El botón sigue ocupando el 100% del ancho del contenedor */
-    margin-left: 12.5em;
-    text-align: center;
+#closeModal {
+  margin-top: 16px;
+  background: #e42052;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+#closeModal:hover {
+  background: #e42052cc;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px) {
+  .program {
+    min-width: 180px;
+    padding: 18px;
   }
 
-  .dropdown-content {
-    width: 41%;  /* El menú tendrá el mismo tamaño que el contenido del botón */
-    margin-left: 12.5em;  /* Mantiene el mismo desplazamiento */
-    margin-top: 0.2em;
-    text-align: center;
+  #dayBtn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .timeline div {
+    font-size: 0.9rem;
+  }
+
+  .program h4 {
+    font-size: 1.1rem;
   }
 }
 
-@media screen and (max-width: 30em) {  /* 480px */
-  .dropbtn {
-    padding: 0.625em;
-    font-size: 1em;
-    width: 100%;  /* El botón sigue ocupando el 100% del ancho del contenedor */
-    margin-left: 12.5em;
-    text-align: center;
-  }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
 
-  .dropdown-content {
-    width: 41%;  /* El menú tendrá el mismo tamaño que el contenido del botón */
-    margin-left: 12.5em;  /* Mantiene el mismo desplazamiento */
-    margin-top: 0.2em;
-    text-align: center;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: #e42052;
+  border-radius: 10px;
+}
 
-  .dropdown-item {
-    padding: 0.625em 1.25em;
+::-webkit-scrollbar-track {
+  background: #252938;
+  border-radius: 10px;
+}
+
+/* Firefox scrollbar */
+@-moz-document url-prefix() {
+
+  .epg,
+  .timeline,
+  .dropdown-menu {
+    scrollbar-color: #e42052 #252938;
+    scrollbar-width: thin;
   }
 }
