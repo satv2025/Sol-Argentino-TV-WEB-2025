@@ -6,6 +6,10 @@ const schedules = {
     { hora: "12:00", programa: "NotiAlMuerzo (Mediodía)", descripcion: "El noticiero que te acompaña en el almuerzo y en la sobremesa." },
     { hora: "14:00", programa: "Hoy Noticias", descripcion: "Un noticiero que se enfoca en la actualidad y lo popular." },
     { hora: "15:00", programa: "NotiTarde", descripcion: "El noticiero de las tardes, que te mantiene informado mientras merendas, trabajas o estas haciendo ocio." },
+    { hora: "16:00", programa: "FTV", descripcion: "Un magazine informativo, que combina chimento con noticias, es decir, noticias con humor. Su nombre, lo dice todo. Farándula TV." },
+    { hora: "18:00", programa: "NotiFlash", descripcion: "Noticiero vespertino previo al noticiero nocturno. Cubriendo noticias de la historia argentina, los casos mas impactantes. Dos años con vos." },
+    { hora: "20:00", programa: "Sol Argentino TV Noticias", descripcion: "El noticiero noctuno, noticias, impacto, noche y la cena." },
+    { hora: "22:00", programa: "Reite666", descripcion: "Cilio, en España, recibe un mensaje que lo obliga a volver a Argentina para un juego macabro. Un error inesperado desata sucesos perturbadores que lo regresan de forma inexplicable. ¿Vos estás preparado para vivir una terrorífica experiencia?" },
     { hora: "00:00", programa: "Fin de transmisión", descripcion: "Fin de transmisión, fuera de aire. En agosto de 2026 se estrenará Llamá y Cortá" }
   ],
   martes: [
@@ -15,6 +19,10 @@ const schedules = {
     { hora: "12:00", programa: "NotiAlMuerzo (Mediodía)", descripcion: "El noticiero que te acompaña en el almuerzo y en la sobremesa." },
     { hora: "14:00", programa: "Hoy Noticias", descripcion: "Un noticiero que se enfoca en la actualidad y lo popular." },
     { hora: "15:00", programa: "NotiTarde", descripcion: "El noticiero de las tardes, que te mantiene informado mientras merendas, trabajas o estas haciendo ocio." },
+    { hora: "16:00", programa: "FTV", descripcion: "Un magazine informativo, que combina chimento con noticias, es decir, noticias con humor. Su nombre, lo dice todo. Farándula TV." },
+    { hora: "18:00", programa: "NotiFlash", descripcion: "Noticiero vespertino previo al noticiero nocturno. Cubriendo noticias de la historia argentina, los casos mas impactantes. Dos años con vos." },
+    { hora: "20:00", programa: "Sol Argentino TV Noticias", descripcion: "El noticiero noctuno, noticias, impacto, noche y la cena." },
+    { hora: "22:00", programa: "Reite666", descripcion: "Cilio, en España, recibe un mensaje que lo obliga a volver a Argentina para un juego macabro. Un error inesperado desata sucesos perturbadores que lo regresan de forma inexplicable. ¿Vos estás preparado para vivir una terrorífica experiencia?" },
     { hora: "00:00", programa: "Fin de transmisión", descripcion: "Fin de transmisión, fuera de aire. En agosto de 2026 se estrenará Llamá y Cortá" }
   ],
   miercoles: [
@@ -24,6 +32,10 @@ const schedules = {
     { hora: "12:00", programa: "NotiAlMuerzo (Mediodía)", descripcion: "El noticiero que te acompaña en el almuerzo y en la sobremesa." },
     { hora: "14:00", programa: "Hoy Noticias", descripcion: "Un noticiero que se enfoca en la actualidad y lo popular." },
     { hora: "15:00", programa: "NotiTarde", descripcion: "El noticiero de las tardes, que te mantiene informado mientras merendas, trabajas o estas haciendo ocio." },
+    { hora: "16:00", programa: "FTV", descripcion: "Un magazine informativo, que combina chimento con noticias, es decir, noticias con humor. Su nombre, lo dice todo. Farándula TV." },
+    { hora: "18:00", programa: "NotiFlash", descripcion: "Noticiero vespertino previo al noticiero nocturno. Cubriendo noticias de la historia argentina, los casos mas impactantes. Dos años con vos." },
+    { hora: "20:00", programa: "Sol Argentino TV Noticias", descripcion: "El noticiero noctuno, noticias, impacto, noche y la cena." },
+    { hora: "22:00", programa: "Reite666", descripcion: "Cilio, en España, recibe un mensaje que lo obliga a volver a Argentina para un juego macabro. Un error inesperado desata sucesos perturbadores que lo regresan de forma inexplicable. ¿Vos estás preparado para vivir una terrorífica experiencia?" },
     { hora: "00:00", programa: "Fin de transmisión", descripcion: "Fin de transmisión, fuera de aire. En agosto de 2026 se estrenará Llamá y Cortá" }
   ],
   jueves: [
@@ -33,6 +45,10 @@ const schedules = {
     { hora: "12:00", programa: "NotiAlMuerzo (Mediodía)", descripcion: "El noticiero que te acompaña en el almuerzo y en la sobremesa." },
     { hora: "14:00", programa: "Hoy Noticias", descripcion: "Un noticiero que se enfoca en la actualidad y lo popular." },
     { hora: "15:00", programa: "NotiTarde", descripcion: "El noticiero de las tardes, que te mantiene informado mientras merendas, trabajas o estas haciendo ocio." },
+    { hora: "16:00", programa: "FTV", descripcion: "Un magazine informativo, que combina chimento con noticias, es decir, noticias con humor. Su nombre, lo dice todo. Farándula TV." },
+    { hora: "18:00", programa: "NotiFlash", descripcion: "Noticiero vespertino previo al noticiero nocturno. Cubriendo noticias de la historia argentina, los casos mas impactantes. Dos años con vos." },
+    { hora: "20:00", programa: "Sol Argentino TV Noticias", descripcion: "El noticiero noctuno, noticias, impacto, noche y la cena." },
+    { hora: "22:00", programa: "Reite666", descripcion: "Cilio, en España, recibe un mensaje que lo obliga a volver a Argentina para un juego macabro. Un error inesperado desata sucesos perturbadores que lo regresan de forma inexplicable. ¿Vos estás preparado para vivir una terrorífica experiencia?" },
     { hora: "00:00", programa: "Fin de transmisión", descripcion: "Fin de transmisión, fuera de aire. En agosto de 2026 se estrenará Llamá y Cortá" }
   ],
   viernes: [
@@ -42,6 +58,10 @@ const schedules = {
     { hora: "12:00", programa: "NotiAlMuerzo (Mediodía)", descripcion: "El noticiero que te acompaña en el almuerzo y en la sobremesa." },
     { hora: "14:00", programa: "Hoy Noticias", descripcion: "Un noticiero que se enfoca en la actualidad y lo popular." },
     { hora: "15:00", programa: "NotiTarde", descripcion: "El noticiero de las tardes, que te mantiene informado mientras merendas, trabajas o estas haciendo ocio." },
+    { hora: "16:00", programa: "FTV", descripcion: "Un magazine informativo, que combina chimento con noticias, es decir, noticias con humor. Su nombre, lo dice todo. Farándula TV." },
+    { hora: "18:00", programa: "NotiFlash", descripcion: "Noticiero vespertino previo al noticiero nocturno. Cubriendo noticias de la historia argentina, los casos mas impactantes. Dos años con vos." },
+    { hora: "20:00", programa: "Sol Argentino TV Noticias", descripcion: "El noticiero noctuno, noticias, impacto, noche y la cena." },
+    { hora: "22:00", programa: "Reite666", descripcion: "Cilio, en España, recibe un mensaje que lo obliga a volver a Argentina para un juego macabro. Un error inesperado desata sucesos perturbadores que lo regresan de forma inexplicable. ¿Vos estás preparado para vivir una terrorífica experiencia?" },
     { hora: "00:00", programa: "Fin de transmisión", descripcion: "Fin de transmisión, fuera de aire. En agosto de 2026 se estrenará Llamá y Cortá" }
   ],
   sabado: [
