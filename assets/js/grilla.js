@@ -204,12 +204,6 @@ function render(day) {
       <p class="program-description">${p.descripcion}</p>
     `;
 
-    // Agregar el evento de clic para mostrar más detalles si es necesario
-    card.onclick = () => {
-      // Lógica si quieres mostrar detalles extra al hacer clic
-      alert(`Detalles de: ${p.programa}`);
-    };
-
     epg.appendChild(card);
   });
 }
