@@ -14,6 +14,10 @@
   ],
   "rewrites": [
     {
+      "source": "/assets/css/:id.css",
+      "destination": "/assets/css/article.css"
+    },
+    {
       "source": "/:path*",
       "destination": "/:path*.html"
     }
