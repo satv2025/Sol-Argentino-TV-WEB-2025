@@ -239,7 +239,6 @@ section h2::after {
     max-height: 520px;
     object-fit: cover;
     border-radius: .25em;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 #contenidoArticle {
@@ -256,7 +255,6 @@ section h2::after {
 
 #contenidoArticle p:first-child {
     font-size: 1.22rem;
-    line-height: 1.85;
     color: #111827;
 }
 
