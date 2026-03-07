@@ -253,6 +253,11 @@ section h2::after {
     text-align: justify;
 }
 
+::selection {
+    background: var(--primary);
+    color: #fff;
+}
+
 #contenidoArticle p:first-child {
     font-size: 1.22rem;
     color: #111827;
