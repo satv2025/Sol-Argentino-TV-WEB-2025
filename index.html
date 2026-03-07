@@ -172,95 +172,57 @@
     };
   </script>
 
-  <!-- 🔥 NOTICIAS DESDE SUPABASE -->
-  <script>
-    async function cargarHomeNoticias() {
+<!-- 🔥 NOTICIAS DESDE SUPABASE -->
+<script>
+  async function cargarHomeNoticias() {
+    const { data, error } = await sb
+      .from("articulos")
+      .select("*")
+      .eq("estado", "publicado")
+      .order("fecha_creacion", { ascending: false })
+      .limit(10);
 
-      const { data, error } = await sb
-        .from("articulos")
-        .select("*")
-        .eq("estado", "publicado")
-        .order("fecha_creacion", { ascending: false })
-        .limit(10);
+    if (error) return console.error(error);
 
-      if (error) return console.error(error);
+    const container = document.getElementById("homeNoticias");
 
-      const container = document.getElementById("homeNoticias");
+    container.classList.add("home-noticias");
+    container.innerHTML = "";
 
-      /* artículos uno debajo del otro */
-      container.style.display = "flex";
-      container.style.flexDirection = "column";
-      container.style.gap = "20px";
+    data.forEach(n => {
+      container.innerHTML += `
+        <article class="noticia-card">
+          <div class="noticia-card__row">
+            <img 
+              src="${n.imagen}" 
+              alt="${n.titulo}" 
+              class="noticia-card__img"
+            >
 
-      container.innerHTML = "";
+            <div class="noticia-card__content">
+              <h2 class="noticia-card__title">
+                ${n.titulo}
+              </h2>
 
-      data.forEach(n => {
+              <p class="noticia-card__summary">
+                ${n.resumen || ""}
+              </p>
 
-        container.innerHTML += `
-    
-    <article style="
-      background:#fff;
-      color:#111;
-      padding:18px;
-      border-radius:12px;
-      box-shadow:0 0 20px rgb(0 0 0 / 25%);
-    ">
+              <a 
+                href="/articulos/articulo?id=${n.id}" 
+                class="noticia-card__link"
+              >
+                Leer más →
+              </a>
+            </div>
+          </div>
+        </article>
+      `;
+    });
+  }
 
-      <!-- TODO EN LA MISMA FILA -->
-      <div style="
-        display:flex;
-        gap:20px;
-        align-items:flex-start;
-      ">
-
-        <!-- IMAGEN -->
-        <img src="${n.imagen}" style="
-          width:220px;
-          height:140px;
-          object-fit:cover;
-          border-radius:8px;
-          flex-shrink:0;
-        ">
-
-        <!-- BLOQUE DERECHO (titulo + texto + link) -->
-        <div style="flex:1">
-
-          <h2 style="
-            font-size:22px;
-            margin-bottom:8px;
-            font-weight:700;
-            text-align:left;
-          ">
-            ${n.titulo}
-          </h2>
-
-          <p style="
-            font-size:15px;
-            line-height:1.5;
-            margin-bottom:8px;
-          ">
-            ${n.resumen || ""}
-          </p>
-
-          <a href="/articulos/articulo?id=${n.id}" style="
-            color:#0078d4;
-            font-weight:bold;
-            text-decoration:none;
-          ">
-            Leer más →
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-    `;
-      });
-    }
-
-    cargarHomeNoticias();
-  </script>
+  cargarHomeNoticias();
+</script>
 </body>
 
 </html>
