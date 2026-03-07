@@ -205,9 +205,9 @@ section h2::after {
 #articulo {
     width: min(var(--article-width), 100%);
     margin: 26px auto 50px;
-    background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+    background: #fff;
     border: 1px solid #dbe4ee;
-    border-radius: 24px;
+    border-radius: .25em;
     box-shadow: var(--shadow-strong);
     overflow: hidden;
     position: relative;
@@ -226,28 +226,27 @@ section h2::after {
     font-size: clamp(2rem, 4vw, 3.4rem);
     font-weight: 900;
     line-height: 1.05;
-    color: #0f172a;
-    text-align: left;
+    color: var(--primary);
+    text-align: center;
     letter-spacing: -0.04em;
-    padding: 34px 42px 18px;
-    max-width: 92%;
+    padding: 18px 42px 18px 42px;
 }
 
 #imgArticle {
-    width: calc(100% - 84px);
+    width: calc(100% - 134px);
     margin: 0 auto;
     height: auto;
     max-height: 520px;
     object-fit: cover;
-    border-radius: 18px;
+    border-radius: .25em;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 #contenidoArticle {
-    padding: 34px 42px 42px;
+    padding: 24px 70px 39px 70px;
     font-size: 1.16rem;
-    line-height: 1.9;
-    color: #253041;
+    line-height: 1.4;
+    color: #000;
 }
 
 #contenidoArticle p {
