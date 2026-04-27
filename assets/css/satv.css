@@ -61,7 +61,7 @@
     .logo {
       font-size: 1.7rem;
       font-weight: 700;
-      color: #0078d4;
+      color: #ff8f43;
     }
 
     /* NAV */
@@ -75,14 +75,14 @@
     .nav-menu a {
       text-decoration: none;
       font-weight: 600;
-      color: #0078d4;
+      color: #ff8f43;
       padding: 8px 12px;
       border-radius: 8px;
       transition: 0.25s;
     }
 
     .nav-menu a:hover {
-      background: #0078d4;
+      background: #ff8f43;
       color: white;
     }
 
@@ -97,7 +97,7 @@
 
     .hero h1 {
       font-size: clamp(1.8rem, 4vw, 3rem);
-      color: #0078d4;
+      color: #ff8f43;
       margin-bottom: 12px;
     }
 
@@ -116,7 +116,7 @@
     section h2 {
       text-align: center;
       margin-bottom: 20px;
-      color: #0078d4;
+      color: #ff8f43;
     }
 
     /* =========================
@@ -130,7 +130,7 @@
     }
 
     .news-card {
-      border: 2px solid #0078d4;
+      border: 2px solid #ff8f43;
       border-radius: 12px;
       overflow: hidden;
       padding: 12px;
@@ -150,7 +150,7 @@
     .news-card a {
       margin-top: auto;
       font-weight: bold;
-      color: #0078d4;
+      color: #ff8f43;
       text-decoration: none;
     }
 
@@ -195,7 +195,7 @@
       height: 80px;
       border-radius: 50%;
       background: white;
-      border: 5px solid #0078d4;
+      border: 5px solid #ff8f43;
     }
 
     /* =========================
@@ -283,7 +283,7 @@
         }
     
         .noticia-card__link {
-          color: #0078d4;
+          color: #ff8f43;
           font-weight: bold;
           text-decoration: none;
           margin: 0;

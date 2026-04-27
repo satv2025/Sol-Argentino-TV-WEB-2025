@@ -95,9 +95,9 @@
   padding: 8px 14px;
 
   background: #fff;
-  color: #0078d4;
+  color: #ff8f43;
 
-  border: 2px solid #0078d4;
+  border: 2px solid #ff8f43;
   border-radius: 8px;
 
   font-weight: 700;
@@ -107,7 +107,7 @@
 }
 
 .noticia-content a:hover {
-  background: #0078d4;
+  background: #ff8f43;
   color: #fff;
 }
 

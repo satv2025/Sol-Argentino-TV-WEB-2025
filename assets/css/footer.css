@@ -23,16 +23,16 @@ footer p {
   margin: 0;
   font-weight: 600;
   font-size: 1em;
-  color: #0078d4;
+  color: #ff8f43;
 }
 
 /* Estilo de los enlaces del footer */
 footer a {
   display: inline-block;
-  color: #0078d4;
+  color: #ff8f43;
   text-decoration: none;
   font-weight: bold;
-  border: 0.125em solid #0078d4;
+  border: 0.125em solid #ff8f43;
   padding: 0.625em 1.25em;
   border-radius: 0.5em;
   text-align: center;
@@ -41,7 +41,7 @@ footer a {
 }
 
 footer a:hover {
-  background-color: #0078d4;
+  background-color: #ff8f43;
   /* Fondo azul en hover */
   color: #fff;
   text-decoration: none;
@@ -109,16 +109,16 @@ footer a:hover {
   margin: 0;
   font-weight: 600;
   font-size: 1em;
-  color: #0078d4;
+  color: #ff8f43;
 }
 
 /* Enlaces dentro del footer específico de grilla */
 .grilla footer a {
   display: inline-block;
-  color: #0078d4;
+  color: #ff8f43;
   text-decoration: none;
   font-weight: bold;
-  border: 0.125em solid #0078d4;
+  border: 0.125em solid #ff8f43;
   padding: 0.625em 1.25em;
   border-radius: 0.5em;
   text-align: center;
@@ -127,7 +127,7 @@ footer a:hover {
 }
 
 .grilla footer a:hover {
-  background-color: #0078d4;
+  background-color: #ff8f43;
   /* Fondo azul al hacer hover */
   color: #fff;
   /* Texto blanco al hacer hover */

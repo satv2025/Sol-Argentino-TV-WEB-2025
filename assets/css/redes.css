@@ -13,9 +13,9 @@
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    color: #0078d4; /* Color del texto */
+    color: #ff8f43; /* Color del texto */
     background-color: white; /* Fondo blanco */
-    border: 2px solid #0078d4; /* Borde azul */
+    border: 2px solid #ff8f43; /* Borde azul */
     border-radius: 8px; /* Bordes redondeados a 8px */
     text-decoration: none; /* Sin subrayado */
     transition: all 0.3s ease; /* Animación suave */
@@ -24,7 +24,7 @@
   
   /* Hover: Efecto al pasar el cursor */
   .social-btn:hover {
-    background-color: #0078d4; /* Fondo azul */
+    background-color: #ff8f43; /* Fondo azul */
     color: white; /* Texto blanco */
     cursor: pointer;
   }
@@ -35,7 +35,7 @@
   }
   
   .hero p a {
-    color: #0078d4;
+    color: #ff8f43;
     text-decoration: none;
     font-weight: bold;
   }

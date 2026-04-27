@@ -12,7 +12,7 @@
     background: #0000;
     border: 0;
     border-radius: calc(var(--plyr-range-thumb-height, 0.8em) * 2);
-    color: #0078d4;
+    color: #ff8f43;
     display: block;
     height: calc(var(--plyr-range-thumb-active-shadow-width, 0.2em) * 2 + var(--plyr-range-thumb-height, 0.8em));
     margin: 0;
@@ -24,7 +24,7 @@
 .plyr--video .plyr__control.plyr__tab-focus,
 .plyr--video .plyr__control:hover,
 .plyr--video .plyr__control[aria-expanded=true] {
-    background: #0078d4;
+    background: #ff8f43;
     color: #fff;
 }
 
@@ -51,7 +51,7 @@
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
     bottom: 0;
-    color: #0078d4;
+    color: #ff8f43;
     left: 0;
     padding: calc(var(--plyr-control-spacing, 0.625em) / 2);
     padding-top: calc(var(--plyr-control-spacing, 0.625em) * 2);
@@ -71,11 +71,11 @@
     align-items: inherit;
     display: flex;
     width: 100%;
-    color: #0078d4;
+    color: #ff8f43;
 }
 
 .plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]:before {
-    background: #0078d4;
+    background: #ff8f43;
 }
 
 .plyr__menu__container .plyr__control>span:hover {
@@ -83,14 +83,14 @@
 }
 
 .plyr__control--overlaid {
-    background: #0078d4;
+    background: #ff8f43;
     color: #fff;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .plyr__control--overlaid:hover {
     background: #fff;
-    color: #0078d4;
+    color: #ff8f43;
 }
 
 /* Estilo para el contenedor que mantiene la relación de aspecto 16:9 */

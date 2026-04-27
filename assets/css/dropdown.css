@@ -9,9 +9,9 @@
 
 .dropbtn {
   background-color: #fff;
-  color: #0078d4;
+  color: #ff8f43;
   padding: 0.625em 1.25em;
-  border: 0.125em solid #0078d4;
+  border: 0.125em solid #ff8f43;
   cursor: pointer;
   font-size: 1em;
   font-weight: 700;
@@ -28,7 +28,7 @@
 .dropbtn::after {
   content: "▼"; /* Flecha hacia abajo */
   font-size: 0.75em;
-  color: #0078d4; /* Flecha de color azul */
+  color: #ff8f43; /* Flecha de color azul */
   position: absolute;
   right: 1.5em; /* Ajusta la posición de la flecha */
   top: 50%;
@@ -41,12 +41,12 @@
 }
 
 .dropbtn:hover {
-  background-color: #0078d4;
+  background-color: #ff8f43;
   color: #fff;
 }
 
 .dropbtn:hover::after {
-  background-color: #0078d4;
+  background-color: #ff8f43;
   color: #fff;
 }
 
@@ -54,7 +54,7 @@
   display: none;
   position: absolute;
   background-color: #ffffff;
-  border: 0.125em solid #0078d4;
+  border: 0.125em solid #ff8f43;
   font-weight: 700;
   border-radius: 0.5em;
   width: 100%; /* El menú tendrá el mismo tamaño que el botón */
@@ -70,7 +70,7 @@
 }
 
 .dropdown-item {
-  color: #0078d4;
+  color: #ff8f43;
   padding: 0.75em 1em;
   text-decoration: none;
   display: block;
@@ -78,7 +78,7 @@
 }
 
 .dropdown-item:hover {
-  background-color: #0078d4;
+  background-color: #ff8f43;
   color: white;
 }
 
