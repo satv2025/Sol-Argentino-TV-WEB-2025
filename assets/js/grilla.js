@@ -197,42 +197,6 @@ async function cargarClima() {
   aplicarClima(data);
 }
 
-/* llamar a la API para actualizar clima en Supabase */
-async function actualizarClimaDesdeApi() {
-  try {
-    const res = await fetch("https://api.solargentinotv.com.ar/functions/v1/actualizar-clima", {
-      method: "GET",
-      cache: "no-store"
-    });
-
-    if (!res.ok) {
-      console.error("Error llamando actualizar-clima:", res.status, res.statusText);
-      return;
-    }
-
-    const data = await res.json().catch(() => null);
-
-    console.log("actualizar-clima OK:", data);
-
-    /*
-      Si la API devuelve la temperatura directamente,
-      la mostramos al toque sin esperar Realtime.
-    */
-    if (data && data.temperatura) {
-      aplicarClima(data);
-    }
-
-    /*
-      Y por seguridad también leemos la tabla,
-      por si la API actualizó Supabase pero no devolvió temperatura.
-    */
-    cargarClima();
-
-  } catch (err) {
-    console.error("Error fetch actualizar-clima:", err);
-  }
-}
-
 /* escuchar cambios en tiempo real */
 function escucharClimaEnTiempoReal() {
   if (!window.sb) {
@@ -265,18 +229,13 @@ function escucharClimaEnTiempoReal() {
 
 /* iniciar clima */
 cargarClima();
-actualizarClimaDesdeApi();
 escucharClimaEnTiempoReal();
-
-/*
-  Fetch constante a la API.
-  Cada 30 segundos actualiza el clima en Supabase.
-*/
-setInterval(actualizarClimaDesdeApi, 30 * 1000);
 
 /*
   Fallback por si Realtime se corta.
   Cada 5 minutos lee directo la tabla.
+  La actualización del clima ya NO la hace el navegador.
+  La hace Supabase Cron llamando a la Edge Function.
 */
 setInterval(cargarClima, 5 * 60 * 1000);
 
