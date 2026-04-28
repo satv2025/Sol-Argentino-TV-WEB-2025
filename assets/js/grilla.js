@@ -221,7 +221,7 @@ function escucharClimaEnTiempoReal() {
 cargarClima();
 escucharClimaEnTiempoReal();
 
-/* fallback: por si Realtime se corta, actualiza cada 5 minutos */
+/* fallback por si Realtime se corta */
 setInterval(cargarClima, 5 * 60 * 1000);
 
 /* timeline */
@@ -354,8 +354,9 @@ function render(day) {
   }
 
   list.forEach((p, i) => {
-    const card = document.createElement("div");
+    const card = document.createElement("button");
     card.className = "program";
+    card.type = "button";
 
     const live = estaEnVivo(p, list, i, day);
 
@@ -368,14 +369,11 @@ function render(day) {
 
       <div class="program-actions">
         ${live ? '<div class="live">EN VIVO</div>' : ''}
-        <button class="program-detail" type="button">Ver detalle</button>
+        <span class="program-detail">Ver detalle</span>
       </div>
     `;
 
-    const detailButton = card.querySelector(".program-detail");
-
-    detailButton.addEventListener("click", event => {
-      event.stopPropagation();
+    card.addEventListener("click", () => {
       abrirModal(p.programa, p.hora, p.descripcion, live);
     });
 
