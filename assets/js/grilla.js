@@ -227,7 +227,12 @@ setInterval(cargarClima, 5 * 60 * 1000);
 /* timeline */
 for (let h = 6; h <= 24; h++) {
   const d = document.createElement("div");
-  d.textContent = (h < 10 ? "0" : "") + h + ":00";
+
+  const horaTimeline = h === 24
+    ? "00:00"
+    : `${h < 10 ? "0" : ""}${h}:00`;
+
+  d.textContent = horaTimeline;
   timeline.appendChild(d);
 }
 
