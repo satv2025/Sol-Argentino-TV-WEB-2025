@@ -96,7 +96,7 @@ header::before {
 }
 
 header::after {
-  content: "Sol Argentino TV";
+  content: "";
   position: absolute;
   left: clamp(30px, 5vw, 54px);
   top: clamp(24px, 4vw, 42px);
