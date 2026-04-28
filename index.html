@@ -77,15 +77,56 @@
       object-fit: cover;
     }
 
-    .play-button {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: white;
-      border: 5px solid #ff8f43;
-      cursor: pointer;
-    }
+.play-button {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: white;
+  border: 4px solid #ff8f43;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.play-button:hover {
+  box-shadow: 0 0 24px rgba(255, 143, 67, 0.6);
+  border-color: #fff;
+  background-color: #ff8f43;
+}
+
+.play-button:active {
+  transform: scale(0.96);
+}
+
+.play-button__icon {
+  width: 75px;
+  height: 75px;
+  fill: #ff8f43;
+  stroke: #ff8f43;
+  stroke-width: 6;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+
+  transform: scale(1.45);
+  transform-origin: center;
+  transition: fill 0.25s ease, stroke 0.25s ease, transform 0.25s ease;
+}
+
+.play-button:hover .play-button__icon {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.play-button__icon polygon {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
   </style>
 </head>
 
@@ -139,7 +180,14 @@
           <div class="video-overlay" id="videoOverlay">
             <img src="https://solargentinotv.com.ar/assets/media/images/Trailer%20SATV%20WEB%20BETA_46.png"
               class="video-poster">
-            <button class="play-button" id="playButton"></button>
+              <div class="video-overlay" id="videoOverlay">
+                <img src="https://solargentinotv.com.ar/assets/media/images/Trailer%20SATV%20WEB%20BETA_46.png" class="video-poster">
+              
+                <button class="play-button" id="playButton" aria-label="Reproducir video">
+                  <svg class="play-button__icon" viewBox="0 0 100 100" aria-hidden="true">
+                    <polygon points="36,25 36,75 75,50"></polygon>
+                  </svg>       </button>
+                </div>
           </div>
 
           <div id="player">
