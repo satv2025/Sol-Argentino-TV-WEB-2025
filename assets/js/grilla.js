@@ -113,6 +113,27 @@ clock.innerHTML = `
 const clockTime = document.getElementById("clock-time");
 const climaTemp = document.getElementById("clima-temp");
 
+/* modal generado por JS */
+const modal = document.createElement("div");
+modal.id = "modal";
+modal.innerHTML = `
+  <div class="modal-content">
+    <div id="modalLive"></div>
+    <h2 id="modalTitle"></h2>
+    <div id="modalTime"></div>
+    <p id="modalDescription"></p>
+    <button id="closeModal" type="button">Cerrar</button>
+  </div>
+`;
+
+document.body.appendChild(modal);
+
+const modalLive = document.getElementById("modalLive");
+const modalTitle = document.getElementById("modalTitle");
+const modalTime = document.getElementById("modalTime");
+const modalDescription = document.getElementById("modalDescription");
+const closeModal = document.getElementById("closeModal");
+
 /* detectar hoy */
 const days = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
 const today = days[new Date().getDay()];
@@ -139,7 +160,14 @@ function formatearTemperaturaWeb(temp) {
     .replace(/\.([0-9])$/, ".$1°");
 }
 
-/* clima desde Supabase */
+/* aplicar clima en pantalla */
+function aplicarClima(data) {
+  if (!data) return;
+
+  climaTemp.textContent = `T ${formatearTemperaturaWeb(data.temperatura)}`;
+}
+
+/* clima inicial desde Supabase */
 async function cargarClima() {
   if (!window.sb) {
     console.error("Supabase no está cargado. Revisá que sb.js esté antes que grilla.js");
@@ -148,7 +176,7 @@ async function cargarClima() {
 
   const { data, error } = await window.sb
     .from("clima_actual")
-    .select("temperatura")
+    .select("id, temperatura")
     .eq("id", 1)
     .single();
 
@@ -157,12 +185,43 @@ async function cargarClima() {
     return;
   }
 
-  climaTemp.textContent = `T ${formatearTemperaturaWeb(data.temperatura)}`;
+  aplicarClima(data);
+}
+
+/* escuchar cambios en tiempo real */
+function escucharClimaEnTiempoReal() {
+  if (!window.sb) {
+    console.error("Supabase no está cargado para Realtime");
+    return;
+  }
+
+  window.sb
+    .channel("clima-actual-realtime")
+    .on(
+      "postgres_changes",
+      {
+        event: "*",
+        schema: "public",
+        table: "clima_actual",
+        filter: "id=eq.1"
+      },
+      payload => {
+        console.log("Cambio recibido en clima_actual:", payload);
+
+        if (payload.new) {
+          aplicarClima(payload.new);
+        }
+      }
+    )
+    .subscribe(status => {
+      console.log("Estado Realtime clima:", status);
+    });
 }
 
 cargarClima();
+escucharClimaEnTiempoReal();
 
-/* actualizar clima cada 5 minutos sin recargar la página */
+/* fallback: por si Realtime se corta, actualiza cada 5 minutos */
 setInterval(cargarClima, 5 * 60 * 1000);
 
 /* timeline */
@@ -207,16 +266,80 @@ document.addEventListener("click", event => {
   }
 });
 
-/* cerrar dropdown con Escape */
+/* cerrar dropdown con Escape y modal */
 document.addEventListener("keydown", event => {
   if (event.key === "Escape") {
     closeDropdown();
+    cerrarModal();
   }
 });
 
 /* cerrar dropdown */
 function closeDropdown() {
   document.querySelector(".dropdown").classList.remove("open");
+}
+
+/* abrir modal */
+function abrirModal(programa, hora, descripcion, live) {
+  modalTitle.textContent = programa;
+  modalTime.textContent = hora;
+  modalDescription.textContent = descripcion || "Sin descripción disponible.";
+
+  if (live) {
+    modalLive.innerHTML = `<span class="live modal-live">EN VIVO</span>`;
+  } else {
+    modalLive.innerHTML = "";
+  }
+
+  modal.style.display = "flex";
+  document.body.classList.add("modal-open");
+}
+
+/* cerrar modal */
+function cerrarModal() {
+  modal.style.display = "none";
+  document.body.classList.remove("modal-open");
+}
+
+closeModal.addEventListener("click", cerrarModal);
+
+modal.addEventListener("click", event => {
+  if (event.target === modal) {
+    cerrarModal();
+  }
+});
+
+/* calcula si un programa está en vivo */
+function estaEnVivo(p, list, i, day) {
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  const [h, m] = p.hora.split(":");
+  const start = parseInt(h) * 60 + parseInt(m);
+
+  const next = list[i + 1];
+  let end = 1440;
+
+  if (next) {
+    const [nh, nm] = next.hora.split(":");
+    end = parseInt(nh) * 60 + parseInt(nm);
+  }
+
+  if (p.programa === "Fin de transmisión") {
+    end = 6 * 60;
+  }
+
+  let live =
+    (currentMinutes >= start && currentMinutes < end) ||
+    (start === 0 && currentMinutes < 1440);
+
+  const currentDay = today === day;
+
+  if (p.programa === "Fin de transmisión" && currentMinutes >= 6 * 60) {
+    live = false;
+  }
+
+  return live && currentDay;
 }
 
 /* render */
@@ -230,44 +353,31 @@ function render(day) {
     return;
   }
 
-  const now = new Date();
-  const currentMinutes = now.getHours() * 60 + now.getMinutes();
-
   list.forEach((p, i) => {
     const card = document.createElement("div");
     card.className = "program";
 
-    const [h, m] = p.hora.split(":");
-    const start = parseInt(h) * 60 + parseInt(m);
-
-    const next = list[i + 1];
-    let end = 1440;
-
-    if (next) {
-      const [nh, nm] = next.hora.split(":");
-      end = parseInt(nh) * 60 + parseInt(nm);
-    }
-
-    if (p.programa === "Fin de transmisión") {
-      end = 6 * 60;
-    }
-
-    let live =
-      (currentMinutes >= start && currentMinutes < end) ||
-      (start === 0 && currentMinutes < 1440);
-
-    const currentDay = today === day;
-
-    if (p.programa === "Fin de transmisión" && currentMinutes >= 6 * 60) {
-      live = false;
-    }
+    const live = estaEnVivo(p, list, i, day);
 
     card.innerHTML = `
-      <h4>${p.programa}</h4>
-      <span>${p.hora}</span>
-      ${live && currentDay ? '<div class="live">EN VIVO</div>' : ''}
-      <p class="program-description">${p.descripcion}</p>
+      <span class="program-hour">${p.hora}</span>
+
+      <div class="program-main">
+        <h4>${p.programa}</h4>
+      </div>
+
+      <div class="program-actions">
+        ${live ? '<div class="live">EN VIVO</div>' : ''}
+        <button class="program-detail" type="button">Ver detalle</button>
+      </div>
     `;
+
+    const detailButton = card.querySelector(".program-detail");
+
+    detailButton.addEventListener("click", event => {
+      event.stopPropagation();
+      abrirModal(p.programa, p.hora, p.descripcion, live);
+    });
 
     epg.appendChild(card);
   });
