@@ -104,14 +104,66 @@ const dropdown = document.getElementById("dropdownMenu");
 const btn = document.getElementById("dayBtn");
 const clock = document.getElementById("clock");
 
+/* clock + temperatura en el mismo bloque */
+clock.innerHTML = `
+  <span id="clock-time">--:--:--</span>
+  <span id="clima-temp">T --°</span>
+`;
+
+const clockTime = document.getElementById("clock-time");
+const climaTemp = document.getElementById("clima-temp");
+
 /* detectar hoy */
 const days = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
-const today = days[new Date().getDay()];  // Detectar el día actual
+const today = days[new Date().getDay()];
 
-/* reloj */
-setInterval(() => {
-  clock.textContent = new Date().toLocaleTimeString();
-}, 1000);
+/* reloj 24 hs con segundos */
+function actualizarReloj() {
+  clockTime.textContent = new Date().toLocaleTimeString("es-AR", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false
+  });
+}
+
+actualizarReloj();
+setInterval(actualizarReloj, 1000);
+
+/* convertir 10°6 a 10.6° */
+function formatearTemperaturaWeb(temp) {
+  if (!temp) return "--°";
+
+  return String(temp)
+    .replace("°", ".")
+    .replace(/\.([0-9])$/, ".$1°");
+}
+
+/* clima desde Supabase */
+async function cargarClima() {
+  if (!window.sb) {
+    console.error("Supabase no está cargado. Revisá que sb.js esté antes que grilla.js");
+    return;
+  }
+
+  const { data, error } = await window.sb
+    .from("clima_actual")
+    .select("temperatura")
+    .eq("id", 1)
+    .single();
+
+  if (error) {
+    console.error("Error cargando clima:", error);
+    return;
+  }
+
+  climaTemp.textContent = `T ${formatearTemperaturaWeb(data.temperatura)}`;
+}
+
+cargarClima();
+
+/* actualizar clima cada 5 minutos sin recargar la página */
+setInterval(cargarClima, 5 * 60 * 1000);
 
 /* timeline */
 for (let h = 6; h <= 24; h++) {
@@ -124,20 +176,23 @@ for (let h = 6; h <= 24; h++) {
 Object.keys(schedules).forEach(day => {
   const el = document.createElement("div");
 
-  // Asignar "Hoy" si el día es el actual
-  const displayDay = (day === today) ? "Hoy" : day.charAt(0).toUpperCase() + day.slice(1);
+  const displayDay = day === today
+    ? "Hoy"
+    : day.charAt(0).toUpperCase() + day.slice(1);
 
   el.textContent = displayDay;
+
   el.onclick = () => {
-    btn.textContent = displayDay;  // Cambiar el texto del botón al día seleccionado
-    render(day);  // Renderizar el nuevo día
-    closeDropdown(); // Cerrar el dropdown al seleccionar un día
+    btn.textContent = displayDay;
+    render(day);
+    closeDropdown();
   };
+
   dropdown.appendChild(el);
 });
 
-// Mostrar "Hoy" en el botón principal
-btn.textContent = "Hoy";  // Esto asegura que siempre se muestre "Hoy" para el día actual
+/* mostrar hoy al iniciar */
+btn.textContent = "Hoy";
 render(today);
 
 /* dropdown toggle */
@@ -145,29 +200,36 @@ document.querySelector(".dropdown button").addEventListener("click", () => {
   document.querySelector(".dropdown").classList.toggle("open");
 });
 
-/* Cerrar dropdown si clickeamos fuera de él */
-document.addEventListener("click", (event) => {
+/* cerrar dropdown si clickeamos fuera */
+document.addEventListener("click", event => {
   if (!dropdown.contains(event.target) && !btn.contains(event.target)) {
     closeDropdown();
   }
 });
 
-/* Cerrar dropdown con la tecla Esc */
-document.addEventListener("keydown", (event) => {
+/* cerrar dropdown con Escape */
+document.addEventListener("keydown", event => {
   if (event.key === "Escape") {
     closeDropdown();
   }
 });
 
-/* Función para cerrar el dropdown */
+/* cerrar dropdown */
 function closeDropdown() {
   document.querySelector(".dropdown").classList.remove("open");
 }
 
 /* render */
 function render(day) {
-  epg.innerHTML = "";  // Limpiar la grilla de programación
+  epg.innerHTML = "";
+
   const list = schedules[day];
+
+  if (!list) {
+    console.error("No existe programación para:", day);
+    return;
+  }
+
   const now = new Date();
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
@@ -180,28 +242,26 @@ function render(day) {
 
     const next = list[i + 1];
     let end = 1440;
+
     if (next) {
       const [nh, nm] = next.hora.split(":");
       end = parseInt(nh) * 60 + parseInt(nm);
     }
 
-    // Aquí, comprobamos si el programa termina a las 00:00 (fin de transmisión)
     if (p.programa === "Fin de transmisión") {
-      end = 6 * 60; // 06:00 AM
+      end = 6 * 60;
     }
 
-    // Solo se marca "En Vivo" si la hora actual está entre la hora de inicio y fin, y es el día actual
-    // Para el "Fin de transmisión", lo marca como EN VIVO solo si es antes de las 06:00 AM
-    let live = (currentMinutes >= start && currentMinutes < end) || (start === 0 && currentMinutes < 1440);
-    const currentDay = today === day; // Comparar si es el día actual
+    let live =
+      (currentMinutes >= start && currentMinutes < end) ||
+      (start === 0 && currentMinutes < 1440);
 
-    // Aquí ajustamos la lógica para "Fin de transmisión"
+    const currentDay = today === day;
+
     if (p.programa === "Fin de transmisión" && currentMinutes >= 6 * 60) {
-      // Si es después de las 06:00 AM, ya no se debe marcar "EN VIVO"
       live = false;
     }
 
-    // Crear el contenido del card
     card.innerHTML = `
       <h4>${p.programa}</h4>
       <span>${p.hora}</span>

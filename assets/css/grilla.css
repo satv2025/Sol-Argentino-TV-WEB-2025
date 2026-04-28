@@ -8,6 +8,18 @@
   font-style: normal;
 }
 
+:root {
+  --satv-orange: #ff8f43;
+  --satv-orange-dark: #e87727;
+  --satv-bg: #f9f9f9;
+  --satv-bg-soft: #e0e6ed;
+  --satv-text: #333;
+  --satv-muted: #666;
+  --satv-card: #ffffff;
+  --satv-border: rgba(255, 143, 67, 0.45);
+  --satv-shadow: rgba(0, 0, 0, 0.08);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,8 +29,8 @@
 
 /* General Body */
 body {
-  background: #101418;
-  color: #f1f1f1;
+  background: linear-gradient(145deg, var(--satv-bg-soft), var(--satv-bg));
+  color: var(--satv-text);
   padding: 40px 20px;
   font-size: 16px;
   line-height: 1.6;
@@ -30,18 +42,18 @@ header {
   text-align: center;
   font-size: 3rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--satv-orange);
   padding: 40px 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.6);
-  background-color: #1b1f2b;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 16px;
   margin-bottom: 40px;
-  border-bottom: 4px solid #e42052;
+  border-bottom: 4px solid var(--satv-orange);
+  box-shadow: 0 8px 25px var(--satv-shadow);
 }
 
-/* Topbar (for day button and clock) */
+/* Topbar */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -52,58 +64,104 @@ header {
 
 /* Day Button */
 #dayBtn {
-  background: #e42052;
+  background: var(--satv-orange);
   border: none;
   padding: 14px 28px;
   font-size: 1.1rem;
   font-weight: bold;
   color: white;
-  border-radius: .25em;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   min-width: 120px;
+  box-shadow: 0 6px 16px rgba(255, 143, 67, 0.35);
 }
 
 #dayBtn:hover {
-  background: #bf1844;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  background: var(--satv-orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(255, 143, 67, 0.45);
 }
 
+/* Clock + temperatura en una sola línea */
 #clock {
-  font-size: 1.2rem;
-  color: #e42052;
-  padding: 10px 20px;
-  background: #252938;
-  border-radius: .25em;
-  font-family: 'GilroyMN';
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: auto;
+  padding: 10px 18px;
+  background: var(--satv-card);
+  color: var(--satv-orange);
+  border: 2px solid var(--satv-border);
+  border-radius: 10px;
+  box-shadow: 0 6px 16px var(--satv-shadow);
+  font-family: "GilroyMN", "Gilroy", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.weather-box {
+  display: inline-flex;
+  align-items: center;
+  color: var(--satv-orange);
+  font-family: "GilroyMN", "Gilroy", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#clima-temp {
+  white-space: nowrap;
+}
+
+/* separador visual suave entre hora y temperatura */
+.weather-box::before {
+  content: "•";
+  margin-right: 10px;
+  color: var(--satv-border);
+}
+
+@media(max-width: 800px) {
+
+  #clock,
+  .weather-box {
+    font-size: 1rem;
+  }
+
+  #clock {
+    padding: 9px 14px;
+  }
 }
 
 /* Dropdown Menu */
 .dropdown-menu {
   display: none;
   position: absolute;
-  background: #252938;
-  border-radius: .25em;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: var(--satv-card);
+  border-radius: 8px;
+  box-shadow: 0 8px 25px var(--satv-shadow);
   height: 262px;
   overflow: auto;
   z-index: 2;
   width: 12%;
+  min-width: 150px;
   padding: 1.2em 0;
+  border: 2px solid var(--satv-border);
 }
 
 .dropdown-menu div {
   padding: 11px 0;
   cursor: pointer;
   font-size: 1rem;
-  color: #f1f1f1;
+  color: var(--satv-text);
   text-align: center;
   transition: background 0.3s, color 0.3s;
 }
 
 .dropdown-menu div:hover {
-  background: #e42052;
+  background: var(--satv-orange);
   color: white;
 }
 
@@ -118,29 +176,33 @@ header {
   gap: 30px;
   padding: 20px 0;
   margin-bottom: 40px;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid rgba(255, 143, 67, 0.25);
 }
 
 .timeline div {
   min-width: 180px;
-  opacity: 0.9;
+  opacity: 0.95;
   text-align: center;
   font-size: 1rem;
-  color: #f1f1f1;
-  background: #1c1f2b;
+  color: var(--satv-text);
+  background: var(--satv-card);
   padding: 18px;
-  border-radius: .25em;
-  transition: opacity 0.3s, transform 0.3s;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  box-shadow: 0 6px 16px var(--satv-shadow);
+  transition: opacity 0.3s, transform 0.3s, background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .timeline div:hover {
   opacity: 1;
-  transform: scale(1.1);
-  background: #e42052;
+  transform: scale(1.08);
+  background: var(--satv-orange);
+  color: white;
+  border-color: white;
   cursor: pointer;
 }
 
-/* EPG (Program Grid) */
+/* EPG */
 .epg {
   display: flex;
   gap: 30px;
@@ -150,36 +212,39 @@ header {
 }
 
 .program {
-  background: #1c1f2b;
+  background: var(--satv-card);
   border-radius: 16px;
   padding: 25px;
   width: 240px;
   margin: 10px;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease;
+  box-shadow: 0 8px 25px var(--satv-shadow);
+  border: 2px solid rgba(255, 143, 67, 0.25);
 }
 
 .program:hover {
-  background: #252938;
+  background: #fff7f1;
   transform: scale(1.05);
+  border-color: var(--satv-orange);
+  box-shadow: 0 10px 28px rgba(255, 143, 67, 0.25);
 }
 
 .program h4 {
   font-size: 1.3rem;
   margin-bottom: 12px;
-  color: #fff;
+  color: var(--satv-orange);
 }
 
 .program span {
-  opacity: 0.7;
+  opacity: 0.85;
   font-size: 1rem;
-  color: #ccc;
+  color: var(--satv-muted);
 }
 
 .program-description {
   font-size: 0.95rem;
-  color: #bbb;
+  color: var(--satv-muted);
   line-height: 1.4;
   margin-top: 12px;
 }
@@ -187,13 +252,14 @@ header {
 /* Live Indicator */
 .live {
   margin-top: 12px;
-  background: #e42052;
+  background: var(--satv-orange);
   padding: 8px 16px;
   font-size: 1rem;
   font-weight: bold;
-  border-radius: .25em;
+  border-radius: 8px;
   color: white;
   display: inline-block;
+  box-shadow: 0 5px 14px rgba(255, 143, 67, 0.35);
 }
 
 /* Modal */
@@ -201,39 +267,46 @@ header {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.72);
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
 .modal-content {
-  background: #252938;
+  background: var(--satv-card);
   padding: 30px;
   border-radius: 16px;
   width: 90%;
   max-width: 500px;
-  color: #f1f1f1;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  color: var(--satv-text);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border: 3px solid var(--satv-orange);
 }
 
 #closeModal {
-  background: #e42052;
+  background: var(--satv-orange);
   padding: 10px 20px;
-  border-radius: .25em;
+  border-radius: 8px;
   font-weight: bold;
   color: white;
   border: none;
   cursor: pointer;
   margin-top: 20px;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
 }
 
 #closeModal:hover {
-  background: #bf1844;
+  background: var(--satv-orange-dark);
+  transform: translateY(-2px);
 }
 
 /* Responsive */
 @media(max-width: 800px) {
+  header {
+    font-size: 2.2rem;
+  }
+
   .timeline div {
     min-width: 160px;
     font-size: 0.95rem;
@@ -252,9 +325,22 @@ header {
   #clock {
     font-size: 1rem;
   }
+
+  .dropdown-menu {
+    width: 180px;
+  }
 }
 
 @media(max-width: 600px) {
+  body {
+    padding: 25px 14px;
+  }
+
+  header {
+    font-size: 1.8rem;
+    padding: 30px 15px;
+  }
+
   .topbar {
     flex-direction: column;
     gap: 20px;
@@ -262,6 +348,7 @@ header {
 
   .epg {
     flex-direction: column;
+    align-items: center;
     gap: 15px;
   }
 
@@ -270,7 +357,8 @@ header {
   }
 
   .program {
-    width: 170px;
+    width: 100%;
+    max-width: 320px;
   }
 
   #dayBtn {
@@ -290,14 +378,13 @@ header {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #e42052;
+  background-color: var(--satv-orange);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #252938;
+  background: #fff1e7;
   border-radius: 10px;
-
 }
 
 /* Firefox scrollbar */
@@ -306,7 +393,7 @@ header {
   .epg,
   .timeline,
   .dropdown-menu {
-    scrollbar-color: #e42052 #252938;
+    scrollbar-color: var(--satv-orange) #fff1e7;
     scrollbar-width: thin;
   }
 }
