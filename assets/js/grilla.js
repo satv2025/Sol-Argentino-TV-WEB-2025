@@ -135,7 +135,16 @@ const modalDescription = document.getElementById("modalDescription");
 const closeModal = document.getElementById("closeModal");
 
 /* detectar hoy */
-const days = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+const days = [
+  "domingo",
+  "lunes",
+  "martes",
+  "miercoles",
+  "jueves",
+  "viernes",
+  "sabado"
+];
+
 const today = days[new Date().getDay()];
 
 /* reloj 24 hs con segundos */
@@ -188,6 +197,42 @@ async function cargarClima() {
   aplicarClima(data);
 }
 
+/* llamar a la API para actualizar clima en Supabase */
+async function actualizarClimaDesdeApi() {
+  try {
+    const res = await fetch("https://api.solargentinotv.com.ar/functions/v1/actualizar-clima", {
+      method: "GET",
+      cache: "no-store"
+    });
+
+    if (!res.ok) {
+      console.error("Error llamando actualizar-clima:", res.status, res.statusText);
+      return;
+    }
+
+    const data = await res.json().catch(() => null);
+
+    console.log("actualizar-clima OK:", data);
+
+    /*
+      Si la API devuelve la temperatura directamente,
+      la mostramos al toque sin esperar Realtime.
+    */
+    if (data && data.temperatura) {
+      aplicarClima(data);
+    }
+
+    /*
+      Y por seguridad también leemos la tabla,
+      por si la API actualizó Supabase pero no devolvió temperatura.
+    */
+    cargarClima();
+
+  } catch (err) {
+    console.error("Error fetch actualizar-clima:", err);
+  }
+}
+
 /* escuchar cambios en tiempo real */
 function escucharClimaEnTiempoReal() {
   if (!window.sb) {
@@ -218,19 +263,31 @@ function escucharClimaEnTiempoReal() {
     });
 }
 
+/* iniciar clima */
 cargarClima();
+actualizarClimaDesdeApi();
 escucharClimaEnTiempoReal();
 
-/* fallback por si Realtime se corta */
+/*
+  Fetch constante a la API.
+  Cada 30 segundos actualiza el clima en Supabase.
+*/
+setInterval(actualizarClimaDesdeApi, 30 * 1000);
+
+/*
+  Fallback por si Realtime se corta.
+  Cada 5 minutos lee directo la tabla.
+*/
 setInterval(cargarClima, 5 * 60 * 1000);
 
 /* timeline */
 for (let h = 6; h <= 24; h++) {
   const d = document.createElement("div");
 
-  const horaTimeline = h === 24
-    ? "00:00"
-    : `${h < 10 ? "0" : ""}${h}:00`;
+  const horaTimeline =
+    h === 24
+      ? "00:00"
+      : `${h < 10 ? "0" : ""}${h}:00`;
 
   d.textContent = horaTimeline;
   timeline.appendChild(d);
@@ -240,9 +297,10 @@ for (let h = 6; h <= 24; h++) {
 Object.keys(schedules).forEach(day => {
   const el = document.createElement("div");
 
-  const displayDay = day === today
-    ? "Hoy"
-    : day.charAt(0).toUpperCase() + day.slice(1);
+  const displayDay =
+    day === today
+      ? "Hoy"
+      : day.charAt(0).toUpperCase() + day.slice(1);
 
   el.textContent = displayDay;
 
@@ -260,7 +318,8 @@ btn.textContent = "Hoy";
 render(today);
 
 /* dropdown toggle */
-document.querySelector(".dropdown button").addEventListener("click", () => {
+document.querySelector(".dropdown button").addEventListener("click", event => {
+  event.stopPropagation();
   document.querySelector(".dropdown").classList.toggle("open");
 });
 
@@ -320,14 +379,14 @@ function estaEnVivo(p, list, i, day) {
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
   const [h, m] = p.hora.split(":");
-  const start = parseInt(h) * 60 + parseInt(m);
+  const start = parseInt(h, 10) * 60 + parseInt(m, 10);
 
   const next = list[i + 1];
   let end = 1440;
 
   if (next) {
     const [nh, nm] = next.hora.split(":");
-    end = parseInt(nh) * 60 + parseInt(nm);
+    end = parseInt(nh, 10) * 60 + parseInt(nm, 10);
   }
 
   if (p.programa === "Fin de transmisión") {
@@ -373,7 +432,7 @@ function render(day) {
       </div>
 
       <div class="program-actions">
-        ${live ? '<div class="live">EN VIVO</div>' : ''}
+        ${live ? '<div class="live">EN VIVO</div>' : ""}
         <span class="program-detail">Ver detalle</span>
       </div>
     `;
