@@ -172,7 +172,6 @@ function formatearTemperaturaWeb(temp) {
 /* aplicar clima en pantalla */
 function aplicarClima(data) {
   if (!data) return;
-
   climaTemp.textContent = `T ${formatearTemperaturaWeb(data.temperatura)}`;
 }
 
@@ -234,8 +233,6 @@ escucharClimaEnTiempoReal();
 /*
   Fallback por si Realtime se corta.
   Cada 5 minutos lee directo la tabla.
-  La actualización del clima ya NO la hace el navegador.
-  La hace Supabase Cron llamando a la Edge Function.
 */
 setInterval(cargarClima, 5 * 60 * 1000);
 
@@ -376,12 +373,23 @@ function render(day) {
     return;
   }
 
+  // guardamos el botón anterior, así marcamos el "de arriba del live"
+  let prevCard = null;
+
   list.forEach((p, i) => {
     const card = document.createElement("button");
     card.className = "program";
     card.type = "button";
 
     const live = estaEnVivo(p, list, i, day);
+
+    // ✅ CLASES FIJAS:
+    // - el live: is-live
+    // - el de arriba del live: before-live
+    if (live) {
+      card.classList.add("is-live");
+      if (prevCard) prevCard.classList.add("before-live");
+    }
 
     card.innerHTML = `
       <span class="program-hour">${p.hora}</span>
@@ -401,5 +409,6 @@ function render(day) {
     });
 
     epg.appendChild(card);
+    prevCard = card;
   });
 }

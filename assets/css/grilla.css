@@ -322,19 +322,16 @@ header::after {
   width: 100%;
   min-height: 108px;
   padding: 20px 0;
-
   appearance: none;
   text-align: left;
   font: inherit;
-
   background: transparent;
   border: 0;
   border-top: 2px solid transparent;
-  border-bottom: 2px solid rgba(255, 143, 67, 0.55);
+  border-bottom: 2px solid #ff8f43;
   box-shadow: none;
   border-radius: 14px;
   cursor: pointer;
-
   transition:
     border-color 0.18s ease,
     background 0.18s ease,
@@ -343,7 +340,7 @@ header::after {
 }
 
 .program:first-child {
-  border-top-color: rgba(255, 143, 67, 0.55);
+  border-top-color: #ff8f43;
   border-radius: 14px;
 }
 
@@ -815,4 +812,47 @@ body.modal-open {
     animation: none !important;
     transition: none !important;
   }
+}
+
+.program.before-live {
+  border-bottom: 0 !important;
+}
+
+.program.is-live {
+  border-top: 2px solid var(--orange) !important;
+  background: var(--orange) !important;
+  
+}
+
+.program.is-live {
+  border-top: 2px solid var(--orange) !important;
+  border-bottom-color: var(--orange) !important;
+  background: var(--orange) !important;
+  color: #fff;
+}
+
+.program.is-live::before {
+  background: #fff;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.22);
+}
+
+.program.is-live .program-hour {
+  color: #fff;
+}
+
+.program.is-live h4 {
+  color: #fff;
+}
+
+.program.is-live .program-detail {
+  color: #fff;
+}
+
+.program.is-live .live {
+  background: var(--orange) !important;
+  color: #fff;
+}
+
+.program.is-live .live::before {
+  background: #fff;
 }
