@@ -15,13 +15,3 @@
   src: url('Gotham-Ultra.ttf') format('truetype');
   font-weight: 950;
 }
-
-html,
-body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  overflow: hidden;
-  font-family: 'Gotham', Arial, sans-serif;
-}
