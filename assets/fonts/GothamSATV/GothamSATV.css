@@ -1,17 +1,20 @@
 @font-face {
-  font-family: 'Gotham';
-  src: url('Gotham-Black.ttf') format('truetype');
-  font-weight: 900;
-}
-
-@font-face {
-  font-family: 'Gotham';
-  src: url('Gotham-Bold.ttf') format('truetype');
+  font-family: 'Gotham-Bold';
+  src: url('https://solargentinotv.com.ar/assets/fonts/GothamSATV/Gotham-Bold.ttf')
+    format('truetype');
   font-weight: 700;
 }
 
 @font-face {
   font-family: 'Gotham';
-  src: url('Gotham-Ultra.ttf') format('truetype');
-  font-weight: 950;
+  src: url('https://solargentinotv.com.ar/assets/fonts/GothamSATV/Gotham-Black.ttf')
+    format('truetype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Gotham-Ultra';
+  src: url('https://solargentinotv.com.ar/assets/fonts/GothamSATV/Gotham-Ultra.ttf')
+    format('truetype');
+  font-weight: 1000;
 }
