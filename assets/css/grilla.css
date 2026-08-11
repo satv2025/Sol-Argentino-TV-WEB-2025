@@ -321,7 +321,7 @@ header::after {
   align-items: center;
   width: 100%;
   min-height: 108px;
-  padding: 20px 0;
+  padding: 20px;
   appearance: none;
   text-align: left;
   font: inherit;
@@ -359,7 +359,7 @@ header::after {
 .program::before {
   content: "";
   position: absolute;
-  left: 72px;
+  left: 109px;
   top: 50%;
   width: 9px;
   height: 9px;
@@ -379,23 +379,18 @@ header::after {
 .program-hour {
   grid-column: 1;
   grid-row: 1 / span 2;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
   width: auto;
   min-height: auto;
-  padding: 0;
-
+  padding: 12px;
   background: transparent;
   border-radius: 0;
   color: #111827;
-
   font-family: "GilroyMN", "Gilroy", sans-serif;
   font-size: 0.95rem;
   font-weight: 900;
-
   transition: color 0.18s ease;
 }
 
