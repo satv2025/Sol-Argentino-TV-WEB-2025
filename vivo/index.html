@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,7 +13,7 @@
   <link rel="stylesheet" href="../assets/css/vidstack/1.css">
   <link rel="stylesheet" href="../assets/css/vidstack/2.css">
 
-  <!-- Tu CSS -->
+  <!-- CSS propios -->
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/satv.css">
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/MPlayer.css">
   <link rel="stylesheet" href="https://solargentinotv.com.ar/assets/css/footer.css">
@@ -73,8 +74,13 @@
         <!-- PLAYER -->
         <div id="player">
 
-          <media-player title="Sol Argentino TV – En Vivo" src="https://rtmp.solargentinotv.com.ar/envivo/canal1.m3u8"
-            stream-type="live" autoplay playsinline>
+          <media-player
+            id="satv-player"
+            title="Sol Argentino TV – En Vivo"
+            stream-type="live"
+            autoplay
+            playsinline
+          >
 
             <media-provider></media-provider>
 
@@ -100,6 +106,90 @@
   <script src="https://solargentinotv.com.ar/assets/js/script.js"></script>
   <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-main.js"></script>
   <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-dropdown.js"></script>
+
+  <!-- HLS MULTICALIDAD -->
+  <script>
+    (() => {
+      const BASE = "https://rtmp.solargentinotv.com.ar/envivo/";
+
+      /*
+       * Bandwidth estimado.
+       * Ajustar a los bitrates reales del encoder.
+       */
+      const qualities = [
+        {
+          height: 360,
+          width: 640,
+          bandwidth: 800000,
+          file: "canal1-360p.m3u8"
+        },
+        {
+          height: 480,
+          width: 854,
+          bandwidth: 1400000,
+          file: "canal1-480p.m3u8"
+        },
+        {
+          height: 720,
+          width: 1280,
+          bandwidth: 3000000,
+          file: "canal1-720p.m3u8"
+        },
+        {
+          height: 1080,
+          width: 1920,
+          bandwidth: 5000000,
+          file: "canal1-1080p.m3u8"
+        }
+      ];
+
+      // Construir playlist maestra HLS
+      const lines = [
+        "#EXTM3U",
+        "#EXT-X-VERSION:3",
+        "#EXT-X-INDEPENDENT-SEGMENTS"
+      ];
+
+      for (const q of qualities) {
+        lines.push(
+          `#EXT-X-STREAM-INF:BANDWIDTH=${q.bandwidth},RESOLUTION=${q.width}x${q.height}`,
+          BASE + q.file
+        );
+      }
+
+      const masterPlaylist = lines.join("\n") + "\n";
+
+      const blob = new Blob(
+        [masterPlaylist],
+        { type: "application/x-mpegurl" }
+      );
+
+      const masterURL = URL.createObjectURL(blob);
+
+      // Asignar playlist maestra a Vidstack
+      const player = document.getElementById("satv-player");
+
+      player.setAttribute("src", masterURL);
+
+      // Mensajes de diagnóstico
+      player.addEventListener("error", (event) => {
+        console.error("SATV | Error del reproductor:", event.detail);
+      });
+
+      player.addEventListener("can-play", () => {
+        console.log("SATV | Reproductor listo");
+      });
+
+      player.addEventListener("qualities-change", () => {
+        console.log(
+          "SATV | Calidades disponibles:",
+          player.qualities?.toArray?.()
+        );
+      });
+
+      console.log("SATV | HLS multicalidad configurado");
+    })();
+  </script>
 
 </body>
 
