@@ -71,18 +71,16 @@
         <p>¡Sintonizá ahora Sol Argentino TV en vivo!</p>
 
         <!-- PLAYER -->
+
         <div id="player">
 
-          <media-player title="Sol Argentino TV – En Vivo" src="https://rtmp.solargentinotv.com.ar/envivo/canal1-master.m3u8"
-            stream-type="live" autoplay playsinline>
-
+          <media-player id="satv-player" title="Sol Argentino TV – En Vivo" stream-type="live" autoplay playsinline>
             <media-provider></media-provider>
-
             <media-video-layout live></media-video-layout>
-
           </media-player>
 
         </div>
+
 
       </div>
     </section>
@@ -97,6 +95,79 @@
   </footer>
 
   <!-- Scripts propios -->
+
+  <script>
+    (async () => {
+      // Las 4 URLs reales de SATV
+      const calidades = [
+        {
+          url: "https://rtmp.solargentinotv.com.ar/envivo/canal1-360p.m3u8",
+          resolucion: "640x360",
+          bandwidth: 800000
+        },
+        {
+          url: "https://rtmp.solargentinotv.com.ar/envivo/canal1-480p.m3u8",
+          resolucion: "854x480",
+          bandwidth: 1400000
+        },
+        {
+          url: "https://rtmp.solargentinotv.com.ar/envivo/canal1-720p.m3u8",
+          resolucion: "1280x720",
+          bandwidth: 3000000
+        },
+        {
+          url: "https://rtmp.solargentinotv.com.ar/envivo/canal1-1080p.m3u8",
+          resolucion: "1920x1080",
+          bandwidth: 5000000
+        }
+      ];
+
+      // Playlist HLS creada en memoria
+      const lineas = [
+        "#EXTM3U",
+        "#EXT-X-VERSION:3"
+      ];
+
+      for (const calidad of calidades) {
+        lineas.push(
+          `#EXT-X-STREAM-INF:BANDWIDTH=${calidad.bandwidth},RESOLUTION=${calidad.resolucion}`,
+          calidad.url
+        );
+      }
+
+      const contenido = lineas.join("\n") + "\n";
+
+      const blob = new Blob([contenido], {
+        type: "application/x-mpegurl"
+      });
+
+      const urlHLS = URL.createObjectURL(blob);
+
+      // Esperar a que Vidstack esté cargado
+      await customElements.whenDefined("media-player");
+
+      const player = document.getElementById("satv-player");
+
+      // IMPORTANTE: asignar objeto, NO atributo HTML
+      player.src = {
+        src: urlHLS,
+        type: "application/x-mpegurl"
+      };
+
+      player.addEventListener("error", (e) => {
+        console.error("SATV ERROR:", e.detail);
+      });
+
+      player.addEventListener("qualities-change", () => {
+        console.log(
+          "SATV | Calidades detectadas:",
+          Array.from(player.qualities, q => q.height + "p")
+        );
+      });
+
+      console.log("SATV | Multicalidad HLS inicializada");
+    })();
+  </script>
   <script src="https://solargentinotv.com.ar/assets/js/script.js"></script>
   <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-main.js"></script>
   <script src="https://solargentinotv.com.ar/assets/js/satv-scroll-dropdown.js"></script>
